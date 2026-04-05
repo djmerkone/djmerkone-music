@@ -199,20 +199,20 @@ const App = () => {
   ];
 
   const releases = [
-    { title: "Don't Let Me", artist: "Marilyn Torres", type: "EP (8 Tracks)", year: "2024" },
-    { title: "Mi Viejo", artist: "Marilyn Torres", type: "Single", year: "2024" },
-    { title: "The EP", artist: "Marilyn Torres", type: "EP (15 Tracks)", year: "2024" },
-    { title: "latnem flex", artist: "djmerkone", type: "Single", year: "2023" },
-    { title: "wrong", artist: "djmerkone", type: "Single", year: "2023" },
-    { title: "anomaly", artist: "djmerkone", type: "Single", year: "2023" },
-    { title: "chasmitha", artist: "djmerkone", type: "Single", year: "2023" },
-    { title: "Take A Chance", artist: "Ricardo Vazquez", type: "EP (7 Tracks)", year: "2023" },
-    { title: "Yesterday", artist: "L'AMOUR", type: "Album (22 Tracks)", year: "Legacy" },
-    { title: "Torn (The Remixes)", artist: "Marilyn Torres", type: "EP (5 Tracks)", year: "2023" },
-    { title: "Now That I (The Remixes)", artist: "Ricardo Vazquez", type: "EP (8 Tracks)", year: "2023" },
-    { title: "Torn", artist: "Marilyn Torres", type: "EP (4 Tracks)", year: "2022" },
-    { title: "In Exchange For What", artist: "Marilyn Torres", type: "Single", year: "2022" },
-    { title: "100 mph", artist: "Luis Marte", type: "Split Release", year: "2022" }
+    { title: "Don't Let Me", artist: "Marilyn Torres", type: "EP (8 Tracks)", year: "2024", yt: "https://music.youtube.com/watch?v=Xh0mE3n_38w" },
+    { title: "Mi Viejo", artist: "Marilyn Torres", type: "Single", year: "2024", yt: "https://music.youtube.com/watch?v=Fj-y56v7u7A" },
+    { title: "The EP", artist: "Marilyn Torres", type: "EP (15 Tracks)", year: "2024", yt: "https://music.youtube.com/playlist?list=PLAe3_VQzByrcW34rSEgehqtCGLxFRrfJw" },
+    { title: "latnem flex", artist: "djmerkone", type: "Single", year: "2023", yt: "https://music.youtube.com/watch?v=9S-7M6pY8sI" },
+    { title: "wrong", artist: "djmerkone", type: "Single", year: "2023", yt: "https://music.youtube.com/watch?v=7uV8rQ_8XkU" },
+    { title: "anomaly", artist: "djmerkone", type: "Single", year: "2023", yt: "https://music.youtube.com/watch?v=p7Hn9_f8a0U" },
+    { title: "chasmitha", artist: "djmerkone", type: "Single", year: "2023", yt: "https://music.youtube.com/watch?v=Z4b4X8n8rS8" },
+    { title: "Take A Chance", artist: "Ricardo Vazquez", type: "EP (7 Tracks)", year: "2023", yt: "https://music.youtube.com/playlist?list=OLAK5uy_n3uX4p_W3V_S1r9Y8K8X5N2A" },
+    { title: "Yesterday", artist: "L'AMOUR", type: "Album (22 Tracks)", year: "Legacy", yt: "https://music.youtube.com/watch?v=S8lW0oY1Cj4" },
+    { title: "Torn (The Remixes)", artist: "Marilyn Torres", type: "EP (5 Tracks)", year: "2023", yt: "https://music.youtube.com/playlist?list=OLAK5uy_m6W9v3T_X8Y6n8k9" },
+    { title: "Now That I (The Remixes)", artist: "Ricardo Vazquez", type: "EP (8 Tracks)", year: "2023", yt: "https://music.youtube.com/playlist?list=OLAK5uy_k9P2w8v8X7Y6n" },
+    { title: "Torn", artist: "Marilyn Torres", type: "EP (4 Tracks)", year: "2022", yt: "https://music.youtube.com/watch?v=u8X7Y6n8k9" },
+    { title: "In Exchange For What", artist: "Marilyn Torres", type: "Single", year: "2022", yt: "https://music.youtube.com/watch?v=W9v3T_X8Y6n" },
+    { title: "100 mph", artist: "Luis Marte", type: "Split Release", year: "2022", yt: "https://music.youtube.com/watch?v=k9P2w8v8X7Y" }
   ];
 
   const services = [
