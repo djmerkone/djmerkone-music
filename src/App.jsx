@@ -182,7 +182,7 @@ const App = () => {
       role: ["Writer", "Artist"],
       img: "dengbio.jpg",
       accent: "rose",
-      bio: "Dengel represents the cutting edge of contemporary Latin and Urban sounds. His sharp lyrical delivery and ear for modern hooks make him a cornerstone of the djmerkone MUSIC writing team.",
+      bio: "Dengel (William D. Cortes) is a versatile titan of the Latin Urban and Freestyle genres, with a career rooted in the raw energy of the early scene. He first made his mark as 'Willie D' in the burgeoning Latin Hip-Hop movement with the track 'Mi Abuela,' proving early on his ability to capture a rhythmic vibe.\n\nTransitioning into the late 90s, Dengel joined the powerhouse High Power Records under the moniker 'Nadamas.' Alongside his partner, he debuted the 1997 hit 'Dat Hoochie,' a track that became a staple of the era's club rotation. His creative chemistry extended into deep collaborations with the late Carlos 'Charlie' Velasquez (L'amour), co-authoring and performing on the freestyle classics 'I Wanna Be Loved' and 'Don't Look Back.'\n\nThe dawn of the 2000s saw Dengel expand his influence by partnering with djmerkone to establish Wik-It Records. This alliance launched a series of high-impact releases that defined the 'New School' sound, including the hits 'Sexual Vibe' and 'She Left Me.' These tracks didn't just top charts; they reshaped the Latin Freestyle landscape for a new generation.\n\nDengel remains an essential pillar of djmerkone MUSIC today. As an artist, elite songwriter, and backup vocalist, his decades of expertise and clinical ear for hooks ensure the collective's output maintains its legendary sonic precision.",
       socials: { ig: "dengelmusic" }
     },
     { 
