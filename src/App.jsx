@@ -172,7 +172,7 @@ const App = () => {
     { 
       name: "Ricardo Vazquez", 
       role: ["Writer", "Artist"],
-      img: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&q=80&w=1000",
+      img: "ricbio.JPG",
       accent: "orange",
       bio: "Ricardo Vazquez is a rhythmic architect focusing on the deep pulse of House and Techno. A vital part of the collective's songwriting desk, Ricardo ensures that every track maintains a physical connection to the dancefloor.",
       socials: { ig: "ricardovazquez" }
@@ -188,7 +188,7 @@ const App = () => {
     { 
       name: "L'amour", 
       role: ["Producer", "Writer", "Artist"],
-      img: "https://d1rjyex4ui0ya6.cloudfront.net/obituaries/photos/2351/523567/5d979e7361ae2.jpg",
+      img: "lambio.jpg",
       accent: "zinc",
       isMemorial: true,
       bio: "L'amour (Carlos 'Charlie' Velasquez) was a visionary producer, writer, and artist whose influence spanned the golden eras of freestyle and contemporary electronic music. Operating under various monikers including la-mour, l'amour, Carlos Velasquez, and Charlie Velasquez, he was a key figure in the High Power Records era, where his sharp songwriting and vocal contributions helped define a generation of sound.\n\nHis legacy is rooted in his work with la-mour productions, High Power Records, and his deep creative bond with djmerkone MUSIC. A prolific creator, Charlie was responsible for writing numerous hits for High Power and providing standout vocal performances that combined raw emotion with technical precision. Notable works include his hauntingly beautiful collaboration with Marilyn Torres on 'Yesterday,' a track that remains a cornerstone of his posthumous catalog.\n\nOn December 16, 2019, the music world lost a true sonic architect. Carlos was 45 years old, a beloved resident of Pennsylvania, whose passion for his craft left an indelible mark on the music industry. Though he is no longer in the studio, his frequencies continue to resonate through every project he touched.",
