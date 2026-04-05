@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { 
   Music, 
   ExternalLink, 
@@ -566,6 +567,7 @@ const App = () => {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 };
