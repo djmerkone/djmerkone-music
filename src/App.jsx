@@ -211,7 +211,7 @@ const App = () => {
           .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
           .backdrop-blur-ultra { backdrop-filter: blur(50px) saturate(180%); }
           .hub-bg { 
-            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%), url("/loumerk.png"); 
+            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%), url("/loumerk.jpg"); 
             background-size: cover; 
             background-position: right center; 
           }
