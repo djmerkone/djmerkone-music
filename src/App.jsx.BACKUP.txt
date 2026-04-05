@@ -60,7 +60,7 @@ const DynamicShadowText = ({ text, className = "", mousePos, style = {}, isLower
       `,
       transform: `translate(${sx * -0.1}px, ${sy * -0.1}px)`
     });
-  }, [mousePos, text]);
+  }, [mousePos]);
 
   return (
     <span 
@@ -96,11 +96,11 @@ const ArtistCard = ({ artist, openModal, mousePos }) => {
               text={artist.name} 
               mousePos={mousePos}
               isLowercase={artist.name === 'djmerkone'}
-              className={`text-6xl font-black uppercase tracking-tighter ${artist.isMemorial ? 'text-zinc-400 italic' : 'text-white group-hover:text-red-500'}`}
+              className={`text-6xl font-black uppercase tracking-tighter ${artist.isMemorial ? 'text-zinc-400 italic' : 'group-hover:text-red-500'}`}
             />
           </div>
           {artist.isMemorial && (
-            <p className="mono text-[10px] text-zinc-600 uppercase tracking-widest mt-4 leading-loose max-w-xs italic text-white">Carlos 'Charlie' Velasquez</p>
+            <p className="mono text-[10px] text-zinc-600 uppercase tracking-widest mt-4 leading-loose max-w-xs italic">Carlos 'Charlie' Velasquez</p>
           )}
         </div>
         <div className="mt-12 flex justify-between items-end">
@@ -233,7 +233,7 @@ const App = () => {
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;500;800&display=swap');
-          body { font-family: 'Syne', sans-serif; cursor: crosshair; background-color: #030303; color: #f4f4f5; }
+          body { font-family: 'Syne', sans-serif; cursor: none; }
           .mono { font-family: 'JetBrains Mono', monospace; }
           .schmear-bg {
             background-image: linear-gradient(to bottom, rgba(3,3,3,1) 0%, rgba(3,3,3,0.8) 50%, rgba(3,3,3,1) 100%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='%23ffffff' fill-opacity='0.01'/%3E%3C/svg%3E");
@@ -251,7 +251,7 @@ const App = () => {
           .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
           .backdrop-blur-ultra { backdrop-filter: blur(50px) saturate(180%); }
           .hub-bg {
-            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%), url("/loumerk.png");
+            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%), url("loumerk.jpg");
             background-size: cover;
             background-position: center;
           }
@@ -264,14 +264,14 @@ const App = () => {
       <div className="fixed w-4 h-4 bg-white rounded-full z-[1000] pointer-events-none mix-blend-difference hidden md:block" style={{ left: mousePos.x - 8, top: mousePos.y - 8 }} />
 
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 h-screen w-16 border-r border-white/5 z-[60] bg-black hidden lg:flex flex-col items-center justify-between py-10 overflow-hidden text-zinc-500">
+      <aside className="fixed left-0 top-0 h-screen w-16 border-r border-white/5 z-[60] bg-black hidden lg:flex flex-col items-center justify-between py-10 overflow-hidden">
         <div className="w-8 h-8 bg-white flex items-center justify-center text-black"><Music size={16} /></div>
         <div className="vertical-marquee flex flex-col space-y-12">
           {[...Array(4)].map((_, i) => (
             <span key={i} className="mono text-[10px] tracking-[0.4em] uppercase text-zinc-700 whitespace-nowrap">djmerkone MUSIC • SONIC_PRECISION • EST_2019 •</span>
           ))}
         </div>
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-6 text-zinc-500">
           <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Facebook size={14} /></a>
           <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Instagram size={14} /></a>
           <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-colors"><TikTokIcon size={14} /></a>
@@ -279,7 +279,7 @@ const App = () => {
       </aside>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-[70] px-8 md:px-24 py-8 flex justify-between items-center mix-blend-difference pointer-events-none text-white">
+      <header className="fixed top-0 left-0 w-full z-[70] px-8 md:px-24 py-8 flex justify-between items-center mix-blend-difference pointer-events-none">
         <div className="pointer-events-auto group">
           <div className="flex flex-col">
             <span className="text-2xl font-black italic tracking-tighter leading-none lowercase transition-all group-hover:text-red-500">djmerkone</span>
@@ -318,12 +318,12 @@ const App = () => {
 
       {/* Core Associates Section */}
       <section id="roster" className="py-40 px-8 md:pl-40 md:pr-24 relative">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-32 border-b border-white/5 pb-12 text-white">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-32 border-b border-white/5 pb-12">
           <div className="max-w-xl">
             <h2 className="text-[10vw] md:text-8xl font-black uppercase tracking-tighter leading-none mb-6 text-white">
               <DynamicShadowText text="THE" mousePos={mousePos} /> <span className="text-red-600 italic text-stroke"><DynamicShadowText text="CORE" mousePos={mousePos} /></span>
             </h2>
-            <p className="mono text-xs text-zinc-500 uppercase tracking-widest italic text-white">The architects behind djmerkone MUSIC projects.</p>
+            <p className="mono text-xs text-zinc-500 uppercase tracking-widest italic">The architects behind djmerkone MUSIC projects.</p>
           </div>
           <Activity className="text-red-500 hidden lg:block mb-4 animate-pulse" size={48} />
         </div>
@@ -339,7 +339,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Studio Section (The Hub) - Uses loumerk.png */}
+      {/* Studio Section (The Hub) - Uses loumerk.jpg */}
       <section id="studio" className="py-40 px-8 md:pl-40 md:pr-24 hub-bg relative border-y border-white/5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
            <div className="lg:col-span-5 p-16 border border-white/10 bg-black/70 backdrop-blur-xl rounded-[3rem] h-full flex flex-col justify-between hover:border-red-500/30 transition-all group">
@@ -348,7 +348,7 @@ const App = () => {
                 <h3 className="text-6xl font-black uppercase italic mb-10 tracking-tighter text-white">
                    <DynamicShadowText text="THE" mousePos={mousePos} /> <br /> <DynamicShadowText text="HUB." mousePos={mousePos} />
                 </h3>
-                <p className="text-zinc-200 text-sm font-bold leading-relaxed uppercase tracking-widest italic border-l border-white/20 pl-6 text-white">Engineering multi-genre fidelity since 2019.</p>
+                <p className="text-zinc-200 text-sm font-bold leading-relaxed uppercase tracking-widest italic border-l border-white/20 pl-6">Engineering multi-genre fidelity since 2019.</p>
               </div>
            </div>
            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -359,7 +359,7 @@ const App = () => {
                   <h4 className="text-2xl font-bold uppercase tracking-tight mb-4 text-white">
                     <DynamicShadowText text={service.title} mousePos={mousePos} className="group-hover:text-red-500" />
                   </h4>
-                  <p className="text-zinc-300 text-xs font-medium tracking-widest leading-relaxed text-white">{service.detail}</p>
+                  <p className="text-zinc-300 text-xs font-medium tracking-widest leading-relaxed">{service.detail}</p>
                 </div>
               </div>
             ))}
@@ -376,80 +376,62 @@ const App = () => {
                <DynamicShadowText text="IN-HOUSE" mousePos={mousePos} /> <br /> 
                <span className="text-stroke italic"><DynamicShadowText text="CATALOG." mousePos={mousePos} /></span>
              </h2>
-             <p className="mono text-xs text-zinc-500 uppercase tracking-widest italic leading-loose max-w-sm text-white">
-               Clinical sonic output across the djmerkone MUSIC network. Select a track to listen on YouTube Music.
-             </p>
           </div>
-          
-          <div className="space-y-4 max-h-[120vh] overflow-y-auto pr-4 custom-scrollbar">
+          <div className="space-y-4 max-h-[80vh] overflow-y-auto pr-4 custom-scrollbar">
              {releases.map((track, i) => (
-               <a 
-                 key={i} 
-                 href={track.yt} 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="group flex items-center p-10 border border-white/5 bg-zinc-950/50 hover:bg-white/5 transition-all cursor-pointer"
-               >
-                  <Disc className="text-zinc-800 group-hover:text-red-500 mr-10 animate-spin-slow" size={32} />
+               <div key={i} className="group flex items-center p-8 border border-white/5 bg-zinc-950/50 hover:bg-white/5 transition-all">
+                  <Disc className="text-zinc-800 group-hover:text-red-500 mr-8 animate-spin-slow" size={28} />
                   <div className="flex-grow">
-                    <h5 className="text-2xl font-black uppercase group-hover:text-red-500 tracking-tighter text-white">
+                    <h5 className="text-xl font-bold uppercase group-hover:text-red-500 tracking-tight text-white">
                       <DynamicShadowText text={track.title} mousePos={mousePos} />
                     </h5>
-                    <div className="flex items-center space-x-4 mt-2">
-                      <p className="mono text-base text-zinc-400 uppercase italic lowercase font-bold text-white">{track.artist}</p>
-                      <span className="w-1.5 h-1.5 bg-zinc-800 rounded-full" />
-                      <p className="mono text-xs text-zinc-500 uppercase tracking-[0.2em] font-medium text-white">{track.type}</p>
-                    </div>
+                    <p className="mono text-[9px] text-zinc-400 uppercase italic lowercase">{track.artist}</p>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 border border-white/5 flex items-center justify-center rounded-full group-hover:bg-red-600 group-hover:border-red-600 group-hover:text-white transition-all">
-                      <Play size={18} fill="currentColor" />
-                    </div>
-                  </div>
-               </a>
+                  <div className="mono text-[8px] text-zinc-700 font-bold">{track.year}</div>
+               </div>
              ))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-40 px-8 md:pl-40 md:pr-24 border-t border-white/5 relative overflow-hidden text-white">
-        <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none text-white">
-           <span className="hero-text uppercase italic text-white/5 scale-150 lowercase text-white">djmerkone</span>
+      <footer className="bg-black py-40 px-8 md:pl-40 md:pr-24 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none">
+           <span className="hero-text uppercase italic text-white/5 scale-150 lowercase">djmerkone</span>
         </div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-20">
-          <div className="max-w-md">
+          <div className="max-w-md text-white">
             <div className="flex flex-col mb-10 group">
-              <span className="text-4xl font-black italic tracking-tighter lowercase transition-all group-hover:text-red-500 text-white">djmerkone</span>
-              <span className="text-red-600 text-[10px] mono tracking-[0.5em] mt-1 font-bold uppercase text-white">MUSIC</span>
+              <span className="text-4xl font-black italic tracking-tighter lowercase transition-all group-hover:text-red-500">djmerkone</span>
+              <span className="text-red-600 text-[10px] mono tracking-[0.5em] mt-1 font-bold uppercase">MUSIC</span>
             </div>
-            <p className="text-zinc-500 text-xs font-black leading-loose uppercase tracking-[0.3em] italic text-white">Engineering the intersection of urban energy and cinematic fidelity since 2019.</p>
+            <p className="text-zinc-500 text-xs font-black leading-loose uppercase tracking-[0.3em] italic">Engineering the intersection of urban energy and cinematic fidelity since 2019.</p>
           </div>
           <div className="grid grid-cols-2 gap-20">
             <div>
-              <h6 className="mono text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-10 font-bold underline underline-offset-8 text-white">Network</h6>
-              <ul className="space-y-4 text-xs font-black uppercase tracking-widest text-zinc-400 italic text-white">
+              <h6 className="mono text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-10 font-bold underline underline-offset-8">Network</h6>
+              <ul className="space-y-4 text-xs font-black uppercase tracking-widest text-zinc-400 italic">
                 <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Luis Marte <ExternalLink size={12} className="ml-2" /></a></li>
                 <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Marilyn Torres <ExternalLink size={12} className="ml-2" /></a></li>
-                <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white lowercase italic text-white">djmerkone <ExternalLink size={12} className="ml-2" /></a></li>
+                <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white lowercase italic">djmerkone <ExternalLink size={12} className="ml-2" /></a></li>
               </ul>
             </div>
             <div>
-              <h6 className="mono text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-10 font-bold underline underline-offset-8 text-white">Social</h6>
+              <h6 className="mono text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-10 font-bold underline underline-offset-8">Social</h6>
               <div className="flex space-x-6 text-zinc-500">
-                <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Facebook size={20} /></a>
-                <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Instagram size={20} /></a>
-                <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-white"><TikTokIcon size={20} /></a>
-                <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Youtube size={20} /></a>
+                <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-all"><Facebook size={20} /></a>
+                <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-all"><Instagram size={20} /></a>
+                <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-all"><TikTokIcon size={20} /></a>
+                <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white transition-all"><Youtube size={20} /></a>
               </div>
             </div>
           </div>
         </div>
-        <div className="relative z-10 pt-40 flex flex-col md:flex-row justify-between items-center text-zinc-700 mono text-[9px] uppercase tracking-widest font-black text-white">
+        <div className="relative z-10 pt-40 flex flex-col md:flex-row justify-between items-center text-zinc-700 mono text-[9px] uppercase tracking-widest font-black">
           <p>© 2019 – {new Date().getFullYear()} djmerkone MUSIC // ALL_RIGHT_RESERVED</p>
-          <div className="flex space-x-12 mt-8 md:mt-0 pointer-events-auto text-white">
-             <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors cursor-pointer text-white">Privacy_Desk</button>
-             <button onClick={() => openModal('terms')} className="hover:text-white transition-colors cursor-pointer text-white">Terms_Of_Sound</button>
+          <div className="flex space-x-12 mt-8 md:mt-0 pointer-events-auto">
+             <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors cursor-pointer">Privacy_Desk</button>
+             <button onClick={() => openModal('terms')} className="hover:text-white transition-colors cursor-pointer">Terms_Of_Sound</button>
           </div>
         </div>
       </footer>
@@ -459,27 +441,27 @@ const App = () => {
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 md:p-12 transition-all duration-500">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-ultra" onClick={closeModal} />
           
-          <div className="relative w-full max-w-5xl max-h-[90vh] bg-zinc-950 border border-white/10 rounded-[3rem] overflow-hidden flex flex-col shadow-2xl shadow-black animate-in fade-in zoom-in duration-300 text-white">
+          <div className="relative w-full max-w-5xl max-h-[90vh] bg-zinc-950 border border-white/10 rounded-[3rem] overflow-hidden flex flex-col shadow-2xl shadow-black animate-in fade-in zoom-in duration-300">
             <div className="p-8 border-b border-white/5 flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <div className="w-10 h-10 bg-white flex items-center justify-center text-black">
                   <Music size={18} />
                 </div>
-                <div className="mono text-[10px] tracking-[0.4em] uppercase text-zinc-500 text-white">
+                <div className="mono text-[10px] tracking-[0.4em] uppercase text-zinc-500">
                   djmerkone MUSIC // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial_Memorandum' : 'Artist_Profile') : 'Information_Hub'}
                 </div>
               </div>
-              <button onClick={closeModal} className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all text-white">
+              <button onClick={closeModal} className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                 <X size={20} />
               </button>
             </div>
 
-            <div className="flex-grow overflow-y-auto p-10 custom-scrollbar text-white">
+            <div className="flex-grow overflow-y-auto p-10 custom-scrollbar">
               {modal.type === 'artist' ? (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start text-white">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                   <div className="relative aspect-[4/5] bg-zinc-900 overflow-hidden rounded-[2rem]">
                     <img src={modal.data.img} alt={modal.data.name} className={`w-full h-full object-cover transition-all duration-700 ${modal.data.isMemorial ? 'sepia-[0.5] opacity-80 grayscale-[0.5]' : 'grayscale hover:grayscale-0'}`} />
-                    <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent text-white">
+                    <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
                       <h3 className={`text-6xl font-black uppercase tracking-tighter italic text-white ${modal.data.name === 'djmerkone' ? 'lowercase' : ''}`}>{modal.data.name}</h3>
                       <div className="flex flex-wrap gap-2 mt-4 opacity-70">
                         {modal.data.role.map((r, i) => <span key={i} className={`mono text-[8px] px-2 py-1 rounded-sm uppercase tracking-widest ${modal.data.isMemorial ? 'bg-red-900 text-white' : 'bg-white text-black'}`}>{r}</span>)}
@@ -487,26 +469,26 @@ const App = () => {
                     </div>
                   </div>
                   <div className="space-y-12">
-                    <div className="prose prose-invert max-w-none text-white">
+                    <div className="prose prose-invert max-w-none">
                       {modal.data.isMemorial && (
-                        <div className="mb-10 p-6 bg-red-900/10 border-l-4 border-red-900 rounded-r-2xl text-white">
+                        <div className="mb-10 p-6 bg-red-900/10 border-l-4 border-red-900 rounded-r-2xl">
                           <p className="mono text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                              <Heart size={12} fill="currentColor" /> Legacy Memorandum
                           </p>
-                          <p className="text-zinc-300 font-black tracking-tighter text-xl italic text-white">{modal.data.note}</p>
+                          <p className="text-zinc-300 font-black tracking-tighter text-xl italic">{modal.data.note}</p>
                         </div>
                       )}
-                      <p className="mono text-[11px] leading-relaxed tracking-widest uppercase text-zinc-400 italic whitespace-pre-line text-white">
+                      <p className="mono text-[11px] leading-relaxed tracking-widest uppercase text-zinc-400 italic whitespace-pre-line">
                         {modal.data.bio}
                       </p>
                     </div>
                     
                     <div className="pt-12 border-t border-white/5">
-                      <h4 className="mono text-[10px] tracking-[0.4em] uppercase text-red-500 mb-8 font-bold italic text-white">Official_Connectivity</h4>
-                      <div className="grid grid-cols-1 gap-6 text-white">
+                      <h4 className="mono text-[10px] tracking-[0.4em] uppercase text-red-500 mb-8 font-bold italic">Official_Connectivity</h4>
+                      <div className="grid grid-cols-1 gap-6">
                         {modal.data.link && (
                           <a href={modal.data.link} target="_blank" className="flex items-center space-x-6 group">
-                            <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all text-white">
+                            <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                               <Globe size={16} className="text-white" />
                             </div>
                             <span className="text-sm font-black uppercase tracking-widest italic underline decoration-zinc-800 group-hover:decoration-white transition-all underline-offset-8 text-white">
@@ -515,24 +497,24 @@ const App = () => {
                           </a>
                         )}
                         {modal.data.socials && (
-                          <div className="flex flex-wrap gap-6 pt-4 text-white">
+                          <div className="flex flex-wrap gap-6 pt-4">
                             {modal.data.socials.fb && (
-                              <a href={`https://facebook.com/${modal.data.socials.fb}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-white">
+                              <a href={`https://facebook.com/${modal.data.socials.fb}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors">
                                 <Facebook size={20} />
                               </a>
                             )}
                             {modal.data.socials.ig && (
-                              <a href={`https://instagram.com/${modal.data.socials.ig}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-white">
+                              <a href={`https://instagram.com/${modal.data.socials.ig}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors">
                                 <Instagram size={20} />
                               </a>
                             )}
                             {modal.data.socials.tt && (
-                              <a href={`https://tiktok.com/@${modal.data.socials.tt}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-white">
+                              <a href={`https://tiktok.com/@${modal.data.socials.tt}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors">
                                 <TikTokIcon size={20} />
                               </a>
                             )}
                             {modal.data.socials.yt && (
-                              <a href={`https://youtube.com/@${modal.data.socials.yt}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-white">
+                              <a href={`https://youtube.com/@${modal.data.socials.yt}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors">
                                 <Youtube size={20} />
                               </a>
                             )}
@@ -543,16 +525,16 @@ const App = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex items-center justify-center py-20 text-white">
-                  <div className="prose prose-invert max-w-none mono text-xl leading-relaxed tracking-widest uppercase text-zinc-400 italic text-white">
+                <div className="flex items-center justify-center py-20">
+                  <div className="prose prose-invert max-w-none mono text-xl leading-relaxed tracking-widest uppercase text-zinc-400 italic">
                     Info coming soon...
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="p-8 bg-zinc-900/50 border-t border-white/5 text-center text-white">
-              <p className="mono text-[8px] text-zinc-600 uppercase font-black tracking-widest text-white text-white text-white">djmerkone MUSIC // Ver. 2026.04</p>
+            <div className="p-8 bg-zinc-900/50 border-t border-white/5 text-center">
+              <p className="mono text-[8px] text-zinc-600 uppercase font-black tracking-widest">djmerkone MUSIC // Ver. 2026.04</p>
             </div>
           </div>
         </div>
