@@ -207,7 +207,7 @@ const App = () => {
     { title: "anomaly", artist: "djmerkone", type: "Single", yt: "https://music.youtube.com/watch?v=p7Hn9_f8a0U" },
     { title: "chasmitha", artist: "djmerkone", type: "Single", yt: "https://music.youtube.com/watch?v=Z4b4X8n8rS8" },
     { title: "Take A Chance", artist: "Ricardo Vazquez", type: "EP (7 Tracks)", yt: "https://music.youtube.com/playlist?list=OLAK5uy_n3uX4p_W3V_S1r9Y8K8X5N2A" },
-    { title: "Yesterday", artist: "L'AMOUR", type: "Album (22 Tracks)", yt: "https://music.youtube.com/watch?v=S8lW0oY1Cj4" },
+    { title: "Yesterday", artist: "L'AMOUR", type: "Album (22 Tracks)", yt: "https://music.youtube.com/playlist?list=OLAK5uy_lEYQu3LGiegfemSOnFtLT7GBXE7h2by1g4" },
     { title: "Torn (The Remixes)", artist: "Marilyn Torres", type: "EP (5 Tracks)", yt: "https://music.youtube.com/playlist?list=OLAK5uy_m6W9v3T_X8Y6n8k9" },
     { title: "Now That I (The Remixes)", artist: "Ricardo Vazquez", type: "EP (8 Tracks)", yt: "https://music.youtube.com/playlist?list=OLAK5uy_k9P2w8v8X7Y6n" },
     { title: "Torn", artist: "Marilyn Torres", type: "EP (4 Tracks)", yt: "https://music.youtube.com/watch?v=u8X7Y6n8k9" },
