@@ -46,17 +46,17 @@ const OFFICIAL_RELEASES_DATA = [
     title: "Mi Viejo (Cover)",
     type: "Single",
     art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_88204128_6D172E9D-42E3-4B96-A6F7D8D70A887FA6.mp3",
-    apple: "https://music.apple.com/us/album/mi-viejo-single/1769188358",
-    spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DC32F3A87-A21B-4A2F-BC16-135081CD1625/destination:https://open.spotify.com/album/4vK7t2W6vPzG1XN5O1u6Z2",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_ml9Y6v8m9v7X8Y6n8k9",
-    amazon: "https://amazon.com/music/player/albums/B0DHFZ9X7Y"
+    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_87699065_8062EA63A1748AD72730E4EA7235A296.mp3",
+    apple: "https://music.apple.com/us/album/mi-viejo-single/1857094292?uo=4",
+    spotify: "https://open.spotify.com/album/7xU3hnUaJZo9AQ5WfswZJK",
+    yt: "https://music.youtube.com/watch?v=b2k2oCnvRwg&si=rY-qi6iBcI7pote8",
+    amazon: "https://www.amazon.com/dp/B0G4CMQFMM/ref=sr_1_1?crid=24353U7SZ7UXU&dib=eyJ2IjoiMSJ9.t_daZ-EJfNUNudjONa2vJfRznUgxbeBPooFwgSkTgWDGjHj071QN20LucGBJIEps.sWjx58MaA8NdZdoVdSuoJ7Gy84mVfV6VWRuAGW_Rrc8&dib_tag=se&keywords=marilyn+torres+mi+viejo&qid=1775479769&sprefix=marilyn+torres+mi+viejo%2Caps%2C404&sr=8-1"
   },
   {
     artist: "Marilyn Torres",
     title: "The EP",
     type: "EP (15 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DE099EB54%2DAEEF%2D4A3E%2DA3AA%2D47E7B547849D%2D%2Dmod%2D1713401569%2Ejpg",
+    art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c",
     preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_82967672_D28C5A86-3F7F-4B7C-A5D8E4D5D4E5D4E5.mp3",
     apple: "https://music.apple.com/us/album/the-ep/1741829656",
     spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DE099EB54-AEEF-4A3E-A3AA-47E7B547849D/destination:https://open.spotify.com/album/5VzPyW34rSEgehqtCGLxFR",
