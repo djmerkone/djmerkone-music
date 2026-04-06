@@ -576,7 +576,7 @@ const App = () => {
                           
                           {/* Badges */}
                           {release.title.includes('*') && (
-                            <div className="absolute top-4 left-4 bg-red text-white px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
+                            <div className="absolute top-4 left-4 bg-white text-black px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
                               NEW RELEASE
                             </div>
                           )}
