@@ -379,7 +379,7 @@ const App = () => {
             {/* SECTION 1: HERO */}
             <section id="hero" className="sticky-section bg-[#030303] z-10 pt-24 pb-12">
               <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
-                <img src="bg1.jpg?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Studio Background" />
+                <img src="bg2.jpg?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Studio Background" />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#030303]/60 via-[#030303]/80 to-[#030303]" />
               </div>
               
@@ -415,7 +415,7 @@ const App = () => {
               </div>
 
               <div className="absolute inset-0 opacity-10 mix-blend-luminosity">
-                <img src="bg2.jpg?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Gear Background" />
+                <img src="bg1.jpg?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Gear Background" />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/90 to-[#050505]" />
               </div>
 
