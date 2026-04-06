@@ -4,21 +4,27 @@ import {
   ExternalLink, 
   Disc, 
   Play, 
-  ChevronRight, 
+  Pause,
   Instagram, 
   Facebook,
   Youtube,
   Globe, 
-  Activity,
-  Zap,
   Heart,
-  Maximize2,
   X,
-  Search
+  Search,
+  SlidersHorizontal,
+  Mic2,
+  PenTool,
+  Headphones,
+  ArrowUpRight,
+  Send,
+  Hexagon,
+  Triangle,
+  Circle
 } from 'lucide-react';
 
 /**
- * DATA CONSTANTS - Defined at the absolute top for global scope safety
+ * DATA CONSTANTS
  */
 const ARTISTS_DATA = [
   { name: "djmerkone", role: ["Writer", "Producer", "Engineer", "Artist"], link: "https://djmerkone-site0.vercel.app", img: "dmobio.jpg", accent: "red", bio: "djmerkone // Sonic Architect & Multidisciplinary Engineer\ndjmerkone operates at the high-fidelity intersection of rhythm and precision. With a career spanning over three decades, he has established himself as a definitive architect of the Florida sound—a multidisciplinary engineer whose work bridges the gap between classic foundations and futuristic clarity.\n\nRooted in the high-energy pulse of the 1990s music scene, djmerkone’s evolution is a testament to technical mastery and creative fluidity. His catalog is a diverse registry of credits that move seamlessly between the gritty low-end of experimental hip-hop, the soulful textures of R&B, and the driving, percussive heart of Latin freestyle and house music.\n\nAs a producer and mastering engineer, djmerkone views sound as architecture. Whether he is building a track from the ground up or providing the final clinical polish to a global release, his philosophy remains the same: engineering is the science of emotion. His precision in the studio ensures that every frequency serves a purpose, allowing the artist's vision to cut through the digital noise with absolute authority.\n\nEntering 2026, djmerkone remains a sought-after collaborator for artists seeking a signature sonic identity. His recent works—including extensive production and engineering for Marilyn Torres' The EP and Jase David's Threads—showcase a continued dedication to pushing the boundaries of modern sound.\n\ndjmerkone is more than a technician; he is a curator of the sonic experience. He doesn't just record music—he engineers the future.", socials: { fb: "djmerkone", ig: "djmerkone", tt: "djmerkone", yt: "djmerkone" } },
@@ -26,230 +32,30 @@ const ARTISTS_DATA = [
   { name: "Marilyn Torres", role: ["Artist", "Writer", "Producer"], link: "https://marilyn-site.vercel.app/", img: "maribio.jpg", accent: "emerald", bio: "Marilyn Torres: The Evolution of a Freestyle Icon\nFrom the sun-drenched streets of Ponce, Puerto Rico, to the rhythmic pulse of New Jersey, Marilyn Torres has spent over two decades carving a unique path through the music industry. Known for her powerhouse vocals and a fearless ability to pivot between genres, she has evolved from a digital pioneer to a cornerstone of the modern Latin Freestyle movement.\n\nThe Foundations (2005–2013)\nMarilyn’s journey began in 2005 with the grounding of \"Callin' For Love.\" This early embrace of digital distribution set the stage for a prolific run that showcased her versatility:\n\nThe Freestyle Era: She solidified her voice with \"No Puedo Amarte\" (2006), \"Why\" (2007), and \"My Cry\" (2008).\n\nGenre Defiance: In 2009, she showcased her range with the reggaeton track \"Yo No Fui\" and dominated the Latin Hip-Hop scene with sharp lyricism.\n\nKey Collaborations: Her career is marked by deep musical partnerships, including work with Apocalypsis and her brother Gerry (Jeriel). She also famously collaborated with L’amour on \"Yesterday\" in 2012—a track that took on new meaning when it was featured again on his posthumous final album as a tribute to their shared artistry.", socials: { fb: "marilyntorresmusic", ig: "marilyntorres", tt: "marilyntorres", yt: "marilyntorres" } },
   { name: "Ricardo Vazquez", role: ["Writer", "Artist"], img: "ricbio.JPG", accent: "orange", bio: "Ricardo Vazquez, widely known in the freestyle and dance music circuits as Ricky Vaz, is a veteran force who emerged from the Rochester, NY scene in the late 90s. His career is characterized by a high-output discography and a relentless dedication to the Latin Freestyle and House music genres.", socials: { ig: "ricardovazquez" } },
   { name: "Dengel", role: ["Writer", "Artist", "Producer"], img: "dengbio.jpg", accent: "rose", bio: "Dengel (William D. Cortes) is a versatile titan of the Latin Urban and Freestyle genres, with a career rooted in the raw energy of the early scene. Transitioning into the late 90s, Dengel joined the powerhouse High Power Records under the moniker 'Nadamas.' alongside his partner.", socials: { ig: "dengelmusic" } },
-  { name: "L'amour", role: ["Producer", "Writer", "Artist"], img: "lambio.jpg", accent: "zinc", isMemorial: true, bio: "L'amour (Carlos 'Charlie' Velasquez) was a visionary producer, writer, and artist whose influence spanned the golden eras of freestyle and contemporary electronic music. Operating under various monikers including la-mour, l'amour, Carlos Velasquez, and Charlie Velasquez, he was a key figure in the High Power Records era, where his sharp songwriting and vocal contributions helped define a generation of sound.\n\nHis legacy is rooted in his work with la-mour productions, High Power Records, and his deep creative bond with djmerkone MUSIC. A prolific creator, Charlie was responsible for writing numerous hits for High Power and providing standout vocal performances that combined raw emotion with technical precision. Notable works include his hauntingly beautiful collaboration with Marilyn Torres on 'Yesterday,' a track that remains a cornerstone of his posthumous catalog.\n\nOn December 16, 2019, the music world lost a true sonic architect. Carlos was 45 years old, a beloved resident of Pennsylvania, whose passion for his craft left an indelible mark on the music industry. Though he is no longer in the studio, his frequencies continue to resonate through every project he touched.", note: "Carlos 'Charlie' Velasquez (August 17, 1974 – December 16, 2019)", link: "https://www.dillonfuneralhomeinc.com/obituary/CarlosCharlie-Velasquez", socials: { yt: "djmerkone" } }
+  { name: "L'amour", role: ["Producer", "Writer", "Artist"], img: "lambio.jpg", accent: "zinc", isMemorial: true, bio: "L'amour (Carlos 'Charlie' Velasquez) was a visionary producer, writer, and artist whose influence spanned the golden eras of freestyle and contemporary electronic music. Operating under various monikers including la-mour, l'amour, Carlos Velasquez, and Charlie Velasquez, he was a key figure in the High Power Records era, where his sharp songwriting and vocal contributions helped define a generation of sound.\n\nHis legacy is rooted in his work with la-mour productions, High Power Records, and his deep creative bond with djmerkone MUSIC. A prolific creator, Charlie was responsible for writing numerous hits for High Power and providing standout vocal performances that combined raw emotion with technical precision. Notable works include his hauntingly beautiful collaboration with Marilyn Torres on 'Yesterday,' a track that remains a cornerstone of his posthumous catalog.\n\nOn December 16, 2019, the music world lost a true sonic architect. Carlos was 45 years old, a beloved resident of Pennsylvania, whose passion for his craft left an indelible mark on the music industry. Though he is no longer in the studio, his frequencies continue to resonate through every project he touched.", note: "Carlos 'Charlie' Velasquez", lifespan: "August 17, 1974 – December 16, 2019", link: "https://www.dillonfuneralhomeinc.com/obituary/CarlosCharlie-Velasquez", socials: { yt: "djmerkone" } }
 ];
 
 const OFFICIAL_RELEASES_DATA = [
-  { 
-    artist: "Marilyn Torres", 
-    title: "Don't Let Me (Maxi)*", 
-    type: "EP (8 Tracks)",
-    art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB--0--17901464--DONTLETMECOVERFRONT.png?fm=jpg&q=75&w=800&s=dab38261a5741cf0a98ff6ea6c153afb",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_92815263_3939F1655E75E4A6DE8FD52430E93689.mp3",
-    apple: "https://music.apple.com/us/album/dont-let-me/1870639799?uo=4",
-    spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DB8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB/destination:https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_l6vs4GPW_kLZl21rvPS02g5c8kFhUBSiY&si=R-d8ehWM21kkcBAA",
-    amazon: "https://amazon.com/music/player/albums/B0DYM8299K"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "Mi Viejo (Cover)",
-    type: "Single",
-    art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_87699065_8062EA63A1748AD72730E4EA7235A296.mp3",
-    apple: "https://music.apple.com/us/album/mi-viejo-single/1857094292?uo=4",
-    spotify: "https://open.spotify.com/album/7xU3hnUaJZo9AQ5WfswZJK",
-    yt: "https://music.youtube.com/watch?v=b2k2oCnvRwg&si=rY-qi6iBcI7pote8",
-    amazon: "https://www.amazon.com/dp/B0G4CMQFMM/ref=sr_1_1?crid=24353U7SZ7UXU&dib=eyJ2IjoiMSJ9.t_daZ-EJfNUNudjONa2vJfRznUgxbeBPooFwgSkTgWDGjHj071QN20LucGBJIEps.sWjx58MaA8NdZdoVdSuoJ7Gy84mVfV6VWRuAGW_Rrc8&dib_tag=se&keywords=marilyn+torres+mi+viejo&qid=1775479769&sprefix=marilyn+torres+mi+viejo%2Caps%2C404&sr=8-1"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "The EP",
-    type: "Album (15 Tracks)",
-    art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_85186471_793A0A8058F9B356D76C8852EAB47880.mp3",
-    apple: "https://music.apple.com/us/album/the-ep/1850311861?uo=4",
-    spotify: "https://open.spotify.com/album/4dqPBGWefdt3d0nbDcg2ER",
-    yt: "https://music.youtube.com/browse/MPREb_YgAHRzAwBgS",
-    amazon: "https://amazon.com/music/player/albums/B0FYCWF875?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_zxL1u7MFOBPPWdWVzdnU0SMsC"
-  },
-  {
-    artist: "djmerkone",
-    title: "latnem flex",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D3790EFCC%2DFC55%2D4D7A%2DAB629C00CDE5F508%2D%2D0%2D%2D7805867%2D%2D1000007443%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250563_A39E3B5DE28D40F31CC1DE9575B8E7F5.mp3",
-    apple: "https://music.apple.com/us/album/latnem-flex-single/1847568073?uo=4",
-    spotify: "https://open.spotify.com/album/2Qrz2t3uSG1D9fU4kcJQLT",
-    yt: "https://music.youtube.com/watch?v=QifcZrj65ms",
-    amazon: "https://www.amazon.com/dp/B0FWWX7BGV/ref=sr_1_1?crid=4IJI60GTTX72&dib=eyJ2IjoiMSJ9.w_jp02N0AvuXIsm4aGPuFzVYFHVf-PS4wPL0-O_HL0U.6wmWxXMLEvGBG5T-3HslL0wiwQyajDTCtFFobVEu4HI&dib_tag=se&keywords=djmerkone+latnem+flex&qid=1775480676&sprefix=djmerkone+latnem+fle%2Caps%2C173&sr=8-1"
-  },
-  {
-    artist: "djmerkone",
-    title: "wrong",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D9FF69870%2D6809%2D4A55%2D8E8EC29A948CCEE0%2D%2D0%2D%2D528811%2D%2D1000007464%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250289_69C7A0C90B9450E3E52FB2B8692529A6.mp3",
-    apple: "https://music.apple.com/us/album/wrong-single/1847380167?uo=4",
-    spotify: "https://open.spotify.com/album/493KDL9dcZhWuSDpiV2a0i",
-    yt: "https://music.youtube.com/watch?v=GPz1sHH4xVc&si=fgy5HlS4yj8wewC3",
-    amazon: "https://www.amazon.com/dp/B0FWXBTG1M/ref=sr_1_1?crid=3J1GRHC9SMD3K&dib=eyJ2IjoiMSJ9.R0bEaZIsFpoqSmtLYovsh0Pz1Hxp8RiTE_NN2zuTCybGjHj071QN20LucGBJIEps.T_GG1hXeybk_fcHURXMjYkzKJ4pykW_dMNhrHvRclL8&dib_tag=se&keywords=dj+merkone+wrong&qid=1775480704&sprefix=djmerkone+wron%2Caps%2C164&sr=8-1"
-  },
-  {
-    artist: "djmerkone",
-    title: "anomaly",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEB27753B%2D4CAC%2D4F9C%2DB937654AA2EAF313%2D%2D0%2D%2D641299%2D%2D1000007457%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84249914_E59F1F9981B8013561A80EFA16D2B06F.mp3",
-    apple: "https://music.apple.com/us/album/anomaly-single/1847557771?uo=4",
-    spotify: "https://open.spotify.com/album/771CqnGm4WE0xtapgq8Bap",
-    yt: "https://music.youtube.com/watch?v=vIjRymiWY5Q&si=JSrNIuMfrlDOnqiY",
-    amazon: "https://www.amazon.com/dp/B0FWWL38RM/ref=sr_1_2?crid=11WFVXWZT5Q7P&dib=eyJ2IjoiMSJ9.Z3NOgvEKehqr1K_Rxsb-ifQXks6enKK6W4GWGyirGUPGjHj071QN20LucGBJIEps.koQNUtGGpF6dPpFbntt9x-PoyFTUnSW6mYbe9dwjBVU&dib_tag=se&keywords=djmerkone+anomaly&qid=1775480735&sprefix=djmerkone+anomal%2Caps%2C167&sr=8-2"
-  },
-  {
-    artist: "djmerkone",
-    title: "chasmitha",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D5E2BF402%2D1A7A%2D4E84%2DB46C42D07934069F%2D%2D0%2D%2D1482023%2D%2DPSX202510090930412%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_83682243_801FC8AE6C36B097E885BA980169335E.mp3",
-    apple: "https://music.apple.com/us/album/chasmitha-single/1845767250?uo=4",
-    spotify: "https://open.spotify.com/album/5JMUpkuDcShpAqciuwlGh0",
-    yt: "https://music.youtube.com/watch?v=6TGec3Dkwoo&si=GND_I4E-0fvKGOYP",
-    amazon: "https://www.amazon.com/dp/B0FVRPFVWB/ref=sr_1_1?crid=29G4RSB6UM9ZH&dib=eyJ2IjoiMSJ9.ehfdyksba_LBOsAVyar6hdpmTCG8AytzRreCyDD6rHk.aWli3FAhgxIxdsDKs04BuhZw8KtEREZXyIJ53Kql5Fo&dib_tag=se&keywords=dj+merkone+chasmitha&qid=1775480836&sprefix=djmerkone+chasmitha%2Caps%2C159&sr=8-1"
-  },
-  {
-    artist: "Luis Marte",
-    title: "100 MPH",
-    type: "EP (8 Tracks)",
-    art: "https://i.discogs.com/vYW6zrL9jzXwT2l7WQnk6rpj1qPyc97evBqM1hJdBhk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4NTQ1/NDI1LTE2MTk4ODI4/MzctMjMxMC5qcGVn.jpeg",
-    preview: "100mph.wav",
-    apple: "https://music.apple.com/us/album/100-mph/1817531010",
-    spotify: "https://open.spotify.com/album/5vjuqBXaAbBvw8o9GNUXj5",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_lTGujWshYCYkBPyDKvtNQn_V_VwyF6XdI&si=E5ptXsRTdmvZPAzp",
-    amazon: "https://www.amazon.com/100-MPH-Luis-Marte/dp/B0FBCV7QSS"
-  },
-  {
-    artist: "Ricardo Vazquez",
-    title: "Take A Chance (EP)",
-    type: "EP (7 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DA316E674%2D67A4%2D4277%2DB1C90DC4B836E2A6%2D%2D0%2D%2D411812%2D%2DIMG20240630173037%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_58209599_F5651FCD-E2B7-4AB3-887638C20D054803.mp3",
-    apple: "https://music.apple.com/us/album/take-a-chance/1755680035?uo=4",
-    spotify: "https://open.spotify.com/album/5RTzX3vyQsYeAYZBeE1Joh",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_nHaKW4WLrJQt7PtZT8o8IH_sXLd7Z-Z-Y&si=cE3kckJVRJG46UFR",
-    amazon: "https://www.amazon.com/dp/B0D8R81FS1/ref=sr_1_1?crid=BO764P1CYDTP&dib=eyJ2IjoiMSJ9.h9Mec4Tzwpkpzqe8zc9JMVrbRgd3F8KvsvZXlm_Be2cLBGvl0TFd5SHR2oMANCfI5YGClsUl8pt7PxoKzH4v-nxfg3YOzyDPj6rKWX_UJiAi-WZLgwFsY-7uPquXcx95.xAyEhrhB3UxiD02870w1W9Xyk2ofD36Ze0cvZegntX8&dib_tag=se&keywords=ricardo+vazquez+take+a+chance&qid=1775480858&sprefix=ricardo+vazquez+take+a+chance%2Caps%2C155&sr=8-1"
-  },
-  {
-    artist: "L'amour",
-    title: "Yesterday",
-    type: "Album (22 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DE458CCAE%2D1DAC%2D46FC%2DBFDBDFE07BA366D5%2D%2D0%2D%2D3580192%2D%2DLAMOURYesterdayEP%2Ejpg",
-    preview: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--E458CCAE-1DAC-46FC-BFDBDFE07BA366D5--0--3580192--LAMOURYesterdayEP.png?fm=jpg&q=75&w=800&s=4f6b4d795d2660785ca83bec13616746",
-    apple: "https://music.apple.com/us/album/yesterday/1649788357?uo=4",
-    spotify: "https://open.spotify.com/album/1R5cKN4duP6TvuzEdano8o",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_lEYQu3LGiegfemSOnFtLT7GBXE7h2by1g&si=MEIp_Jocnunf8Xob",
-    amazon: "https://www.amazon.com/music/player/albums/B0BJ52LPY2"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "Torn (The Remixes)",
-    type: "EP (5 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D62C5413F%2D2287%2D46CE%2DA99B33EDB7CF9E03%2D%2D0%2D%2D10245288%2D%2DTORNREMIXCOVERfinal2%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_31148828_7185220A-733F-43A0-90A405FFF7FAB7BC.mp3",
-    apple: "https://music.apple.com/us/album/torn-the-remixes-ep/1620407955?uo=4",
-    spotify: "https://open.spotify.com/album/7mtpN4xWqbJEoOP23bIVwR",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_l9lKpSagP4TeCc6zIPNEA9-CHvUVTUxw8&si=E2L1s_ldk6nrxWe7",
-    amazon: "https://www.amazon.com/dp/B09YJ5Y81S/ref=sr_1_1?crid=3BUS87CYX0CUQ&dib=eyJ2IjoiMSJ9.FTKYY1gziKc5NrLZZsMFJG287Q422woGN2ETSjVaCFfhNkkOB2cOmqWM9izxoFXNdQ0QxcO2WYZumEln6Std5Q.vAdqbhKe8kQV_D-TpEzkm4jJr4ZqoRN55HOJd1ScqWw&dib_tag=se&keywords=marilyn+torres+torn+the+remixes&qid=1775480956&sprefix=marilyn+torres+torn+the+remixe%2Caps%2C160&sr=8-1"
-  },
-  {
-    artist: "Ricardo Vazquez",
-    title: "Now That I (The Remixes)",
-    type: "EP (8 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D296BE620%2DF7A2%2D4CCD%2DB0E371F8ED2FF454%2D%2D1641042936081%2D%2Dphotostudio1639152467204%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_28440964_DB88B7C3-4DF8-4605-B941A3D2D1FC791A.mp3",
-    apple: "https://music.apple.com/us/album/now-that-i-the-remixes/1603491126?uo=4",
-    spotify: "https://open.spotify.com/album/0esuepT28aFseXmGT1WjgH",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_lXV3w1aMPfEOgj9b5Bd5AIZj0cB_lD-tU&si=Jch0kyELIS6IpiUm",
-    amazon: "https://www.amazon.com/dp/B09PSGGMVD/ref=sr_1_1?crid=1EHKYJPIDDGWS&dib=eyJ2IjoiMSJ9.8_30N-0AEpZ4cvouxKEq0ny15jHTOSaGNRSksTrGI5zNUhoigwRUTNKNttoAEjrYWHmuGlxBqFl9g601XoaJstS_0OScvjaeBIBB9XCzxlTVtGvytVS1d-ssOGpwv7lIj2ItDvSnKtJR-G3Zce233g.wYv7ibMPBvRKeNGeTYzd-wFCrnTZmpwyWF5be3vpNEw&dib_tag=se&keywords=ricardo+vazquez+now+that+i+the+remixes&qid=1775480976&sprefix=ricardo+vazquez+now+that+i+the+remixe%2Caps%2C147&sr=8-1"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "Torn",
-    type: "EP (4 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D984552B0%2D21DF%2D4386%2DABAEAA3B460DA50C%2D%2D1634904430369%2D%2Dtornofficialcover%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26676453_2DF87536-F9A4-4733-89D11FC1DB055A4D.mp3",
-    apple: "https://music.apple.com/us/album/torn-ep/1591786965?uo=4",
-    spotify: "https://open.spotify.com/album/7u3XKR30e7GJtac01DrNLS",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_kdXrksJ5ah2WsNY3f4fdEd0AdZRQw144A&si=xzCbgnyrHdhgYjuJ",
-    amazon: "https://www.amazon.com/music/player/albums/B09K6D3YXP"
-  },
-  {
-    artist: "Ricardo Vazquez",
-    title: "Now That I",
-    type: "Single (4 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEAE74939%2DEF31%2D4DB1%2D9204770081398879%2D%2D1632316013319%2D%2D20210919215013%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_25946325_BA355B99-8CDB-4684-B38AC63808F5AE0F.mp3",
-    apple: "https://music.apple.com/us/album/now-that-i-ep/1587073738?uo=4",
-    spotify: "https://open.spotify.com/album/54hHBuGxls7LejOiKvBIfU",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_nB5r_xic7u6WH2iPUB4UWTZfU2POqUitw&si=tTKFv0x4xz_x8dap",
-    amazon: "https://www.amazon.com/dp/B09GX5V1P8/ref=sr_1_2?crid=2Q8VW17BNS3OB&dib=eyJ2IjoiMSJ9.FIipcVjQbl5Iesepl7LSqy2w6L7ek70zrl3yaD759vQknFAgamYnGSTs9fR-6OvhWHmuGlxBqFl9g601XoaJstS_0OScvjaeBIBB9XCzxlTVtGvytVS1d-ssOGpwv7lIj2ItDvSnKtJR-G3Zce233g.wYv7ibMPBvRKeNGeTYzd-wFCrnTZmpwyWF5be3vpNEw&dib_tag=se&keywords=ricardo+vazquez+now+that+i&qid=1775481351&sprefix=ricardo+vazquez+now+that+i%2Caps%2C143&sr=8-2"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "In Time",
-    type: "EP (7 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D8C38E505%2D2C1E%2D4C17%2D87E80BACABD9B351%2D%2D1617846997589%2D%2DIMG9924%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_21788491_2EC9C122-F182-402E-BCC39D9F9241283E.mp3",
-    apple: "https://music.apple.com/us/album/in-time/1562225980?uo=4",
-    spotify: "https://open.spotify.com/album/75KDuou5fPoDGghTHFq3Gp",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_ljBXrFshzKwe8ULHA7FK-7XYGgsO2HnSc&si=ZP9-Tut6LF1f3FIg",
-    amazon: "https://www.amazon.com/music/player/albums/B092395W1G"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "In Exchange For What (The Freestyle Diaries SuperMix)",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800-2439182--2FCC2F34-3524-4AB0-8F894253D78FF7CF--1614263327044--IEFWFDCVRBASE.jpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_20734716_59E63147-25F3-4046-8BE90C0061128FCE.mp3",
-    apple: "https://music.apple.com/us/album/in-exchange-for-what-the-freestyle-diaries-supermix-single/1555761782",
-    spotify: "https://open.spotify.com/album/6vTlAAb4dIsmWWPT2OwB1X",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_mnGLjNYVolm29oCX2nRZQ9lD500P5z1GY&si=IM5wuHNx77_-cpIh",
-    amazon: "https://www.amazon.com/music/player/albums/B08XN3R93X"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "In Exchange For What (The Freestyle Diaries SuperMix)",
-    type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC6E5A464%2D8CB1%2D4A6E%2D9CDC1394A7F0B6BC%2D%2D1633306273724%2D%2D20211003200113%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26221657_9A35F096-7301-4238-B727C9363C607AFE.mp2",
-    apple: "https://music.apple.com/us/album/in-exchange-for-what-maninho-dj-full-pressure-remix/1588954675?uo=4",
-    spotify: "https://open.spotify.com/album/0KJFFYHkb2UWGdWUhFoX9g",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_mPGb6DRmGHACsOXqD9dFwf8Mac4PTVrZM&si=5LzzzQn06sjCEeFU",
-    amazon: "https://www.amazon.com/music/player/albums/B09HSRR3M4"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "In Exchange For What (Special Edition)",
-    type: "EP (7 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DCED9D066%2D772E%2D4606%2DAC6EFC57BBCF7584%2D%2D1610418885030%2D%2DiefwSECOVER%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19445074_2C986B68-8B00-4C7D-85EB7CDD7817B1FB.mp3",
-    apple: "https://music.apple.com/us/album/in-exchange-for-what-special-edition/1548992482",
-    spotify: "https://open.spotify.com/album/3OOdDt6K5J8AhdcROFHFAC",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_luCwPDPnyPl2eAKms0UhtX1Nua5xnnCRY&si=hfgJmMh9rNZNrpzM",
-    amazon: "https://www.amazon.com/music/player/albums/B08T27647P"
-  },
-  {
-    artist: "Ricardo Vazquez",
-    title: "Goodbye (Redeux)",
-    type: "EP (4 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC9192629%2D7C1D%2D4278%2D88DB2CDD9A0C39B5%2D%2Dmod%2D1613780661%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19381852_DAAB393E-2A3D-4A41-9BFCA126BF18AA85.mp3",
-    apple: "https://music.apple.com/us/album/goodbye-redeux-ep/1548757033",
-    spotify: "https://open.spotify.com/album/3Cs7QOjUWTvNkWZ4x6muEB",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_moGN-caeSOA2ikUv3Fn_qtP0sFJZcqsvY&si=g3I6PIqDN4Xtc6qF",
-    amazon: "https://amazon.com/music/player/albums/B08SXRJM89?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_GiKfHIYAHSeraRpcDGFZDXsIk"
-  },
-  {
-    artist: "Marilyn Torres",
-    title: "In Exchange For What",
-    type: "EP (4 Tracks)",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D37B79A6C%2D33BF%2D4581%2D8751DAF0790ECDEC%2D%2D1603490237328%2D%2D02A86F56006F465B997BF80B01B1D7FE%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_17243031_EE19879A-665B-42C2-94C3C17F052D77A2.mp3", 
-    apple: "https://music.apple.com/us/album/in-exchange-for-what-ep/1537217629?uo=4&app=music&at=1001lry3&ct=dashboard",
-    spotify: "https://open.spotify.com/album/4aVb5MA1Rm1NDOqWBOp3KD?si=nKF_PS6OTwuB5DIaUIIJiA",
-    yt: "https://music.youtube.com/playlist?list=OLAK5uy_khlp8CnB1uN1W89BMyLVjNBhxqojDn98M&si=tiNxRYipQcUi8Ix1",
-    amazon: "https://www.amazon.com/-/es/Marilyn-Torres/dp/B08NB94MZS"
-  }
+  { artist: "Marilyn Torres", title: "Don't Let Me (Maxi)*", type: "EP (8 Tracks)", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB--0--17901464--DONTLETMECOVERFRONT.png?fm=jpg&q=75&w=800&s=dab38261a5741cf0a98ff6ea6c153afb", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_92815263_3939F1655E75E4A6DE8FD52430E93689.mp3", apple: "https://music.apple.com/us/album/dont-let-me/1870639799?uo=4", spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DB8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB/destination:https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx", yt: "https://music.youtube.com/playlist?list=OLAK5uy_l6vs4GPW_kLZl21rvPS02g5c8kFhUBSiY&si=R-d8ehWM21kkcBAA", amazon: "https://amazon.com/music/player/albums/B0DYM8299K" },
+  { artist: "Marilyn Torres", title: "Mi Viejo (Cover)", type: "Single", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_87699065_8062EA63A1748AD72730E4EA7235A296.mp3", apple: "https://music.apple.com/us/album/mi-viejo-single/1857094292?uo=4", spotify: "https://open.spotify.com/album/7xU3hnUaJZo9AQ5WfswZJK", yt: "https://music.youtube.com/watch?v=b2k2oCnvRwg&si=rY-qi6iBcI7pote8", amazon: "https://www.amazon.com/dp/B0G4CMQFMM/ref=sr_1_1?crid=24353U7SZ7UXU&dib=eyJ2IjoiMSJ9.t_daZ-EJfNUNudjONa2vJfRznUgxbeBPooFwgSkTgWDGjHj071QN20LucGBJIEps.sWjx58MaA8NdZdoVdSuoJ7Gy84mVfV6VWRuAGW_Rrc8&dib_tag=se&keywords=marilyn+torres+mi+viejo&qid=1775479769&sprefix=marilyn+torres+mi+viejo%2Caps%2C404&sr=8-1" },
+  { artist: "Marilyn Torres", title: "The EP", type: "Album (15 Tracks)", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_85186471_793A0A8058F9B356D76C8852EAB47880.mp3", apple: "https://music.apple.com/us/album/the-ep/1850311861?uo=4", spotify: "https://open.spotify.com/album/4dqPBGWefdt3d0nbDcg2ER", yt: "https://music.youtube.com/browse/MPREb_YgAHRzAwBgS", amazon: "https://amazon.com/music/player/albums/B0FYCWF875?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_zxL1u7MFOBPPWdWVzdnU0SMsC" },
+  { artist: "djmerkone", title: "latnem flex", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D3790EFCC%2DFC55%2D4D7A%2DAB629C00CDE5F508%2D%2D0%2D%2D7805867%2D%2D1000007443%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250563_A39E3B5DE28D40F31CC1DE9575B8E7F5.mp3", apple: "https://music.apple.com/us/album/latnem-flex-single/1847568073?uo=4", spotify: "https://open.spotify.com/album/2Qrz2t3uSG1D9fU4kcJQLT", yt: "https://music.youtube.com/watch?v=QifcZrj65ms", amazon: "https://www.amazon.com/dp/B0FWWX7BGV/ref=sr_1_1?crid=4IJI60GTTX72&dib=eyJ2IjoiMSJ9.w_jp02N0AvuXIsm4aGPuFzVYFHVf-PS4wPL0-O_HL0U.6wmWxXMLEvGBG5T-3HslL0wiwQyajDTCtFFobVEu4HI&dib_tag=se&keywords=djmerkone+latnem+flex&qid=1775480676&sprefix=djmerkone+latnem+fle%2Caps%2C173&sr=8-1" },
+  { artist: "djmerkone", title: "wrong", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D9FF69870%2D6809%2D4A55%2D8E8EC29A948CCEE0%2D%2D0%2D%2D528811%2D%2D1000007464%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250289_69C7A0C90B9450E3E52FB2B8692529A6.mp3", apple: "https://music.apple.com/us/album/wrong-single/1847380167?uo=4", spotify: "https://open.spotify.com/album/493KDL9dcZhWuSDpiV2a0i", yt: "https://music.youtube.com/watch?v=GPz1sHH4xVc&si=fgy5HlS4yj8wewC3", amazon: "https://www.amazon.com/dp/B0FWXBTG1M/ref=sr_1_1?crid=3J1GRHC9SMD3K&dib=eyJ2IjoiMSJ9.R0bEaZIsFpoqSmtLYovsh0Pz1Hxp8RiTE_NN2zuTCybGjHj071QN20LucGBJIEps.T_GG1hXeybk_fcHURXMjYkzKJ4pykW_dMNhrHvRclL8&dib_tag=se&keywords=dj+merkone+wrong&qid=1775480704&sprefix=djmerkone+wron%2Caps%2C164&sr=8-1" },
+  { artist: "djmerkone", title: "anomaly", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEB27753B%2D4CAC%2D4F9C%2DB937654AA2EAF313%2D%2D0%2D%2D641299%2D%2D1000007457%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84249914_E59F1F9981B8013561A80EFA16D2B06F.mp3", apple: "https://music.apple.com/us/album/anomaly-single/1847557771?uo=4", spotify: "https://open.spotify.com/album/771CqnGm4WE0xtapgq8Bap", yt: "https://music.youtube.com/watch?v=vIjRymiWY5Q&si=JSrNIuMfrlDOnqiY", amazon: "https://www.amazon.com/dp/B0FWWL38RM/ref=sr_1_2?crid=11WFVXWZT5Q7P&dib=eyJ2IjoiMSJ9.Z3NOgvEKehqr1K_Rxsb-ifQXks6enKK6W4GWGyirGUPGjHj071QN20LucGBJIEps.koQNUtGGpF6dPpFbntt9x-PoyFTUnSW6mYbe9dwjBVU&dib_tag=se&keywords=djmerkone+anomaly&qid=1775480735&sprefix=djmerkone+anomal%2Caps%2C167&sr=8-2" },
+  { artist: "djmerkone", title: "chasmitha", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D5E2BF402%2D1A7A%2D4E84%2DB46C42D07934069F%2D%2D0%2D%2D1482023%2D%2DPSX202510090930412%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_83682243_801FC8AE6C36B097E885BA980169335E.mp3", apple: "https://music.apple.com/us/album/chasmitha-single/1845767250?uo=4", spotify: "https://open.spotify.com/album/5JMUpkuDcShpAqciuwlGh0", yt: "https://music.youtube.com/watch?v=6TGec3Dkwoo&si=GND_I4E-0fvKGOYP", amazon: "https://www.amazon.com/dp/B0FVRPFVWB/ref=sr_1_1?crid=29G4RSB6UM9ZH&dib=eyJ2IjoiMSJ9.ehfdyksba_LBOsAVyar6hdpmTCG8AytzRreCyDD6rHk.aWli3FAhgxIxdsDKs04BuhZw8KtEREZXyIJ53Kql5Fo&dib_tag=se&keywords=dj+merkone+chasmitha&qid=1775480836&sprefix=djmerkone+chasmitha%2Caps%2C159&sr=8-1" },
+  { artist: "Luis Marte", title: "100 MPH", type: "EP (8 Tracks)", art: "https://i.discogs.com/vYW6zrL9jzXwT2l7WQnk6rpj1qPyc97evBqM1hJdBhk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4NTQ1/NDI1LTE2MTk4ODI4/MzctMjMxMC5qcGVn.jpeg", preview: "/100mph.wav", apple: "https://music.apple.com/us/album/100-mph/1817531010", spotify: "https://open.spotify.com/album/5vjuqBXaAbBvw8o9GNUXj5", yt: "https://music.youtube.com/playlist?list=OLAK5uy_lTGujWshYCYkBPyDKvtNQn_V_VwyF6XdI&si=E5ptXsRTdmvZPAzp", amazon: "https://www.amazon.com/100-MPH-Luis-Marte/dp/B0FBCV7QSS" },
+  { artist: "Ricardo Vazquez", title: "Take A Chance (EP)", type: "EP (7 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DA316E674%2D67A4%2D4277%2DB1C90DC4B836E2A6%2D%2D0%2D%2D411812%2D%2DIMG20240630173037%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_58209599_F5651FCD-E2B7-4AB3-887638C20D054803.mp3", apple: "https://music.apple.com/us/album/take-a-chance/1755680035?uo=4", spotify: "https://open.spotify.com/album/5RTzX3vyQsYeAYZBeE1Joh", yt: "https://music.youtube.com/playlist?list=OLAK5uy_nHaKW4WLrJQt7PtZT8o8IH_sXLd7Z-Z-Y&si=cE3kckJVRJG46UFR", amazon: "https://www.amazon.com/dp/B0D8R81FS1/ref=sr_1_1?crid=BO764P1CYDTP&dib=eyJ2IjoiMSJ9.h9Mec4Tzwpkpzqe8zc9JMVrbRgd3F8KvsvZXlm_Be2cLBGvl0TFd5SHR2oMANCfI5YGClsUl8pt7PxoKzH4v-nxfg3YOzyDPj6rKWX_UJiAi-WZLgwFsY-7uPquXcx95.xAyEhrhB3UxiD02870w1W9Xyk2ofD36Ze0cvZegntX8&dib_tag=se&keywords=ricardo+vazquez+take+a+chance&qid=1775480858&sprefix=ricardo+vazquez+take+a+chance%2Caps%2C155&sr=8-1" },
+  { artist: "L'amour", title: "Yesterday", type: "Album (22 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DE458CCAE%2D1DAC%2D46FC%2DBFDBDFE07BA366D5%2D%2D0%2D%2D3580192%2D%2DLAMOURYesterdayEP%2Ejpg", preview: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--E458CCAE-1DAC-46FC-BFDBDFE07BA366D5--0--3580192--LAMOURYesterdayEP.png?fm=jpg&q=75&w=800&s=4f6b4d795d2660785ca83bec13616746", apple: "https://music.apple.com/us/album/yesterday/1649788357?uo=4", spotify: "https://open.spotify.com/album/1R5cKN4duP6TvuzEdano8o", yt: "https://music.youtube.com/playlist?list=OLAK5uy_lEYQu3LGiegfemSOnFtLT7GBXE7h2by1g&si=MEIp_Jocnunf8Xob", amazon: "https://www.amazon.com/music/player/albums/B0BJ52LPY2" },
+  { artist: "Marilyn Torres", title: "Torn (The Remixes)", type: "EP (5 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D62C5413F%2D2287%2D46CE%2DA99B33EDB7CF9E03%2D%2D0%2D%2D10245288%2D%2DTORNREMIXCOVERfinal2%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_31148828_7185220A-733F-43A0-90A405FFF7FAB7BC.mp3", apple: "https://music.apple.com/us/album/torn-the-remixes-ep/1620407955?uo=4", spotify: "https://open.spotify.com/album/7mtpN4xWqbJEoOP23bIVwR", yt: "https://music.youtube.com/playlist?list=OLAK5uy_l9lKpSagP4TeCc6zIPNEA9-CHvUVTUxw8&si=E2L1s_ldk6nrxWe7", amazon: "https://www.amazon.com/dp/B09YJ5Y81S/ref=sr_1_1?crid=3BUS87CYX0CUQ&dib=eyJ2IjoiMSJ9.FTKYY1gziKc5NrLZZsMFJG287Q422woGN2ETSjVaCFfhNkkOB2cOmqWM9izxoFXNdQ0QxcO2WYZumEln6Std5Q.vAdqbhKe8kQV_D-TpEzkm4jJr4ZqoRN55HOJd1ScqWw&dib_tag=se&keywords=marilyn+torres+torn+the+remixes&qid=1775480956&sprefix=marilyn+torres+torn+the+remixe%2Caps%2C160&sr=8-1" },
+  { artist: "Ricardo Vazquez", title: "Now That I (The Remixes)", type: "EP (8 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D296BE620%2DF7A2%2D4CCD%2DB0E371F8ED2FF454%2D%2D1641042936081%2D%2Dphotostudio1639152467204%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_28440964_DB88B7C3-4DF8-4605-B941A3D2D1FC791A.mp3", apple: "https://music.apple.com/us/album/now-that-i-the-remixes/1603491126?uo=4", spotify: "https://open.spotify.com/album/0esuepT28aFseXmGT1WjgH", yt: "https://music.youtube.com/playlist?list=OLAK5uy_lXV3w1aMPfEOgj9b5Bd5AIZj0cB_lD-tU&si=Jch0kyELIS6IpiUm", amazon: "https://www.amazon.com/dp/B09PSGGMVD/ref=sr_1_1?crid=1EHKYJPIDDGWS&dib=eyJ2IjoiMSJ9.8_30N-0AEpZ4cvouxKEq0ny15jHTOSaGNRSksTrGI5zNUhoigwRUTNKNttoAEjrYWHmuGlxBqFl9g601XoaJstS_0OScvjaeBIBB9XCzxlTVtGvytVS1d-ssOGpwv7lIj2ItDvSnKtJR-G3Zce233g.wYv7ibMPBvRKeNGeTYzd-wFCrnTZmpwyWF5be3vpNEw&dib_tag=se&keywords=ricardo+vazquez+now+that+i+the+remixes&qid=1775480976&sprefix=ricardo+vazquez+now+that+i+the+remixe%2Caps%2C147&sr=8-1" },
+  { artist: "Marilyn Torres", title: "Torn", type: "EP (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D984552B0%2D21DF%2D4386%2DABAEAA3B460DA50C%2D%2D1634904430369%2D%2Dtornofficialcover%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26676453_2DF87536-F9A4-4733-89D11FC1DB055A4D.mp3", apple: "https://music.apple.com/us/album/torn-ep/1591786965?uo=4", spotify: "https://open.spotify.com/album/7u3XKR30e7GJtac01DrNLS", yt: "https://music.youtube.com/playlist?list=OLAK5uy_kdXrksJ5ah2WsNY3f4fdEd0AdZRQw144A&si=xzCbgnyrHdhgYjuJ", amazon: "https://www.amazon.com/music/player/albums/B09K6D3YXP" },
+  { artist: "Ricardo Vazquez", title: "Now That I", type: "Single (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEAE74939%2DEF31%2D4DB1%2D9204770081398879%2D%2D1632316013319%2D%2D20210919215013%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_25946325_BA355B99-8CDB-4684-B38AC63808F5AE0F.mp3", apple: "https://music.apple.com/us/album/now-that-i-ep/1587073738?uo=4", spotify: "https://open.spotify.com/album/54hHBuGxls7LejOiKvBIfU", yt: "https://music.youtube.com/playlist?list=OLAK5uy_nB5r_xic7u6WH2iPUB4UWTZfU2POqUitw&si=tTKFv0x4xz_x8dap", amazon: "https://www.amazon.com/dp/B09GX5V1P8/ref=sr_1_2?crid=2Q8VW17BNS3OB&dib=eyJ2IjoiMSJ9.FIipcVjQbl5Iesepl7LSqy2w6L7ek70zrl3yaD759vQknFAgamYnGSTs9fR-6OvhWHmuGlxBqFl9g601XoaJsvEjMXyRD6hbV7e98kcu-zpMUCzAEjgb2Ypb50lhF5ubfN863JwsCh7PaGmSMSblFNMB4oxNuzVkDbCeH7bov3JtTC5PrRMtew0gRffYhJTP.0xVvFbiIjVKlc0v_LQRT-SdBG6Ei9AVqZEf5HPkZQBU&dib_tag=se&keywords=ricardo+vazquez+now+that+i&qid=1775481351&sprefix=ricardo+vazquez+now+that+i%2Caps%2C143&sr=8-2" },
+  { artist: "Marilyn Torres", title: "In Time", type: "EP (7 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D8C38E505%2D2C1E%2D4C17%2D87E80BACABD9B351%2D%2D1617846997589%2D%2DIMG9924%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_21788491_2EC9C122-F182-402E-BCC39D9F9241283E.mp3", apple: "https://music.apple.com/us/album/in-time/1562225980?uo=4", spotify: "https://open.spotify.com/album/75KDuou5fPoDGghTHFq3Gp", yt: "https://music.youtube.com/playlist?list=OLAK5uy_ljBXrFshzKwe8ULHA7FK-7XYGgsO2HnSc&si=ZP9-Tut6LF1f3FIg", amazon: "https://www.amazon.com/music/player/albums/B092395W1G" },
+  { artist: "Marilyn Torres", title: "In Exchange For What (The Freestyle Diaries SuperMix)", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800-2439182--2FCC2F34-3524-4AB0-8F894253D78FF7CF--1614263327044--IEFWFDCVRBASE.jpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_20734716_59E63147-25F3-4046-8BE90C0061128FCE.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-the-freestyle-diaries-supermix-single/1555761782", spotify: "https://open.spotify.com/album/6vTlAAb4dIsmWWPT2OwB1X", yt: "https://music.youtube.com/playlist?list=OLAK5uy_mnGLjNYVolm29oCX2nRZQ9lD500P5z1GY&si=IM5wuHNx77_-cpIh", amazon: "https://www.amazon.com/music/player/albums/B08XN3R93X" },
+  { artist: "Marilyn Torres", title: "In Exchange For What (The Freestyle Diaries SuperMix)", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC6E5A464%2D8CB1%2D4A6E%2D9CDC1394A7F0B6BC%2D%2D1633306273724%2D%2D20211003200113%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26221657_9A35F096-7301-4238-B727C9363C607AFE.mp2", apple: "https://music.apple.com/us/album/in-exchange-for-what-maninho-dj-full-pressure-remix/1588954675?uo=4", spotify: "https://open.spotify.com/album/0KJFFYHkb2UWGdWUhFoX9g", yt: "https://music.youtube.com/playlist?list=OLAK5uy_mPGb6DRmGHACsOXqD9dFwf8Mac4PTVrZM&si=5LzzzQn06sjCEeFU", amazon: "https://www.amazon.com/music/player/albums/B09HSRR3M4" },
+  { artist: "Marilyn Torres", title: "In Exchange For What (Special Edition)", type: "EP (7 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DCED9D066%2D772E%2D4606%2DAC6EFC57BBCF7584%2D%2D1610418885030%2D%2DiefwSECOVER%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19445074_2C986B68-8B00-4C7D-85EB7CDD7817B1FB.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-special-edition/1548992482", spotify: "https://open.spotify.com/album/3OOdDt6K5J8AhdcROFHFAC", yt: "https://music.youtube.com/playlist?list=OLAK5uy_luCwPDPnyPl2eAKms0UhtX1Nua5xnnCRY&si=hfgJmMh9rNZNrpzM", amazon: "https://www.amazon.com/music/player/albums/B08T27647P" },
+  { artist: "Ricardo Vazquez", title: "Goodbye (Redeux)", type: "EP (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC9192629%2D7C1D%2D4278%2D88DB2CDD9A0C39B5%2D%2Dmod%2D1613780661%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19381852_DAAB393E-2A3D-4A41-9BFCA126BF18AA85.mp3", apple: "https://music.apple.com/us/album/goodbye-redeux-ep/1548757033", spotify: "https://open.spotify.com/album/3Cs7QOjUWTvNkWZ4x6muEB", yt: "https://music.youtube.com/playlist?list=OLAK5uy_moGN-caeSOA2ikUv3Fn_qtP0sFJZcqsvY&si=g3I6PIqDN4Xtc6qF", amazon: "https://amazon.com/music/player/albums/B08SXRJM89?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_GiKfHIYAHSeraRpcDGFZDXsIk" },
+  { artist: "Marilyn Torres", title: "In Exchange For What", type: "EP (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D37B79A6C%2D33BF%2D4581%2D8751DAF0790ECDEC%2D%2D1603490237328%2D%2D02A86F56006F465B997BF80B01B1D7FE%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_17243031_EE19879A-665B-42C2-94C3C17F052D77A2.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-ep/1537217629?uo=4&app=music&at=1001lry3&ct=dashboard", spotify: "https://open.spotify.com/album/4aVb5MA1Rm1NDOqWBOp3KD?si=nKF_PS6OTwuB5DIaUIIJiA", yt: "https://music.youtube.com/playlist?list=OLAK5uy_khlp8CnB1uN1W89BMyLVjNBhxqojDn98M&si=tiNxRYipQcUi8Ix1", amazon: "https://www.amazon.com/-/es/Marilyn-Torres/dp/B08NB94MZS" }
 ];
 
 const DISCOGRAPHY_DATA = [
@@ -286,128 +92,140 @@ const DISCOGRAPHY_DATA = [
 ];
 
 const SERVICES_DATA = [
-  { title: "Mixing & Mastering", category: "ENGINEERING", detail: "Analog warmth meets digital precision for Hip-hop, Latin & EDM." },
-  { title: "Vocal Production", category: "RECORDING", detail: "Specialized tracking and tuning for R&B, Soul, and Latin artists." },
-  { title: "Writing & Arrangement", category: "CREATIVE", detail: "Developing hooks, lyrics, and structures from the ground up." },
-  { title: "Demo Services", category: "PROTOTYPE", detail: "Prototyping high-fidelity concepts for professional pitch." }
+  { 
+    id: "mixing",
+    title: "Mixing & Mastering", 
+    icon: <SlidersHorizontal size={24} strokeWidth={1.5} />, 
+    short: "Analog warmth meets digital precision.",
+    detail: "Delivering clinical clarity and punch across a limitless spectrum of genres. While our roots run deep in the energy of Hip-hop and Latin, and the polished precision of EDM and Pop, our hybrid analog-digital approach adapts to any style—ensuring every frequency serves the emotion of your track and commands absolute authority on any sound system." 
+  },
+  { 
+    id: "vocal",
+    title: "Vocal Production", 
+    icon: <Mic2 size={24} strokeWidth={1.5} />, 
+    short: "Specialized tracking and tuning.",
+    detail: "The human voice is the most critical element of any record. We specialize in recording, comping, and precision tuning for vocalists across all styles, ensuring pitch-perfect delivery while maintaining raw emotional authenticity." 
+  },
+  { 
+    id: "writing",
+    title: "Writing & Arrangement", 
+    icon: <PenTool size={24} strokeWidth={1.5} />, 
+    short: "Developing hooks from the ground up.",
+    detail: "Songwriting is architecture. We collaborate with artists to build compelling structures, memorable hooks, and dynamic arrangements that turn 16-bar loops into complete, radio-ready experiences." 
+  },
+  { 
+    id: "demo",
+    title: "Demo Services", 
+    icon: <Headphones size={24} strokeWidth={1.5} />, 
+    short: "High-fidelity concepts for pitch.",
+    detail: "For songwriters and publishers looking to present their work to major labels. We transform raw voice memos and acoustic sketches into full, high-fidelity prototypes ready for professional pitching." 
+  }
 ];
+
+// Mapping for proper social URLs
+const SOCIAL_MAP = {
+  fb: 'facebook',
+  ig: 'instagram',
+  tt: 'tiktok',
+  yt: 'youtube'
+};
 
 /**
  * HELPER UI COMPONENTS
  */
 
-const TikTokIcon = ({ size = 20, className = "" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01V14.5c.01 1.62-.2 3.29-1.02 4.71-.82 1.44-2.14 2.62-3.72 3.19-1.58.57-3.34.62-4.96.14-1.62-.48-3.05-1.57-3.95-3.01-.9-1.44-1.2-3.21-.86-4.87.34-1.66 1.32-3.15 2.69-4.14 1.37-.99 3.09-1.48 4.77-1.39 1.05.05 2.08.35 3 .86V3.89c-.1-.01-.2-.01-.3-.02-.15-.02-.3-.02-.45-.02-2.54.02-4.85-.92-6.52-2.5-.15-.14-.29-.29-.43-.44.13-.01.26-.02.4-.02h.01Z" />
-  </svg>
-);
-
-const DynamicShadowText = ({ text, className = "", mousePos, style = {}, isLowercase = false }) => {
-  const textRef = useRef(null);
-  const [shadowStyle, setShadowStyle] = useState({});
-
-  useEffect(() => {
-    if (!textRef.current) return;
-    const rect = textRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const x = mousePos.x || window.innerWidth / 2;
-    const y = mousePos.y || window.innerHeight / 2;
-    const dx = centerX - x;
-    const dy = centerY - y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const opacity = Math.max(0.1, 0.7 - (distance / 1200));
-    const sx = dx / 45; 
-    const sy = dy / 45;
-    setShadowStyle({
-      textShadow: `${sx * 0.5}px ${sy * 0.5}px 1px rgba(0,0,0,${opacity}), ${sx * 1.5}px ${sy * 1.5}px 3px rgba(0,0,0,${opacity * 0.8}), ${sx * 3}px ${sy * 3}px 6px rgba(0,0,0,${opacity * 0.6}), ${sx * 6}px ${sy * 6}px 12px rgba(0,0,0,${opacity * 0.4})`,
-      transform: `translate(${sx * -0.1}px, ${sy * -0.1}px)`
-    });
-  }, [mousePos, text]);
+const BrandLogo = ({ size = 'md', className = '' }) => {
+  const sizing = {
+    sm: 'text-[1.75rem] md:text-[2.25rem]',
+    md: 'text-[3rem] md:text-[4rem]',
+    lg: 'text-[10vw] md:text-[8rem]',
+  }[size];
 
   return (
-    <span ref={textRef} style={{ ...style, ...shadowStyle }} className={`${className} transition-all duration-75 inline-block ${isLowercase ? 'lowercase' : ''}`}>
-      {text}
-    </span>
-  );
-};
-
-const ArtistCard = ({ artist, openModal, mousePos }) => {
-  return (
-    <div onClick={() => openModal('artist', artist)} className={`group relative p-6 md:p-12 overflow-hidden transition-all duration-500 hover:bg-zinc-900/40 min-h-[220px] md:min-h-[320px] cursor-pointer ${artist.isMemorial ? 'bg-zinc-950 border-l-4 border-red-900/30' : 'bg-[#050505]'}`}>
-      <div className="relative z-10 flex flex-col h-full justify-between">
-        <div>
-          <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-6">
-            {artist.isMemorial ? (
-              <div className="flex items-center space-x-2 text-red-900 group-hover:text-red-600 transition-colors">
-                <Heart size={14} fill="currentColor" />
-                <span className="mono text-[8px] md:text-[9px] uppercase tracking-widest font-black">Legacy Member</span>
-              </div>
-            ) : (
-              artist.role.map((r, ri) => <span key={ri} className="mono text-[7px] md:text-[8px] bg-white/5 text-zinc-400 px-2 py-1 rounded-sm uppercase tracking-widest">{r}</span>)
-            )}
-          </div>
-          <div className="block overflow-hidden">
-            <DynamicShadowText text={artist.name} mousePos={mousePos} isLowercase={artist.name === 'djmerkone'} className={`text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight ${artist.isMemorial ? 'text-zinc-400 italic' : 'text-white group-hover:text-red-500'}`} />
-          </div>
-          {artist.isMemorial && <p className="mono text-[8px] md:text-[10px] text-zinc-600 uppercase tracking-widest mt-2 md:mt-4 leading-loose max-w-xs italic text-white text-white text-white">Carlos 'Charlie' Velasquez</p>}
-        </div>
-        <div className="mt-8 md:mt-12 flex justify-between items-end">
-           <div className="flex items-center text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 group-hover:text-white transition-colors">
-              {artist.isMemorial ? 'Memorial Profile' : 'View Profile'} <Maximize2 size={10} className="ml-2 md:size-12" />
-            </div>
-          <div className={`w-8 md:w-12 h-px transition-all duration-700 ${artist.isMemorial ? 'bg-red-900/20 group-hover:w-16 md:group-hover:w-24 group-hover:bg-red-600/50' : 'bg-white/10 group-hover:w-16 md:group-hover:w-24'}`} />
-        </div>
+    <div className={`flex flex-col inline-flex cursor-pointer group ${className} w-max ${sizing}`}>
+      <span className="font-display font-light tracking-tight lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
+        djmerkone
+      </span>
+      <div className="flex justify-between items-start w-full text-[1.7em] leading-[0.75] mt-[-0.05em] font-display font-black text-white uppercase tracking-tighter">
+        <span>M</span>
+        <span>U</span>
+        <span>S</span>
+        <span>I</span>
+        <span>C</span>
       </div>
     </div>
   );
 };
 
+const AnimatedGridBackground = () => (
+  <div className="absolute inset-0 z-0 pointer-events-none opacity-20" style={{ perspective: '1000px' }}>
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:50px_50px] [transform:rotateX(60deg)_translateY(-100px)_scale(2)] animate-[grid-move_20s_linear_infinite]" />
+    <style>{`
+      @keyframes grid-move {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 50px; }
+      }
+    `}</style>
+  </div>
+);
+
+const AudioVisualizer = ({ isPlaying, className = "" }) => {
+  return (
+    <div className={`flex items-end justify-center gap-[2px] md:gap-1 h-6 transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-20'} ${className}`}>
+      {[...Array(5)].map((_, i) => (
+        <div 
+          key={i} 
+          className="w-1 md:w-1.5 bg-rose-500 rounded-t-sm"
+          style={{
+            height: isPlaying ? '100%' : '15%',
+            animation: isPlaying ? `visualizer 0.8s ease-in-out infinite alternate ${i * 0.15}s` : 'none',
+            transformOrigin: 'bottom'
+          }}
+        />
+      ))}
+      <style>{`
+        @keyframes visualizer {
+          0% { transform: scaleY(0.2); }
+          100% { transform: scaleY(1); }
+        }
+      `}</style>
+    </div>
+  )
+};
+
+const FloatingGeometry = () => (
+  <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+    <Hexagon className="absolute top-[20%] left-[10%] text-white/5 w-32 h-32 animate-[spin_40s_linear_infinite]" strokeWidth={1} />
+    <Triangle className="absolute bottom-[30%] right-[15%] text-rose-500/10 w-48 h-48 animate-[spin_30s_linear_infinite_reverse]" strokeWidth={1} />
+    <Circle className="absolute top-[40%] right-[5%] text-white/5 w-24 h-24 animate-[pulse_10s_ease-in-out_infinite]" strokeWidth={1} />
+  </div>
+);
+
 const App = () => {
   const [hasEntered, setHasEntered] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [splashOpacity, setSplashOpacity] = useState(0);
-  const [siteOpacity, setSiteOpacity] = useState(0);
-
-  const [scrollY, setScrollY] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [modal, setModal] = useState({ isOpen: false, type: null, data: null });
   const [discographyFilter, setDiscographyFilter] = useState("");
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
-  // Carousel State
-  const [catalogIndex, setCatalogIndex] = useState(0);
+  const [playingPreview, setPlayingPreview] = useState(null);
   const audioRef = useRef(new Audio());
 
+  // Handle Audio ending
   useEffect(() => {
-    // Initial fade in for splash
-    const timer = setTimeout(() => setSplashOpacity(1), 100);
-    return () => clearTimeout(timer);
+    const audioEl = audioRef.current;
+    const handleEnded = () => setPlayingPreview(null);
+    audioEl.addEventListener('ended', handleEnded);
+    return () => audioEl.removeEventListener('ended', handleEnded);
   }, []);
 
-  const handleEnter = () => {
-    setIsTransitioning(true);
-    setSplashOpacity(0);
-    setTimeout(() => {
-      setHasEntered(true);
-      setTimeout(() => setSiteOpacity(1), 50);
-    }, 1000);
-  };
-
+  // Global Tracking
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
     const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
-  // Stop audio whenever the centered item changes
-  useEffect(() => {
-    handlePreviewStop();
-  }, [catalogIndex]);
 
   const openModal = (type, data = null) => {
     setModal({ isOpen: true, type, data });
@@ -423,12 +241,23 @@ const App = () => {
     if (!url) return;
     audioRef.current.src = url;
     audioRef.current.volume = 0.5;
-    audioRef.current.play().catch(() => {});
+    audioRef.current.play().then(() => setPlayingPreview(url)).catch(() => {});
   };
 
   const handlePreviewStop = () => {
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
+    setPlayingPreview(null);
+  };
+
+  const togglePreviewAudio = (url, e) => {
+    e.stopPropagation(); 
+    if (!url) return;
+    if (playingPreview === url) {
+      handlePreviewStop();
+    } else {
+      handlePreviewStart(url);
+    }
   };
 
   const filteredDiscography = useMemo(() => {
@@ -442,426 +271,522 @@ const App = () => {
     return [...OFFICIAL_RELEASES_DATA].sort((a, b) => (b.title.includes('*') ? 1 : 0) - (a.title.includes('*') ? 1 : 0));
   }, []);
 
+  // Find the currently playing artwork to set the ambient background
+  const activeCatalogBg = useMemo(() => {
+    if (!playingPreview) return sortedReleases[0]?.art;
+    const activeRelease = sortedReleases.find(r => r.preview === playingPreview);
+    return activeRelease ? activeRelease.art : sortedReleases[0]?.art;
+  }, [playingPreview, sortedReleases]);
+
   return (
-    <div className="min-h-screen bg-[#030303] text-zinc-100 font-sans selection:bg-red-500/30 overflow-x-hidden relative">
+    <div className="bg-[#030303] text-zinc-100 overflow-x-hidden selection:bg-rose-600/40 font-sans min-h-screen">
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;500;800&display=swap');
-          body { font-family: 'Syne', sans-serif; cursor: none; background-color: #030303; color: #f4f4f5; }
-          * { cursor: none !important; }
-          .mono { font-family: 'JetBrains Mono', monospace; }
-          .schmear-bg { background-image: linear-gradient(to bottom, rgba(3,3,3,1) 0%, rgba(3,3,3,0.8) 50%, rgba(3,3,3,1) 100%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='%23ffffff' fill-opacity='0.01'/%3E%3C/svg%3E"); background-attachment: fixed; }
-          .hero-text { font-size: clamp(3rem, 12vw, 15rem); line-height: 0.8; font-weight: 800; letter-spacing: -0.04em; }
-          .vertical-marquee { writing-mode: vertical-rl; animation: slideUp 20s linear infinite; }
-          @keyframes slideUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
-          .noise { position: fixed; inset: -50%; background-image: url("https://grainy-gradients.vercel.app/noise.svg"); opacity: 0.12; pointer-events: none; z-index: 999; }
-          .cursor-glow { width: 400px; height: 400px; background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%); border-radius: 50%; position: fixed; pointer-events: none; z-index: 5999; filter: blur(40px); transition: transform 0.1s ease-out; }
-          .animate-spin-slow { animation: spin 8s linear infinite; }
-          @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-          .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-          .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
-          .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
-          .backdrop-blur-ultra { backdrop-filter: blur(50px) saturate(180%); }
-          .hub-bg { background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%), url("/loumerk.png"); background-size: cover; background-position: center; }
-          @media (min-width: 1024px) { .hub-bg { background-position: right center; } }
-          .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
-          @media (min-width: 768px) { .text-stroke { -webkit-text-stroke: 3px rgba(255,255,255,0.5); } }
+          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;500;700&display=swap');
+          
+          body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #030303; 
+            color: #f4f4f5; 
+            -webkit-font-smoothing: antialiased;
+          }
+          
+          .font-display { font-family: 'Space Grotesk', sans-serif; }
+          
+          /* Custom scrollbar */
+          ::-webkit-scrollbar { width: 6px; }
+          ::-webkit-scrollbar-track { background: #030303; }
+          ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+          ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+          
+          /* Film Grain Overlay */
+          .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            opacity: 0.15;
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+          }
+
+          /* Marquee Animation */
+          .marquee-container {
+            display: flex;
+            width: max-content;
+            animation: marquee 40s linear infinite;
+          }
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+
+          /* Smooth Section Transitions */
+          .sticky-section {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.9);
+          }
         `}
       </style>
 
-      {/* Global High-Layer Cursor - Persistent Above Modals */}
-      <div className="cursor-glow hidden md:block" style={{ transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)` }} />
-      <div className="fixed w-8 h-8 border border-white/20 rounded-full z-[10000] pointer-events-none mix-blend-difference hidden md:block transition-transform duration-75" style={{ left: mousePos.x - 16, top: mousePos.y - 16 }} />
-      <div className="fixed w-1.5 h-1.5 bg-white rounded-full z-[10001] pointer-events-none mix-blend-difference hidden md:block" style={{ left: mousePos.x - 3, top: mousePos.y - 3 }} />
+      <div className="bg-noise" />
 
+      {/* Intro Overlay */}
       {!hasEntered ? (
-        <div className="fixed inset-0 bg-black z-[2500] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden" style={{ opacity: splashOpacity }}>
-          <div className="absolute inset-0 noise opacity-10" />
-          
-          <div className="relative z-10 flex flex-col items-center group text-white text-center px-4">
-            <div className="w-12 h-12 md:w-16 md:h-16 bg-white flex items-center justify-center text-black mb-12 animate-pulse rounded-2xl shadow-[0_0_50px_rgba(239,68,68,0.2)]">
-              <Music size={24} md:size={32} />
-            </div>
-            
-            <div className="flex flex-col items-center select-none w-full max-w-[95vw] leading-[0.6]">
-              {/* Logo Branding Mirroring HERO */}
-              <DynamicShadowText 
-                text="djmerkone" 
-                mousePos={mousePos} 
-                isLowercase={true} 
-                className="text-4xl sm:text-6xl md:text-8xl font-black italic tracking-tighter mb-0 pr-2"
-              />
-              
-              <div className="w-full flex justify-center mt-2 md:mt-3">
-                <DynamicShadowText 
-                  text="MUSIC" 
-                  mousePos={mousePos} 
-                  className="text-[14.5vw] sm:text-[10.5vw] md:text-[10.5rem] font-black italic uppercase tracking-[0.03em] text-white"
-                  style={{ 
-                    WebkitTextStroke: '3px rgba(255,255,255,0.7)',
-                    color: 'transparent',
-                    letterSpacing: '0.03em'
-                  }}
-                />
-              </div>
-            </div>
-
-            <button 
-              onClick={handleEnter}
-              className={`mt-24 px-14 py-5 border border-white/20 hover:border-white rounded-full mono text-[10px] tracking-[0.4em] uppercase transition-all duration-700 hover:bg-white hover:text-black shadow-2xl ${isTransitioning ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
-            >
-              [ ENTER_STUDIO ]
-            </button>
-          </div>
-          
-          {/* Splash Atmospheric Light Logic */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.15)_0%,transparent_70%)] pointer-events-none" 
-               style={{ 
-                 transform: `translate(${mousePos.x - window.innerWidth / 2}px, ${mousePos.y - window.innerHeight / 2}px)`,
-                 opacity: 0.6
-               }}
-          />
-          <div className="absolute bottom-10 mono text-[8px] text-zinc-800 tracking-[0.4em] uppercase font-black">SONIC_PRECISION // MULTI_GENRE_FIDELITY</div>
+        <div className="fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-[#030303]">
+           <AnimatedGridBackground />
+           <div className="relative z-10 flex flex-col items-center">
+             <div className="mb-12">
+               <AudioVisualizer isPlaying={true} className="!h-16 gap-2" />
+             </div>
+             
+             <BrandLogo size="lg" className="mb-16" />
+             
+             <button 
+               onClick={() => setHasEntered(true)}
+               className="px-10 py-4 rounded-full border border-rose-600/50 text-rose-500 font-display font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-rose-600 hover:text-white transition-all hover:scale-105 duration-500 shadow-[0_0_40px_rgba(225,29,72,0.1)] hover:shadow-[0_0_60px_rgba(225,29,72,0.3)]"
+             >
+               Enter Environment
+             </button>
+           </div>
         </div>
       ) : (
-        <div className="transition-opacity duration-1000" style={{ opacity: siteOpacity }}>
-          <div className="noise" />
+        <div className="relative w-full animate-in fade-in duration-1000">
           
-          <aside className="fixed left-0 top-0 h-screen w-16 border-r border-white/5 z-[60] bg-black hidden lg:flex flex-col items-center justify-between py-10 overflow-hidden text-zinc-500">
-            <div className="w-8 h-8 bg-white flex items-center justify-center text-black"><Music size={16} /></div>
-            <div className="vertical-marquee flex flex-col space-y-12">
-              {[...Array(4)].map((_, i) => <span key={i} className="mono text-[10px] tracking-[0.4em] uppercase text-zinc-700 whitespace-nowrap text-nowrap">djmerkone MUSIC • SONIC_PRECISION • EST_2019 •</span>)}
-            </div>
-            <div className="flex flex-col space-y-6">
-              <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Facebook size={14} /></a>
-              <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Instagram size={14} /></a>
-              <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-colors"><TikTokIcon size={14} /></a>
-            </div>
-          </aside>
-
-          <header className="fixed top-0 left-0 w-full z-[70] px-6 md:px-24 py-6 md:py-8 flex justify-between items-center mix-blend-difference pointer-events-none text-white text-white">
-            <div className="pointer-events-auto group">
-              <div className="flex flex-col text-white">
-                <span className="text-xl md:text-2xl font-black italic tracking-tighter leading-none lowercase transition-all group-hover:text-red-500 text-white text-white">djmerkone</span>
-                <span className="text-zinc-400 text-[8px] md:text-[10px] mono tracking-[0.5em] mt-1 uppercase font-bold text-white text-white">MUSIC</span>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center space-x-12 pointer-events-auto text-zinc-300">
-              {['Production', 'Roster', 'Studio', 'Work'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-white transition-colors text-white">{item}</a>
+          {/* Navigation */}
+          <header className="fixed top-0 left-0 w-full z-[100] px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm transition-all border-b border-white/5">
+            <BrandLogo size="sm" />
+            
+            <nav className="hidden md:flex items-center space-x-12">
+              {['Services', 'Core', 'Catalog', 'Contact'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 hover:text-white transition-colors relative group">
+                  {item}
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-rose-500 group-hover:w-full transition-all duration-300" />
+                </a>
               ))}
-              <button className="bg-white text-black px-8 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all shadow-xl">Inquire</button>
-            </div>
+            </nav>
           </header>
 
-          <section id="production" className="relative min-h-screen flex items-center justify-center px-6 schmear-bg overflow-hidden text-white pt-20">
-            <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03]" style={{ transform: `translateY(${scrollY * 0.2}px)` }}>
-              <span className="hero-text lowercase italic text-stroke opacity-10">djmerkone</span>
-            </div>
-            <div className="relative z-10 text-center max-w-7xl">
-              <div className="mono text-[8px] md:text-[10px] tracking-[0.4em] md:tracking-[0.8em] text-red-500 mb-6 md:mb-8 animate-pulse uppercase font-black italic text-red-500">[ IN_HOUSE_PRODUCTION_LAB ]</div>
-              <h1 className="hero-text uppercase mb-8 md:mb-12">
-                <DynamicShadowText text="SONIC" mousePos={mousePos} /> <br /> 
-                <DynamicShadowText text="PRECISION." className="text-stroke italic" mousePos={mousePos} />
-              </h1>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-12 md:mt-20">
-                <div className="flex -space-x-4 text-white">
-                  {['H', 'L', 'E', 'R', 'S', 'B'].map((l, i) => <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-[8px] md:text-[10px] font-black mono hover:bg-red-600 hover:border-red-600 transition-all cursor-default text-white">{l}</div>)}
-                </div>
-                <p className="max-w-md text-xs md:text-sm font-medium uppercase tracking-[0.1em] md:tracking-[0.2em] leading-loose text-zinc-100 text-center md:text-left md:border-l border-white/10 md:pl-8 italic text-white text-white text-white">Established 2019. We fuse the raw energy of <span className="text-white">Hip-hop & Latin</span> with the refined clarity of <span className="text-white">EDM, Soul & Blues</span>.</p>
+          {/* Stacking Architecture Container */}
+          <div className="relative w-full">
+
+            {/* SECTION 1: HERO */}
+            <section id="hero" className="sticky-section bg-[#030303] z-10 pt-24 pb-12">
+              <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Studio Background" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#030303]/60 via-[#030303]/80 to-[#030303]" />
               </div>
-            </div>
-          </section>
-
-          <section id="roster" className="py-20 md:py-40 px-6 md:pl-40 md:pr-24 relative text-white">
-            <div className="flex flex-col lg:flex-row justify-between items-start md:items-end mb-16 md:mb-32 border-b border-white/5 pb-8 md:pb-12 text-white">
-              <div className="max-w-xl text-white">
-                <h2 className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4 md:mb-6 text-white text-white text-white">
-                  <DynamicShadowText text="THE" mousePos={mousePos} /> <span className="text-red-600 italic text-stroke text-red-600"><DynamicShadowText text="CORE" mousePos={mousePos} /></span>
-                </h2>
-                <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-widest italic text-zinc-500 text-zinc-500">The architects behind djmerkone MUSIC projects.</p>
-              </div>
-              <Activity className="text-red-500 hidden lg:block mb-4 animate-pulse text-red-500 text-red-500 text-red-500" size={48} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 bg-white/5 border border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)] text-white">
-              {ARTISTS_DATA.map((artist, i) => <ArtistCard key={i} artist={artist} openModal={openModal} mousePos={mousePos} />)}
-            </div>
-          </section>
-
-          <section id="studio" className="py-20 md:py-40 px-6 md:pl-40 md:pr-24 hub-bg relative border-y border-white/5 text-white min-h-[70vh] md:min-h-[85vh] flex items-center">
-            <div className="max-w-6xl w-full relative z-10 mr-auto lg:pr-20 text-white text-white">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-white">
-                 <div className="lg:col-span-5 p-10 md:p-16 border border-white/10 bg-black/70 backdrop-blur-xl rounded-3xl md:rounded-[3rem] h-full flex flex-col justify-between hover:border-red-500/30 transition-all group text-white text-white text-white">
-                    <Zap className="text-red-600 mb-8 lg:mb-0 text-red-600 text-red-600 text-red-600" size={32} md:size={48} />
-                    <div>
-                      <h3 className="text-4xl md:text-6xl font-black uppercase italic mb-6 md:mb-10 tracking-tighter text-white text-white text-white">
-                         <DynamicShadowText text="THE" mousePos={mousePos} /> <br /> <DynamicShadowText text="HUB." mousePos={mousePos} />
-                      </h3>
-                      <p className="text-zinc-200 text-[10px] md:text-sm font-bold leading-relaxed uppercase tracking-widest italic border-l border-white/20 pl-4 md:pl-6 text-white text-white text-white">Engineering multi-genre fidelity since 2019.</p>
-                    </div>
-                 </div>
-                 <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-white text-white text-white">
-                  {SERVICES_DATA.map((service, i) => (
-                    <div key={i} className="p-8 md:p-10 border border-white/10 bg-black/85 backdrop-blur-md rounded-2xl md:rounded-[2rem] hover:bg-zinc-900/60 transition-all group flex flex-col justify-between shadow-xl text-white text-white text-white text-white">
-                      <span className="mono text-[8px] md:text-[10px] text-zinc-400 group-hover:text-red-500 transition-colors uppercase font-bold tracking-widest text-white text-white text-white">[{service.category}]</span>
-                      <div>
-                        <h4 className="text-lg md:text-2xl font-bold uppercase tracking-tight mb-2 md:mb-4 text-white text-white text-white">
-                          <DynamicShadowText text={service.title} mousePos={mousePos} className="group-hover:text-red-500" />
-                        </h4>
-                        <p className="text-zinc-300 text-[10px] md:text-xs font-medium tracking-widest leading-relaxed text-zinc-300 text-white text-white text-white">{service.detail}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="work" className="py-12 md:py-24 px-6 border-t border-white/5 bg-[#030303] text-white overflow-hidden flex flex-col items-center">
-            
-            <div className="relative text-center mb-8 md:mb-12 flex flex-col items-center w-full">
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[5rem] sm:text-[8rem] md:text-[15rem] font-black text-white/[0.02] select-none uppercase pointer-events-none lowercase opacity-10 whitespace-nowrap">djmerkone</div>
-               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-4 md:mb-6 italic relative z-10">
-                 <DynamicShadowText text="THE" mousePos={mousePos} /> <br />
-                 <span className="text-stroke italic text-white"><DynamicShadowText text="CATALOG." mousePos={mousePos} /></span>
-               </h2>
-               <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-widest italic leading-loose max-w-sm relative z-10">Featured Clinical Sound. Hover to preview.</p>
-            </div>
-
-            {/* Coverflow Carousel */}
-            <div className="relative w-full max-w-[100vw] h-[340px] sm:h-[450px] md:h-[650px] flex items-center justify-center [perspective:2000px] mt-4 md:mt-6 mb-6 md:mb-8">
-              {sortedReleases.map((release, index) => {
-                const offset = index - catalogIndex;
-                const absOffset = Math.abs(offset);
-                const isCenter = offset === 0;
-
-                // Only render items close enough to the center
-                if (absOffset > 4) return null;
-
-                const translateX = `calc(-50% + ${offset * 26}vmin)`;
-                const rotateY = isCenter ? 0 : (offset > 0 ? -45 : 45);
-                const scale = isCenter ? 1 : Math.max(0.85 - (absOffset * 0.15), 0.5);
-                const zIndex = 50 - absOffset;
-                const opacity = absOffset > 2 ? 0 : 1 - (absOffset * 0.2);
-
-                return (
-                  <div
-                    key={index}
-                    onClick={() => !isCenter && setCatalogIndex(index)}
-                    onMouseEnter={() => isCenter && handlePreviewStart(release.preview)}
-                    onMouseLeave={() => isCenter && handlePreviewStop()}
-                    className={`absolute top-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[550px] aspect-square rounded-3xl md:rounded-[3rem] overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-[0_30px_60px_rgba(0,0,0,0.6)] border ${isCenter && release.title.includes('*') ? 'border-red-900/50 shadow-[0_0_100px_rgba(239,68,68,0.3)]' : 'border-white/10'}`}
-                    style={{
-                      left: '50%',
-                      transform: `translateX(${translateX}) scale(${scale}) rotateY(${rotateY}deg)`,
-                      zIndex,
-                      opacity,
-                      pointerEvents: opacity > 0 ? 'auto' : 'none',
-                    }}
-                  >
-                    <img src={release.art} alt={release.title} className="w-full h-full object-cover" />
-
-                    {/* Hover Overlay - Only visible & interactive when focused */}
-                    <div className={`absolute inset-0 bg-black/80 backdrop-blur-md p-8 md:p-12 flex flex-col justify-center items-center text-center transition-opacity duration-500 ${isCenter ? 'opacity-0 hover:opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                      <div className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center animate-pulse text-red-500 bg-black/50">
-                         <Play size={24} fill="currentColor" />
-                      </div>
-
-                      <div className="flex flex-col items-center gap-3 mb-2 w-full">
-                        <h5 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
-                          <DynamicShadowText text={release.title.replace('*', '')} mousePos={mousePos} />
-                        </h5>
-                        {release.title.includes('*') && (
-                          <span className="mono text-[8px] md:text-[10px] bg-red-600 px-3 py-1 rounded text-white font-black uppercase tracking-widest animate-pulse">Featured</span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center space-x-3 mt-4 md:mt-6">
-                        <p className="mono text-base md:text-xl text-zinc-400 uppercase italic font-bold">{release.artist}</p>
-                        <span className="w-1.5 h-1.5 bg-red-600 rounded-full" />
-                        <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-[0.2em] font-medium">{release.type}</p>
-                      </div>
-
-                      <div className="mt-12 md:mt-16 w-full">
-                        <p className="mono text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-black mb-4 md:mb-6 italic">STREAM / PURCHASE</p>
-                        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-                          {release.spotify && <a href={release.spotify} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">SPOTIFY</a>}
-                          {release.apple && <a href={release.apple} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">APPLE</a>}
-                          {release.yt && <a href={release.yt} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">YT MUSIC</a>}
-                          {release.amazon && <a href={release.amazon} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">AMAZON</a>}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Carousel Controls */}
-            <div className="flex items-center space-x-4 md:space-x-8 mt-4 relative z-20">
-              <button
-                onClick={() => setCatalogIndex(prev => Math.max(0, prev - 1))}
-                disabled={catalogIndex === 0}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-white"
-              >
-                <ChevronRight className="rotate-180" size={24} />
-              </button>
-
-              <button
-                onClick={() => openModal('discography')}
-                className="flex items-center space-x-3 px-6 md:px-10 py-3 md:py-4 rounded-full border border-white/10 bg-zinc-950/50 hover:bg-zinc-900 transition-all group shadow-xl"
-              >
-                <Disc className="text-zinc-500 group-hover:text-red-500 animate-spin-slow" size={20} />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-white transition-colors">Full Discography</span>
-              </button>
-
-              <button
-                onClick={() => setCatalogIndex(prev => Math.min(sortedReleases.length - 1, prev + 1))}
-                disabled={catalogIndex === sortedReleases.length - 1}
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-white"
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
-            
-          </section>
-
-          <footer className="bg-black py-20 md:py-40 px-6 md:pl-40 md:pr-24 border-t border-white/5 relative overflow-hidden text-white text-white text-white">
-            <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none">
-               <span className="hero-text uppercase italic text-white/5 scale-150 lowercase text-white">djmerkone</span>
-            </div>
-            <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 text-white text-white">
-              <div className="max-w-md text-white">
-                <div className="flex flex-col mb-8 md:mb-10 group text-white text-white">
-                  <span className="text-3xl md:text-4xl font-black italic tracking-tighter lowercase transition-all group-hover:text-red-500 text-white text-white text-white">djmerkone</span>
-                  <span className="text-red-600 text-[8px] md:text-[10px] mono tracking-[0.5em] mt-1 font-bold uppercase text-red-600 text-red-600 text-red-600">MUSIC</span>
-                </div>
-                <p className="text-zinc-500 text-[10px] md:text-xs font-black leading-loose uppercase tracking-[0.2em] md:tracking-[0.3em] italic text-zinc-500 text-zinc-500 text-zinc-500">Engineering the intersection of urban energy and cinematic fidelity since 2019.</p>
-              </div>
-              <div className="grid grid-cols-2 gap-12 md:gap-20 text-white text-white text-white text-white">
-                <div>
-                  <h6 className="mono text-[8px] md:text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-6 md:mb-10 font-bold underline underline-offset-8 text-zinc-600 text-zinc-600 text-white text-white">Network</h6>
-                  <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest text-zinc-400 text-zinc-400">
-                    <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Luis Marte <ExternalLink size={10} className="ml-2" /></a></li>
-                    <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Marilyn Torres <ExternalLink size={10} className="ml-2" /></a></li>
-                    <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white lowercase italic text-white text-white">djmerkone <ExternalLink size={10} className="ml-2" /></a></li>
-                  </ul>
-                </div>
-                <div>
-                  <h6 className="mono text-[8px] md:text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-6 md:mb-10 font-bold underline underline-offset-8 text-zinc-600 text-white text-white text-white">Social</h6>
-                  <div className="flex space-x-4 md:space-x-6 text-zinc-500 text-zinc-500">
-                    <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Facebook size={18} md:size={20} /></a>
-                    <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Instagram size={18} md:size={20} /></a>
-                    <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-white"><TikTokIcon size={18} md:size={20} /></a>
-                    <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-zinc-500"><Youtube size={18} md:size={20} /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative z-10 pt-20 md:pt-40 flex flex-col md:flex-row justify-between items-center text-zinc-700 mono text-[8px] md:text-[9px] uppercase tracking-widest font-black text-zinc-700 text-zinc-700">
-              <p>© 2019 – {new Date().getFullYear()} djmerkone MUSIC // ALL_RIGHT_RESERVED</p>
-              <div className="flex space-x-8 md:space-x-12 mt-6 md:mt-0 pointer-events-auto text-zinc-700 text-white text-white">
-                 <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors cursor-pointer text-zinc-700 text-white text-white">Privacy_Desk</button>
-                 <button onClick={() => openModal('terms')} className="hover:text-white transition-colors cursor-pointer text-zinc-700 text-white text-white">Terms_Of_Sound</button>
-              </div>
-            </div>
-          </footer>
-
-          {modal.isOpen && (
-            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-12 transition-all duration-500 text-white text-white">
-              <div className="absolute inset-0 bg-black/90 backdrop-blur-2xl" onClick={closeModal} />
-              <div className={`relative w-full ${modal.type === 'discography' ? 'max-w-7xl h-[90vh]' : 'max-w-5xl max-h-[90vh]'} bg-zinc-950 border border-white/10 rounded-3xl md:rounded-[3rem] overflow-hidden flex flex-col shadow-2xl shadow-black animate-in fade-in zoom-in duration-300 text-white text-white`}>
-                <div className="p-6 md:p-8 border-b border-white/5 flex items-center justify-between text-white text-white">
-                  <div className="flex items-center space-x-3 md:space-x-4">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-white flex items-center justify-center text-black"><Music size={14} md:size={18} /></div>
-                    <div className="mono text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase text-zinc-500 text-zinc-500 text-white">
-                      djmerkone MUSIC // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial_Memorandum' : 'Artist_Profile') : (modal.type === 'discography' ? 'Cinema_Discography_Station' : 'Information_Hub')}
-                    </div>
-                  </div>
-                  <button onClick={closeModal} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all text-white text-white text-white"><X size={16} md:size={20} /></button>
+              
+              <FloatingGeometry />
+              
+              <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 flex flex-col justify-center flex-grow relative z-20">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-rose-500/20 bg-rose-500/5 mb-10 w-fit backdrop-blur">
+                   <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                   <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-rose-400">High Fidelity Engineering</span>
                 </div>
                 
-                <div className="flex-grow overflow-y-auto custom-scrollbar text-white text-white">
-                  {modal.type === 'artist' ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start p-6 md:p-10 text-white text-white text-white">
-                      <div className="relative aspect-[4/5] bg-zinc-900 overflow-hidden rounded-2xl md:rounded-[2rem] text-white text-white">
-                        <img src={modal.data.img} alt={modal.data.name} className={`w-full h-full object-cover transition-all duration-700 ${modal.data.isMemorial ? 'sepia-[0.5] opacity-80 grayscale-[0.5]' : 'grayscale hover:grayscale-0'}`} />
-                        <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black to-transparent text-white text-white">
-                          <h3 className={`text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-white ${modal.data.name === 'djmerkone' ? 'lowercase' : ''}`}>{modal.data.name}</h3>
-                          <div className="flex flex-wrap gap-2 mt-3 md:mt-4 opacity-70 text-white text-white">
-                            {modal.data.role.map((r, i) => <span key={i} className={`mono text-[7px] md:text-[8px] px-2 py-1 rounded-sm uppercase tracking-widest ${modal.data.isMemorial ? 'bg-red-900 text-white' : 'bg-white text-black'}`}>{r}</span>)}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space-y-8 md:space-y-12 text-white text-white">
-                        <div className="prose prose-invert max-w-none text-white text-white">
-                          {modal.data.isMemorial && (
-                            <div className="mb-8 md:mb-10 p-4 md:p-6 bg-red-900/10 border-l-4 border-red-900 rounded-r-2xl text-red-900">
-                              <p className="mono text-[8px] md:text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-red-500 text-red-500"><Heart size={10} md:size={12} fill="currentColor" /> Legacy Memorandum</p>
-                              <p className="text-zinc-300 font-black tracking-tighter text-lg md:text-xl italic text-white text-white">{modal.data.note}</p>
+                <h1 className="font-display text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] font-bold leading-[0.95] tracking-tighter text-white uppercase max-w-5xl relative">
+                  Elevate<br />
+                  <span className="text-zinc-500 italic">The Sound.</span>
+                </h1>
+                
+                <p className="text-zinc-400 text-base md:text-lg max-w-xl leading-relaxed font-light mt-8 border-l border-rose-500/50 pl-6 md:pl-8 bg-black/20 backdrop-blur-sm py-2 rounded-r-lg">
+                  A premier music studio bridging classic foundations with futuristic clarity. We engineer high-fidelity audio across a limitless spectrum of genres—whether dialing in the raw energy of <strong className="text-white font-medium">Hip-hop & Latin</strong>, the refined polish of <strong className="text-white font-medium">EDM & Soul</strong>, or anything in between.
+                </p>
+              </div>
+            </section>
+
+            {/* SECTION 2: SERVICES (Interactive Terminal) */}
+            <section id="services" className="sticky-section bg-[#0a0a0c] z-20 border-t border-white/10 rounded-t-[2.5rem] md:rounded-t-[4rem]">
+               <div className="w-full overflow-hidden border-b border-white/5 py-4 flex items-center font-display font-bold uppercase tracking-widest text-xs md:text-sm text-zinc-700 bg-black absolute top-0 left-0 z-30">
+                <div className="marquee-container">
+                   {[...Array(6)].map((_, i) => (
+                     <div key={i} className="flex items-center whitespace-nowrap px-8">
+                       SONIC ARCHITECTURE <span className="mx-8 text-rose-900">•</span> CLINICAL PRECISION <span className="mx-8 text-rose-900">•</span>
+                     </div>
+                   ))}
+                </div>
+              </div>
+
+              <div className="absolute inset-0 opacity-10 mix-blend-luminosity">
+                <img src="https://images.unsplash.com/photo-1519683109079-d5f539e1542f?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" alt="Gear Background" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/90 to-[#050505]" />
+              </div>
+
+              <div className="w-full h-full overflow-y-auto custom-scrollbar relative z-20 pt-20">
+                <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 py-20 min-h-full items-center">
+                   <div className="flex-1 w-full flex flex-col justify-center">
+                      <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white uppercase mb-12">Expertise</h2>
+                      <div className="flex flex-col gap-4">
+                        {SERVICES_DATA.map((service) => (
+                          <div key={service.id} className="bg-black/40 border border-white/5 rounded-xl p-6 backdrop-blur-md hover:bg-black/60 hover:border-white/20 transition-all duration-300">
+                            <div className="flex items-center gap-6 mb-4">
+                              <div className="text-rose-500">
+                                {service.icon}
+                              </div>
+                              <div>
+                                <h4 className="font-display text-lg md:text-xl font-bold uppercase tracking-tight text-white">{service.title}</h4>
+                                <p className="text-xs text-zinc-500 mt-1 font-medium">{service.short}</p>
+                              </div>
                             </div>
-                          )}
-                          <p className="mono text-[9px] md:text-[11px] leading-relaxed tracking-widest uppercase text-zinc-400 italic whitespace-pre-line text-zinc-400 text-white">{modal.data.bio}</p>
-                        </div>
-                        <div className="pt-8 md:pt-12 border-t border-white/5 text-white">
-                          <h4 className="mono text-[8px] md:text-[10px] tracking-[0.4em] uppercase text-red-500 mb-6 md:mb-8 font-bold italic text-red-500 text-red-500">Official_Connectivity</h4>
-                          <div className="grid grid-cols-1 gap-4 md:gap-6 text-white text-white text-white">
-                            {modal.data.link && (
-                              <a href={modal.data.link} target="_blank" className="flex items-center space-x-4 md:space-x-6 group text-white">
-                                <div className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all text-white text-white text-white"><Globe size={14} md:size={16} /></div>
-                                <span className="text-[10px] md:text-sm font-black uppercase tracking-widest italic underline decoration-zinc-800 group-hover:decoration-white transition-all underline-offset-8 text-white text-white">{modal.data.isMemorial ? 'Memorial Obituary' : 'Official Website'}</span>
-                              </a>
-                            )}
-                            {modal.data.socials && (
-                              <div className="flex flex-wrap gap-4 md:gap-6 pt-2 md:pt-4 text-white text-white">
-                                {Object.entries(modal.data.socials).map(([key, val]) => (
-                                  <a key={key} href={`https://${key}.com/${val}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-zinc-500 text-white">
-                                    {key === 'fb' && <Facebook size={18} md:size={20} />}
-                                    {key === 'ig' && <Instagram size={18} md:size={20} />}
-                                    {key === 'yt' && <Youtube size={18} md:size={20} />}
-                                  </a>
-                                ))}
+                            <p className="text-sm font-light leading-relaxed text-zinc-400 pt-4 border-t border-white/5">
+                              {service.detail}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                   </div>
+
+                   <div className="flex-1 w-full flex flex-col justify-center">
+                      <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 min-h-[400px] flex flex-col relative overflow-hidden shadow-2xl">
+                         <div className="absolute top-0 right-0 w-64 h-64 bg-rose-600/10 blur-[80px] rounded-full pointer-events-none" />
+                         <AnimatedGridBackground />
+                         <div className="flex-grow flex flex-col justify-center items-center text-center relative z-10">
+                            <AudioVisualizer isPlaying={true} className="text-rose-500 transform scale-150 mb-12" />
+                            <h3 className="font-display text-2xl font-bold text-white uppercase tracking-widest">
+                              Sonic Architecture
+                            </h3>
+                            <p className="text-zinc-500 mt-4 text-sm">Real-time fidelity monitoring.</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 3: ROSTER */}
+            <section id="core" className="sticky-section bg-[#080808] z-[30] border-t border-white/10 rounded-t-[2.5rem] md:rounded-t-[4rem]">
+               <div className="absolute inset-0 opacity-10 mix-blend-luminosity">
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808] z-10" />
+                 <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover blur-[8px]" alt="Studio Vibe" />
+               </div>
+
+               <div className="w-full h-full overflow-y-auto custom-scrollbar relative z-20">
+                 <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 py-32 flex flex-col">
+                    <div className="mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                       <div>
+                         <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 uppercase">The Core</h2>
+                         <p className="text-zinc-400 font-light text-base md:text-lg max-w-lg">The sonic architects and visionary performers driving our catalog forward.</p>
+                       </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {ARTISTS_DATA.map((artist, i) => (
+                        <div key={i} onClick={() => openModal('artist', artist)} className="group cursor-pointer relative overflow-hidden rounded-2xl aspect-square md:aspect-[3/4] bg-black border border-white/10 shadow-xl">
+                          <img 
+                            src={artist.img} 
+                            alt={artist.name} 
+                            className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${artist.isMemorial ? 'grayscale opacity-70' : 'grayscale-[0.8] opacity-50 group-hover:grayscale-0 group-hover:opacity-100'}`} 
+                          />
+                          
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
+
+                          <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            {artist.isMemorial && (
+                              <div className="mb-auto self-start bg-red-900/80 backdrop-blur px-3 py-1.5 rounded text-[8px] font-bold uppercase tracking-widest text-white flex items-center gap-2 border border-red-500/50">
+                                <Heart size={10} fill="currentColor" className="text-rose-400" /> Legacy Member
                               </div>
                             )}
+                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 lowercase`}>
+                              {artist.name.toLowerCase()}
+                            </h3>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                               {artist.role.slice(0,3).map((r, idx) => (
+                                 <span key={idx} className="text-[8px] uppercase tracking-[0.2em] font-bold text-zinc-300 border border-white/10 px-2 py-1 rounded bg-black/50 backdrop-blur-md">
+                                   {r}
+                                 </span>
+                               ))}
+                            </div>
+                            
+                            <div className="overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center gap-2 text-rose-500 text-xs font-bold uppercase tracking-widest mt-2">
+                               View Profile <ArrowUpRight size={14} />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                 </div>
+               </div>
+            </section>
+
+            {/* SECTION 4: THE CATALOG (GRID) + FOOTER/CONTACT */}
+            <div className="relative z-[40] bg-[#020202] shadow-[0_-20px_50px_rgba(0,0,0,0.9)] rounded-t-[2.5rem] md:rounded-t-[4rem] border-t border-white/10">
+              
+              <section id="catalog" className="relative py-24 md:py-32 overflow-hidden flex flex-col items-center">
+                
+                {/* Dynamic Ambient Background tied to playing item */}
+                <div className="absolute inset-0 -z-20 w-full h-[100%] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem]">
+                   <div 
+                     className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
+                     style={{ 
+                       backgroundImage: `url(${activeCatalogBg})`,
+                       filter: 'blur(100px) brightness(0.2) saturate(1.5)',
+                       transform: 'scale(1.2)'
+                     }} 
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020202]/80 to-[#020202]" />
+                   <div className="absolute inset-0 bg-black/40" />
+                </div>
+
+                {/* The Catalog Header */}
+                <div className="relative text-center mb-16 flex flex-col items-center w-full px-6 z-10">
+                   <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white uppercase">The Catalog</h2>
+                   <div className="flex gap-4 items-center">
+                     <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-rose-500 border border-rose-500/30 px-4 py-1 rounded bg-rose-500/10 backdrop-blur">Featured Releases</p>
+                     <button onClick={() => openModal('discography')} className="text-[10px] font-bold uppercase tracking-[0.4em] text-white border border-white/20 px-4 py-1 rounded bg-white/5 backdrop-blur hover:bg-white hover:text-black transition-all flex items-center gap-2">
+                       Full Directory <Disc size={12} />
+                     </button>
+                   </div>
+                </div>
+
+                {/* Immersive Grid Layout */}
+                <div className="max-w-[1600px] w-full mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 z-20 pb-16">
+                  {sortedReleases.map((release, index) => {
+                    const isPlaying = playingPreview === release.preview;
+                    
+                    return (
+                      <div
+                        key={index}
+                        className="group relative flex flex-col bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-500 shadow-2xl"
+                      >
+                        {/* Image Container */}
+                        <div className="relative aspect-square w-full overflow-hidden bg-black">
+                          <img src={release.art} alt={release.title} className={`w-full h-full object-cover transition-all duration-700 ${isPlaying ? 'scale-105 brightness-50' : 'group-hover:scale-105 group-hover:brightness-50 grayscale-[0.2]'}`} />
+                          
+                          {/* Play Button Overlay */}
+                          <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                            <button 
+                               onClick={(e) => togglePreviewAudio(release.preview, e)}
+                               className="w-16 h-16 bg-rose-600/90 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white shadow-[0_0_30px_rgba(225,29,72,0.4)] hover:scale-110 hover:bg-rose-500 transition-all duration-300 z-30"
+                            >
+                               {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" className="ml-1" />}
+                            </button>
+                            {isPlaying && (
+                               <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+                                 <AudioVisualizer isPlaying={true} />
+                               </div>
+                            )}
+                          </div>
+                          
+                          {/* Badges */}
+                          {release.title.includes('*') && (
+                            <div className="absolute top-4 left-4 bg-white text-black px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
+                              Featured
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Info Container */}
+                        <div className="p-6 flex flex-col flex-grow relative overflow-hidden z-20 bg-gradient-to-t from-[#0a0a0c] to-transparent">
+                           <h5 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-1 truncate">
+                             {release.title.replace('*', '')}
+                           </h5>
+                           <p className="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-6">
+                             {release.artist} <span className="mx-2 text-zinc-600">/</span> <span className="text-zinc-500">{release.type}</span>
+                           </p>
+
+                           {/* Streaming Links */}
+                           <div className="mt-auto pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                              {release.spotify && <a href={release.spotify} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-white/5 border border-white/5 hover:bg-white hover:text-black py-2.5 rounded text-[9px] font-bold uppercase tracking-widest transition-all text-zinc-300">SPOTIFY</a>}
+                              {release.apple && <a href={release.apple} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-white/5 border border-white/5 hover:bg-white hover:text-black py-2.5 rounded text-[9px] font-bold uppercase tracking-widest transition-all text-zinc-300">APPLE</a>}
+                              {release.yt && <a href={release.yt} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-white/5 border border-white/5 hover:bg-white hover:text-black py-2.5 rounded text-[9px] font-bold uppercase tracking-widest transition-all text-zinc-300">YT</a>}
+                           </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+
+              {/* SECTION 5: CONTACT FORM & FOOTER */}
+              <section id="contact" className="py-24 px-6 md:px-12 bg-[#020202] border-t border-zinc-900 relative z-30">
+                <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
+                  <img src="https://images.unsplash.com/photo-1516280440503-45f0638d1795?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover blur-[4px]" alt="Studio Mic" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/80 to-[#020202]" />
+                </div>
+
+                <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-16 md:gap-24 relative z-10">
+                  <div className="flex-1">
+                    <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white uppercase mb-6">Initiate <br/><span className="text-rose-600">Transmission.</span></h2>
+                    <p className="text-zinc-400 text-sm md:text-base font-light leading-relaxed max-w-md">Looking for engineering, production, or just want to connect? Send a secure message directly to the studio console.</p>
+                  </div>
+                  
+                  <div className="flex-1 w-full max-w-2xl bg-black/60 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
+                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                         <div className="space-y-2">
+                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ NAME ]</label>
+                           <input type="text" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" placeholder="Your Name" />
+                         </div>
+                         <div className="space-y-2">
+                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ EMAIL ]</label>
+                           <input type="email" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" placeholder="Email Address" />
+                         </div>
+                       </div>
+                       <div className="space-y-2">
+                         <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ MESSAGE ]</label>
+                         <textarea rows="4" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors resize-none" placeholder="Project details or inquiry..." />
+                       </div>
+                       <button className="flex items-center justify-center gap-3 w-full bg-white text-black py-4 font-bold uppercase tracking-widest text-xs hover:bg-rose-600 hover:text-white rounded transition-all duration-300 group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(244,63,94,0.4)]">
+                         Send Transmission <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                       </button>
+                    </form>
+                  </div>
+                </div>
+              </section>
+
+              {/* Massive Minimalist Footer */}
+              <footer className="bg-[#020202] py-20 px-6 md:px-12 border-t border-zinc-900 relative overflow-hidden z-30">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[16vw] font-bold text-white/[0.015] pointer-events-none select-none whitespace-nowrap lowercase">djmerkone</div>
+                
+                <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12 relative z-10 mb-20">
+                  <div className="max-w-md">
+                    <BrandLogo size="md" className="mb-6" />
+                  </div>
+                  
+                  <div className="flex gap-16 md:gap-32">
+                    <div>
+                      <h6 className="text-[9px] text-zinc-600 tracking-[0.3em] uppercase mb-8 font-bold border-b border-zinc-800 pb-3">Network</h6>
+                      <ul className="space-y-4 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+                        <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between">Luis Marte</a></li>
+                        <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between">Marilyn Torres</a></li>
+                        <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between font-black text-white lowercase">djmerkone</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h6 className="text-[9px] text-zinc-600 tracking-[0.3em] uppercase mb-8 font-bold border-b border-zinc-800 pb-3">Socials</h6>
+                      <div className="flex flex-col gap-4 text-zinc-400">
+                        <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-colors flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest"><Facebook size={16} /> Facebook</a>
+                        <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-colors flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest"><Instagram size={16} /> Instagram</a>
+                        <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white transition-colors flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest"><Youtube size={16} /> YouTube</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="max-w-[1400px] mx-auto pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-600 relative z-10">
+                  <p className="lowercase">© {new Date().getFullYear()} djmerkone MUSIC. ALL RIGHTS RESERVED.</p>
+                  <div className="flex space-x-8 mt-6 md:mt-0 uppercase">
+                     <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors">Privacy</button>
+                     <button onClick={() => openModal('terms')} className="hover:text-white transition-colors">Terms</button>
+                  </div>
+                </div>
+              </footer>
+            </div>
+          </div>
+
+          {/* Premium Immersive Modal (OS Level Feel) */}
+          {modal.isOpen && (
+            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-0 md:p-6 transition-all duration-500">
+              <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={closeModal} />
+              
+              <div className={`relative w-full h-full md:h-auto ${modal.type === 'discography' ? 'max-w-7xl md:max-h-[90vh]' : 'max-w-6xl md:max-h-[90vh]'} bg-[#070707] border-0 md:border border-zinc-800 md:rounded-2xl overflow-hidden flex flex-col shadow-2xl animate-in slide-in-from-bottom-10 md:zoom-in-95 duration-500`}>
+                
+                <div className="p-6 md:p-8 border-b border-zinc-900 flex items-center justify-between bg-[#070707] z-10 relative">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-10 h-10 rounded border border-rose-500/20 flex items-center justify-center text-rose-500 bg-rose-500/5"><Music size={16} /></div>
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-bold">
+                      <span className="lowercase">djmerkone</span> // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Artist Profile') : (modal.type === 'discography' ? 'Release Archive' : 'Information')}
+                    </div>
+                  </div>
+                  <button onClick={closeModal} className="w-10 h-10 rounded bg-white/5 hover:bg-white hover:text-black flex items-center justify-center transition-colors text-zinc-300"><X size={18} /></button>
+                </div>
+                
+                <div className="flex-grow overflow-y-auto custom-scrollbar relative bg-[#070707]">
+                  {modal.type === 'artist' ? (
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 md:gap-12 min-h-full">
+                      
+                      <div className="lg:col-span-5 h-[50vh] lg:h-auto relative border-r border-zinc-900 bg-black">
+                        <img src={modal.data.img} alt={modal.data.name} className={`absolute inset-0 w-full h-full object-cover ${modal.data.isMemorial && 'grayscale opacity-70'}`} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] lg:from-[#070707]/50 to-transparent" />
+                      </div>
+                      
+                      <div className="lg:col-span-7 flex flex-col p-8 lg:p-16 lg:pl-4 relative">
+                        <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 lowercase`}>
+                          {modal.data.name.toLowerCase()}
+                        </h3>
+                        
+                        <div className="flex flex-wrap gap-2 mb-10">
+                          {modal.data.role.map((r, i) => (
+                             <span key={i} className={`text-[9px] px-4 py-2 rounded uppercase tracking-[0.2em] font-bold border ${modal.data.isMemorial ? 'bg-red-900/20 text-rose-300 border-red-500/30' : 'bg-white/5 text-zinc-300 border-white/10'}`}>{r}</span>
+                          ))}
+                        </div>
+
+                        <div className="prose prose-invert max-w-none text-zinc-400 font-light leading-loose mb-12">
+                          {modal.data.isMemorial && (
+                            <div className="mb-10 p-8 bg-red-950/10 border border-rose-500/20 rounded-xl">
+                              <p className="text-[10px] text-rose-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2"><Heart size={14} fill="currentColor" /> Legacy Member</p>
+                              <p className="text-zinc-200 font-display text-xl font-bold tracking-tight">{modal.data.note}</p>
+                              {modal.data.lifespan && <p className="text-zinc-400 italic text-sm mt-1">{modal.data.lifespan}</p>}
+                            </div>
+                          )}
+                          <p className="whitespace-pre-line text-sm md:text-base">{modal.data.bio}</p>
+                        </div>
+
+                        <div className="pt-10 border-t border-zinc-900 mt-auto">
+                          <h4 className="text-[10px] tracking-[0.3em] uppercase text-zinc-600 mb-6 font-bold">Connections</h4>
+                          <div className="flex flex-wrap gap-4">
+                            {modal.data.link && (
+                              <a href={modal.data.link} target="_blank" className="flex items-center space-x-3 bg-white px-6 py-3 rounded hover:bg-zinc-300 transition-all text-black">
+                                <Globe size={16} />
+                                <span className="text-[10px] font-bold uppercase tracking-widest">{modal.data.isMemorial ? 'Obituary' : 'Website'}</span>
+                              </a>
+                            )}
+                            {modal.data.socials && Object.entries(modal.data.socials).map(([key, val]) => (
+                                <a key={key} href={`https://${SOCIAL_MAP[key]}.com/${key === 'tt' || key === 'yt' ? '@' : ''}${val}`} target="_blank" className="bg-white/5 border border-white/10 p-3 rounded hover:bg-rose-600 hover:border-rose-600 transition-all text-white">
+                                  {key === 'fb' && <Facebook size={18} />}
+                                  {key === 'ig' && <Instagram size={18} />}
+                                  {key === 'yt' && <Youtube size={18} />}
+                                </a>
+                            ))}
                           </div>
                         </div>
                       </div>
                     </div>
                   ) : (modal.type === 'discography' ? (
-                    <div className="p-6 md:p-10 lg:p-20 text-white text-white text-white">
-                      <div className="relative mb-12 md:mb-20 text-center text-white text-white">
-                         <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 italic text-white text-white">THE ARCHIVES</h3>
-                         <p className="mono text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-widest mb-8 md:mb-12 text-zinc-500 text-zinc-500">Complete registry of releases, remixes, and studio collaborations.</p>
-                         <div className="relative max-w-2xl mx-auto text-white">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-700 text-zinc-700 text-white" size={16} md:size={20} />
+                    <div className="p-6 md:p-12 lg:p-20 min-h-full">
+                      <div className="relative mb-16 max-w-4xl mx-auto flex flex-col md:flex-row gap-8 justify-between items-end">
+                         <div>
+                           <h3 className="font-display text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-white uppercase">Directory</h3>
+                           <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-rose-500">Complete registry of releases.</p>
+                         </div>
+                         <div className="relative w-full md:w-96">
+                            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500" size={18} />
                             <input 
                               type="text" 
-                              placeholder="FILTER_BY_ARTIST_OR_TRACK..." 
-                              className="w-full bg-white/5 border border-white/10 p-5 md:p-8 pl-14 md:pl-16 rounded-full mono text-[10px] md:text-sm uppercase tracking-widest text-zinc-200 focus:outline-none focus:border-red-500/50 transition-all shadow-2xl text-zinc-200 text-zinc-200"
+                              placeholder="Search artists or tracks..." 
+                              className="w-full bg-zinc-900 border border-zinc-800 p-4 pl-12 rounded text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:border-rose-500 transition-all shadow-inner"
                               onChange={(e) => setDiscographyFilter(e.target.value)}
                             />
                          </div>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 text-white text-white">
-                        {filteredDiscography.map((group, idx) => (
-                          <div key={idx} className="space-y-4 md:space-y-6 bg-white/[0.02] p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/5 hover:border-white/10 transition-all text-white text-white">
-                            <h4 className="text-lg md:text-xl font-black text-red-600 uppercase tracking-[0.2em] italic border-b border-red-900/30 pb-3 md:pb-4 text-red-600 text-red-600">{(group.artist || '').toUpperCase()}</h4>
-                            <ul className="space-y-3 md:space-y-4 text-white">
-                              {group.tracks.map((track, tIdx) => (
-                                <li key={tIdx} className="mono text-[9px] md:text-[11px] text-zinc-500 uppercase tracking-widest leading-relaxed hover:text-white transition-colors flex items-start text-zinc-400 text-zinc-400">
-                                  <span className="mr-3 md:mr-4 text-zinc-800 font-black text-zinc-800 text-zinc-800">{(tIdx + 1).toString().padStart(2, '0')}</span>
-                                  {track}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 pb-10 max-w-[1600px] mx-auto">
+                        {filteredDiscography.map((group, idx) => {
+                          const displayArtist = (group.artist || '').toLowerCase() === 'djmerkone' ? 'djmerkone' : (group.artist || '').toUpperCase();
+                          return (
+                            <div key={idx} className="bg-zinc-900/50 p-8 rounded-xl border border-zinc-800 hover:border-rose-500/50 transition-all">
+                              <h4 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-6 pb-4 border-b border-zinc-800">{displayArtist}</h4>
+                              <ul className="space-y-4">
+                                {group.tracks.map((track, tIdx) => (
+                                  <li key={tIdx} className="text-sm text-zinc-400 font-light leading-relaxed flex items-start group/track">
+                                    <span className="mr-4 text-[10px] text-zinc-600 font-bold pt-1 group-hover/track:text-rose-500 transition-colors">{(tIdx + 1).toString().padStart(2, '0')}</span>
+                                    <span className="group-hover/track:text-white transition-colors">{track}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
-                  ) : <div className="flex items-center justify-center py-20 text-white text-white text-white"><div className="prose prose-invert max-w-none mono text-lg md:text-xl leading-relaxed tracking-widest uppercase text-zinc-400 italic text-zinc-400">Info coming soon...</div></div>)}
+                  ) : <div className="flex items-center justify-center py-32"><div className="text-lg text-zinc-500 font-light">Information coming soon...</div></div>)}
                 </div>
-                
-                <div className="p-6 md:p-8 bg-zinc-900/50 border-t border-white/5 text-center text-white text-white"><p className="mono text-[7px] md:text-[8px] text-zinc-600 uppercase font-black tracking-widest text-zinc-600 text-zinc-600">djmerkone MUSIC // Ver. 2026.04</p></div>
               </div>
             </div>
           )}
