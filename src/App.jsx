@@ -43,9 +43,9 @@ const OFFICIAL_RELEASES_DATA = [
   },
   {
     artist: "Marilyn Torres",
-    title: "Mi Viejo",
+    title: "Mi Viejo (Cover)",
     type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC32F3A87%2DA21B%2D4A2F%2DBC16%2D135081CD1625%2D%2Dmod%2D1726715423%2Ejpg",
+    art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca",
     preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_88204128_6D172E9D-42E3-4B96-A6F7D8D70A887FA6.mp3",
     apple: "https://music.apple.com/us/album/mi-viejo-single/1769188358",
     spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DC32F3A87-A21B-4A2F-BC16-135081CD1625/destination:https://open.spotify.com/album/4vK7t2W6vPzG1XN5O1u6Z2",
