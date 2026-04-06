@@ -4,7 +4,6 @@ import {
   ExternalLink, 
   Disc, 
   Play, 
-  Pause,
   ChevronRight, 
   Instagram, 
   Facebook,
@@ -15,12 +14,11 @@ import {
   Heart,
   Maximize2,
   X,
-  Search,
-  Headphones
+  Search
 } from 'lucide-react';
 
 /**
- * DATA CONSTANTS
+ * DATA CONSTANTS - Defined at the absolute top for global scope safety
  */
 const ARTISTS_DATA = [
   { name: "djmerkone", role: ["Writer", "Producer", "Engineer", "Artist"], link: "https://djmerkone-site0.vercel.app", img: "dmobio.jpg", accent: "red", bio: "djmerkone // Sonic Architect & Multidisciplinary Engineer\ndjmerkone operates at the high-fidelity intersection of rhythm and precision. With a career spanning over three decades, he has established himself as a definitive architect of the Florida sound—a multidisciplinary engineer whose work bridges the gap between classic foundations and futuristic clarity.\n\nRooted in the high-energy pulse of the 1990s music scene, djmerkone’s evolution is a testament to technical mastery and creative fluidity. His catalog is a diverse registry of credits that move seamlessly between the gritty low-end of experimental hip-hop, the soulful textures of R&B, and the driving, percussive heart of Latin freestyle and house music.\n\nAs a producer and mastering engineer, djmerkone views sound as architecture. Whether he is building a track from the ground up or providing the final clinical polish to a global release, his philosophy remains the same: engineering is the science of emotion. His precision in the studio ensures that every frequency serves a purpose, allowing the artist's vision to cut through the digital noise with absolute authority.\n\nEntering 2026, djmerkone remains a sought-after collaborator for artists seeking a signature sonic identity. His recent works—including extensive production and engineering for Marilyn Torres' The EP and Jase David's Threads—showcase a continued dedication to pushing the boundaries of modern sound.\n\ndjmerkone is more than a technician; he is a curator of the sonic experience. He doesn't just record music—he engineers the future.", socials: { fb: "djmerkone", ig: "djmerkone", tt: "djmerkone", yt: "djmerkone" } },
@@ -114,7 +112,7 @@ const OFFICIAL_RELEASES_DATA = [
     title: "100 MPH",
     type: "EP (8 Tracks)",
     art: "https://i.discogs.com/vYW6zrL9jzXwT2l7WQnk6rpj1qPyc97evBqM1hJdBhk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4NTQ1/NDI1LTE2MTk4ODI4/MzctMjMxMC5qcGVn.jpeg",
-    preview: "/100mph.wav", // Fixed path
+    preview: "100mph.wav",
     apple: "https://music.apple.com/us/album/100-mph/1817531010",
     spotify: "https://open.spotify.com/album/5vjuqBXaAbBvw8o9GNUXj5",
     yt: "https://music.youtube.com/playlist?list=OLAK5uy_lTGujWshYCYkBPyDKvtNQn_V_VwyF6XdI&si=E5ptXsRTdmvZPAzp",
@@ -294,14 +292,6 @@ const SERVICES_DATA = [
   { title: "Demo Services", category: "PROTOTYPE", detail: "Prototyping high-fidelity concepts for professional pitch." }
 ];
 
-// Mapping for proper social URLs
-const SOCIAL_MAP = {
-  fb: 'facebook',
-  ig: 'instagram',
-  tt: 'tiktok',
-  yt: 'youtube'
-};
-
 /**
  * HELPER UI COMPONENTS
  */
@@ -326,52 +316,47 @@ const DynamicShadowText = ({ text, className = "", mousePos, style = {}, isLower
     const dx = centerX - x;
     const dy = centerY - y;
     const distance = Math.sqrt(dx * dx + dy * dy);
-    const opacity = Math.max(0.1, 0.6 - (distance / 1500));
-    const sx = dx / 50; 
-    const sy = dy / 50;
+    const opacity = Math.max(0.1, 0.7 - (distance / 1200));
+    const sx = dx / 45; 
+    const sy = dy / 45;
     setShadowStyle({
-      textShadow: `${sx * 0.5}px ${sy * 0.5}px 2px rgba(239, 68, 68, ${opacity * 0.2}), ${sx * 1.5}px ${sy * 1.5}px 8px rgba(0,0,0,${opacity * 0.5}), ${sx * 3}px ${sy * 3}px 16px rgba(0,0,0,${opacity * 0.3})`,
-      transform: `translate(${sx * -0.05}px, ${sy * -0.05}px)`
+      textShadow: `${sx * 0.5}px ${sy * 0.5}px 1px rgba(0,0,0,${opacity}), ${sx * 1.5}px ${sy * 1.5}px 3px rgba(0,0,0,${opacity * 0.8}), ${sx * 3}px ${sy * 3}px 6px rgba(0,0,0,${opacity * 0.6}), ${sx * 6}px ${sy * 6}px 12px rgba(0,0,0,${opacity * 0.4})`,
+      transform: `translate(${sx * -0.1}px, ${sy * -0.1}px)`
     });
   }, [mousePos, text]);
 
   return (
-    <span ref={textRef} style={{ ...style, ...shadowStyle }} className={`${className} transition-all duration-100 inline-block ${isLowercase ? 'lowercase' : ''}`}>
+    <span ref={textRef} style={{ ...style, ...shadowStyle }} className={`${className} transition-all duration-75 inline-block ${isLowercase ? 'lowercase' : ''}`}>
       {text}
     </span>
   );
 };
 
-const ArtistCard = ({ artist, openModal }) => {
+const ArtistCard = ({ artist, openModal, mousePos }) => {
   return (
-    <div onClick={() => openModal('artist', artist)} className="group relative overflow-hidden transition-all duration-700 hover:-translate-y-2 cursor-pointer glass-panel rounded-3xl md:rounded-[2.5rem] p-1 h-[300px] md:h-[400px]">
-      <div className="absolute inset-0 rounded-3xl md:rounded-[2.5rem] overflow-hidden">
-        <img src={artist.img} alt={artist.name} className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${artist.isMemorial ? 'grayscale-[0.8] opacity-50' : 'grayscale-[0.6] group-hover:grayscale-0 opacity-40 group-hover:opacity-80'}`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-[#050508]/80 to-transparent" />
-      </div>
-
-      <div className="relative z-10 flex flex-col h-full justify-end p-6 md:p-8">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {artist.isMemorial ? (
-            <span className="glass-panel text-red-400 px-3 py-1.5 rounded-full mono text-[9px] uppercase tracking-widest flex items-center gap-2">
-              <Heart size={12} fill="currentColor" /> Legacy
-            </span>
-          ) : (
-            artist.role.slice(0, 2).map((r, ri) => (
-              <span key={ri} className="glass-panel text-zinc-300 px-3 py-1.5 rounded-full mono text-[9px] uppercase tracking-widest">{r}</span>
-            ))
-          )}
+    <div onClick={() => openModal('artist', artist)} className={`group relative p-6 md:p-12 overflow-hidden transition-all duration-500 hover:bg-zinc-900/40 min-h-[220px] md:min-h-[320px] cursor-pointer ${artist.isMemorial ? 'bg-zinc-950 border-l-4 border-red-900/30' : 'bg-[#050505]'}`}>
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        <div>
+          <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-6">
+            {artist.isMemorial ? (
+              <div className="flex items-center space-x-2 text-red-900 group-hover:text-red-600 transition-colors">
+                <Heart size={14} fill="currentColor" />
+                <span className="mono text-[8px] md:text-[9px] uppercase tracking-widest font-black">Legacy Member</span>
+              </div>
+            ) : (
+              artist.role.map((r, ri) => <span key={ri} className="mono text-[7px] md:text-[8px] bg-white/5 text-zinc-400 px-2 py-1 rounded-sm uppercase tracking-widest">{r}</span>)
+            )}
+          </div>
+          <div className="block overflow-hidden">
+            <DynamicShadowText text={artist.name} mousePos={mousePos} isLowercase={artist.name === 'djmerkone'} className={`text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight ${artist.isMemorial ? 'text-zinc-400 italic' : 'text-white group-hover:text-red-500'}`} />
+          </div>
+          {artist.isMemorial && <p className="mono text-[8px] md:text-[10px] text-zinc-600 uppercase tracking-widest mt-2 md:mt-4 leading-loose max-w-xs italic text-white text-white text-white">Carlos 'Charlie' Velasquez</p>}
         </div>
-        
-        <h3 className={`text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-2 ${artist.name === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
-          {artist.name}
-        </h3>
-        
-        <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/10 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-           <span className="mono text-[10px] text-zinc-400 uppercase tracking-widest">View Profile</span>
-           <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center transform -rotate-45 group-hover:rotate-0 transition-transform duration-500">
-             <ChevronRight size={16} />
-           </div>
+        <div className="mt-8 md:mt-12 flex justify-between items-end">
+           <div className="flex items-center text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 group-hover:text-white transition-colors">
+              {artist.isMemorial ? 'Memorial Profile' : 'View Profile'} <Maximize2 size={10} className="ml-2 md:size-12" />
+            </div>
+          <div className={`w-8 md:w-12 h-px transition-all duration-700 ${artist.isMemorial ? 'bg-red-900/20 group-hover:w-16 md:group-hover:w-24 group-hover:bg-red-600/50' : 'bg-white/10 group-hover:w-16 md:group-hover:w-24'}`} />
         </div>
       </div>
     </div>
@@ -391,7 +376,6 @@ const App = () => {
   
   // Carousel State
   const [catalogIndex, setCatalogIndex] = useState(0);
-  const [playingPreview, setPlayingPreview] = useState(null);
   const audioRef = useRef(new Audio());
 
   useEffect(() => {
@@ -420,17 +404,10 @@ const App = () => {
     };
   }, []);
 
+  // Stop audio whenever the centered item changes
   useEffect(() => {
     handlePreviewStop();
   }, [catalogIndex]);
-
-  // Make sure audio handles ending properly
-  useEffect(() => {
-    const audioEl = audioRef.current;
-    const handleEnded = () => setPlayingPreview(null);
-    audioEl.addEventListener('ended', handleEnded);
-    return () => audioEl.removeEventListener('ended', handleEnded);
-  }, []);
 
   const openModal = (type, data = null) => {
     setModal({ isOpen: true, type, data });
@@ -446,23 +423,12 @@ const App = () => {
     if (!url) return;
     audioRef.current.src = url;
     audioRef.current.volume = 0.5;
-    audioRef.current.play().then(() => setPlayingPreview(url)).catch(() => {});
+    audioRef.current.play().catch(() => {});
   };
 
   const handlePreviewStop = () => {
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
-    setPlayingPreview(null);
-  };
-
-  const togglePreviewAudio = (url, e) => {
-    e.stopPropagation(); // prevent card click
-    if (!url) return;
-    if (playingPreview === url) {
-      handlePreviewStop();
-    } else {
-      handlePreviewStart(url);
-    }
   };
 
   const filteredDiscography = useMemo(() => {
@@ -477,257 +443,172 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050508] text-slate-100 selection:bg-red-500/40 overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#030303] text-zinc-100 font-sans selection:bg-red-500/30 overflow-x-hidden relative">
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=JetBrains+Mono:wght@300;400;700&display=swap');
-          
-          body { 
-            font-family: 'Outfit', sans-serif; 
-            cursor: none; 
-            background-color: #050508; 
-            color: #f8fafc; 
-          }
+          @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;500;800&display=swap');
+          body { font-family: 'Syne', sans-serif; cursor: none; background-color: #030303; color: #f4f4f5; }
           * { cursor: none !important; }
-          
-          /* DISABLE CUSTOM CURSOR ON TOUCH DEVICES */
-          @media (pointer: coarse) {
-            body, * { cursor: auto !important; }
-            .no-touch-cursor { display: none !important; }
-          }
-          
           .mono { font-family: 'JetBrains Mono', monospace; }
-          
-          /* Premium Glassmorphism Utility */
-          .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(24px) saturate(150%);
-            -webkit-backdrop-filter: blur(24px) saturate(150%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-          }
-          
-          .glass-panel-heavy {
-            background: rgba(10, 10, 15, 0.6);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-          }
-
-          /* Ambient Orbs */
-          .ambient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.35;
-            z-index: 0;
-            pointer-events: none;
-            mix-blend-mode: screen;
-          }
-          
-          .orb-1 {
-            background: #ef4444; /* Red */
-            width: 70vw;
-            height: 70vw;
-            top: -20%;
-            left: -10%;
-            animation: float-1 25s infinite ease-in-out alternate;
-          }
-          
-          .orb-2 {
-            background: #6d28d9; /* Deep Purple */
-            width: 60vw;
-            height: 60vw;
-            bottom: -10%;
-            right: -10%;
-            animation: float-2 30s infinite ease-in-out alternate;
-          }
-
-          @keyframes float-1 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10vw, 10vh) scale(1.1); }
-          }
-          @keyframes float-2 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-10vw, -15vh) scale(1.2); }
-          }
-
-          .hero-text { 
-            font-size: clamp(3.5rem, 12vw, 12rem); 
-            line-height: 0.9; 
-            font-weight: 900; 
-            letter-spacing: -0.03em; 
-          }
-          
-          .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          }
-
-          /* Soft Cursor */
-          .cursor-glow { 
-            width: 400px; 
-            height: 400px; 
-            background: radial-gradient(circle, rgba(239, 68, 68, 0.12) 0%, transparent 60%); 
-            border-radius: 50%; 
-            position: fixed; 
-            pointer-events: none; 
-            z-index: 5999; 
-            filter: blur(30px); 
-            transition: transform 0.1s ease-out; 
-            mix-blend-mode: screen;
-          }
-          
-          .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-          .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-          .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-          .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
-          
-          .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.2); color: transparent; }
-          @media (min-width: 768px) { .text-stroke { -webkit-text-stroke: 2px rgba(255,255,255,0.2); } }
+          .schmear-bg { background-image: linear-gradient(to bottom, rgba(3,3,3,1) 0%, rgba(3,3,3,0.8) 50%, rgba(3,3,3,1) 100%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='%23ffffff' fill-opacity='0.01'/%3E%3C/svg%3E"); background-attachment: fixed; }
+          .hero-text { font-size: clamp(3rem, 12vw, 15rem); line-height: 0.8; font-weight: 800; letter-spacing: -0.04em; }
+          .vertical-marquee { writing-mode: vertical-rl; animation: slideUp 20s linear infinite; }
+          @keyframes slideUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+          .noise { position: fixed; inset: -50%; background-image: url("https://grainy-gradients.vercel.app/noise.svg"); opacity: 0.12; pointer-events: none; z-index: 999; }
+          .cursor-glow { width: 400px; height: 400px; background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%); border-radius: 50%; position: fixed; pointer-events: none; z-index: 5999; filter: blur(40px); transition: transform 0.1s ease-out; }
+          .animate-spin-slow { animation: spin 8s linear infinite; }
+          @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+          .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+          .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
+          .backdrop-blur-ultra { backdrop-filter: blur(50px) saturate(180%); }
+          .hub-bg { background-image: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%), url("/loumerk.png"); background-size: cover; background-position: center; }
+          @media (min-width: 1024px) { .hub-bg { background-position: right center; } }
+          .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
+          @media (min-width: 768px) { .text-stroke { -webkit-text-stroke: 3px rgba(255,255,255,0.5); } }
         `}
       </style>
 
-      {/* Global Background Orbs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-         <div className="ambient-orb orb-1" />
-         <div className="ambient-orb orb-2" />
-         {/* Subtle Noise Texture for texture depth */}
-         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.04] mix-blend-overlay" />
-      </div>
-
-      {/* High-Layer Cursor (Hidden on touch via CSS) */}
-      <div className="cursor-glow no-touch-cursor" style={{ transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)` }} />
-      <div className="fixed w-10 h-10 border border-white/30 rounded-full z-[10000] pointer-events-none backdrop-blur-sm no-touch-cursor items-center justify-center transition-transform duration-75 flex" style={{ left: mousePos.x - 20, top: mousePos.y - 20 }}>
-         <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_white]" />
-      </div>
+      {/* Global High-Layer Cursor - Persistent Above Modals */}
+      <div className="cursor-glow hidden md:block" style={{ transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)` }} />
+      <div className="fixed w-8 h-8 border border-white/20 rounded-full z-[10000] pointer-events-none mix-blend-difference hidden md:block transition-transform duration-75" style={{ left: mousePos.x - 16, top: mousePos.y - 16 }} />
+      <div className="fixed w-1.5 h-1.5 bg-white rounded-full z-[10001] pointer-events-none mix-blend-difference hidden md:block" style={{ left: mousePos.x - 3, top: mousePos.y - 3 }} />
 
       {!hasEntered ? (
-        <div className="fixed inset-0 bg-[#050508] z-[2500] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden" style={{ opacity: splashOpacity }}>
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
+        <div className="fixed inset-0 bg-black z-[2500] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden" style={{ opacity: splashOpacity }}>
+          <div className="absolute inset-0 noise opacity-10" />
           
           <div className="relative z-10 flex flex-col items-center group text-white text-center px-4">
-            <div className="w-16 h-16 md:w-20 md:h-20 glass-panel flex items-center justify-center text-white mb-12 rounded-full shadow-[0_0_60px_rgba(239,68,68,0.3)] animate-pulse">
-              <Headphones size={28} md:size={36} strokeWidth={1.5} />
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white flex items-center justify-center text-black mb-12 animate-pulse rounded-2xl shadow-[0_0_50px_rgba(239,68,68,0.2)]">
+              <Music size={24} md:size={32} />
             </div>
             
-            <div className="flex flex-col items-center select-none w-full max-w-[95vw] leading-[0.8]">
+            <div className="flex flex-col items-center select-none w-full max-w-[95vw] leading-[0.6]">
+              {/* Logo Branding Mirroring HERO */}
               <DynamicShadowText 
                 text="djmerkone" 
                 mousePos={mousePos} 
                 isLowercase={true} 
-                className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight mb-2 text-gradient"
+                className="text-4xl sm:text-6xl md:text-8xl font-black italic tracking-tighter mb-0 pr-2"
               />
               
-              <div className="mono text-sm md:text-lg tracking-[0.5em] md:tracking-[0.8em] text-red-500 uppercase font-medium">
-                Studios
+              <div className="w-full flex justify-center mt-2 md:mt-3">
+                <DynamicShadowText 
+                  text="MUSIC" 
+                  mousePos={mousePos} 
+                  className="text-[14.5vw] sm:text-[10.5vw] md:text-[10.5rem] font-black italic uppercase tracking-[0.03em] text-white"
+                  style={{ 
+                    WebkitTextStroke: '3px rgba(255,255,255,0.7)',
+                    color: 'transparent',
+                    letterSpacing: '0.03em'
+                  }}
+                />
               </div>
             </div>
 
             <button 
               onClick={handleEnter}
-              className={`mt-20 px-10 py-4 glass-panel rounded-full mono text-[11px] tracking-[0.3em] uppercase transition-all duration-500 hover:bg-white hover:text-black shadow-2xl hover:scale-105 flex items-center gap-4 ${isTransitioning ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
+              className={`mt-24 px-14 py-5 border border-white/20 hover:border-white rounded-full mono text-[10px] tracking-[0.4em] uppercase transition-all duration-700 hover:bg-white hover:text-black shadow-2xl ${isTransitioning ? 'scale-95 opacity-0' : 'scale-100 opacity-100'}`}
             >
-              Enter Session <ChevronRight size={14} />
+              [ ENTER_STUDIO ]
             </button>
           </div>
           
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.2)_0%,transparent_60%)] pointer-events-none mix-blend-screen" 
+          {/* Splash Atmospheric Light Logic */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.15)_0%,transparent_70%)] pointer-events-none" 
                style={{ 
                  transform: `translate(${mousePos.x - window.innerWidth / 2}px, ${mousePos.y - window.innerHeight / 2}px)`,
+                 opacity: 0.6
                }}
           />
+          <div className="absolute bottom-10 mono text-[8px] text-zinc-800 tracking-[0.4em] uppercase font-black">SONIC_PRECISION // MULTI_GENRE_FIDELITY</div>
         </div>
       ) : (
-        <div className="transition-opacity duration-1000 relative z-10" style={{ opacity: siteOpacity }}>
+        <div className="transition-opacity duration-1000" style={{ opacity: siteOpacity }}>
+          <div className="noise" />
           
-          {/* Floating Glass Navigation */}
-          <header className="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-5xl z-[70] px-6 flex justify-center pointer-events-none">
-            <nav className="glass-panel px-6 md:px-10 py-4 rounded-full flex justify-between items-center w-full shadow-2xl pointer-events-auto">
-               <div className="flex flex-col cursor-pointer group" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
-                <span className="text-xl md:text-2xl font-black tracking-tight lowercase text-white transition-all group-hover:text-red-400">djmerkone</span>
-                <span className="text-zinc-400 text-[8px] mono tracking-[0.4em] uppercase font-bold">MUSIC</span>
+          <aside className="fixed left-0 top-0 h-screen w-16 border-r border-white/5 z-[60] bg-black hidden lg:flex flex-col items-center justify-between py-10 overflow-hidden text-zinc-500">
+            <div className="w-8 h-8 bg-white flex items-center justify-center text-black"><Music size={16} /></div>
+            <div className="vertical-marquee flex flex-col space-y-12">
+              {[...Array(4)].map((_, i) => <span key={i} className="mono text-[10px] tracking-[0.4em] uppercase text-zinc-700 whitespace-nowrap text-nowrap">djmerkone MUSIC • SONIC_PRECISION • EST_2019 •</span>)}
+            </div>
+            <div className="flex flex-col space-y-6">
+              <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Facebook size={14} /></a>
+              <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-colors"><Instagram size={14} /></a>
+              <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-colors"><TikTokIcon size={14} /></a>
+            </div>
+          </aside>
+
+          <header className="fixed top-0 left-0 w-full z-[70] px-6 md:px-24 py-6 md:py-8 flex justify-between items-center mix-blend-difference pointer-events-none text-white text-white">
+            <div className="pointer-events-auto group">
+              <div className="flex flex-col text-white">
+                <span className="text-xl md:text-2xl font-black italic tracking-tighter leading-none lowercase transition-all group-hover:text-red-500 text-white text-white">djmerkone</span>
+                <span className="text-zinc-400 text-[8px] md:text-[10px] mono tracking-[0.5em] mt-1 uppercase font-bold text-white text-white">MUSIC</span>
               </div>
-              <div className="hidden md:flex items-center space-x-10 text-zinc-300">
-                {['Production', 'Roster', 'Studio', 'Work'].map((item) => (
-                  <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] font-bold uppercase tracking-[0.2em] hover:text-white transition-colors relative group">
-                    {item}
-                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-red-500 group-hover:w-full transition-all duration-300 rounded-full" />
-                  </a>
-                ))}
-              </div>
-              <button className="bg-white text-black px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all shadow-lg hover:shadow-red-500/25">
-                Inquire
-              </button>
-            </nav>
+            </div>
+            <div className="hidden md:flex items-center space-x-12 pointer-events-auto text-zinc-300">
+              {['Production', 'Roster', 'Studio', 'Work'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-white transition-colors text-white">{item}</a>
+              ))}
+              <button className="bg-white text-black px-8 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all shadow-xl">Inquire</button>
+            </div>
           </header>
 
-          <section id="production" className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-20 text-center">
-            <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
-              <div className="glass-panel text-red-400 px-6 py-2 rounded-full mono text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-10 flex items-center gap-3 shadow-xl">
-                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Production Lab
-              </div>
-              
-              <h1 className="hero-text uppercase mb-8">
-                <DynamicShadowText text="Sonic" mousePos={mousePos} className="text-white" /> <br /> 
-                <DynamicShadowText text="Precision." className="text-stroke" mousePos={mousePos} />
+          <section id="production" className="relative min-h-screen flex items-center justify-center px-6 schmear-bg overflow-hidden text-white pt-20">
+            <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03]" style={{ transform: `translateY(${scrollY * 0.2}px)` }}>
+              <span className="hero-text lowercase italic text-stroke opacity-10">djmerkone</span>
+            </div>
+            <div className="relative z-10 text-center max-w-7xl">
+              <div className="mono text-[8px] md:text-[10px] tracking-[0.4em] md:tracking-[0.8em] text-red-500 mb-6 md:mb-8 animate-pulse uppercase font-black italic text-red-500">[ IN_HOUSE_PRODUCTION_LAB ]</div>
+              <h1 className="hero-text uppercase mb-8 md:mb-12">
+                <DynamicShadowText text="SONIC" mousePos={mousePos} /> <br /> 
+                <DynamicShadowText text="PRECISION." className="text-stroke italic" mousePos={mousePos} />
               </h1>
-              
-              <div className="glass-panel p-2 rounded-full flex items-center gap-6 mt-10 md:mt-16 pr-8 max-w-2xl mx-auto shadow-2xl">
-                <div className="flex -space-x-4 pl-2">
-                  {['H', 'L', 'E', 'R'].map((l, i) => (
-                    <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-zinc-900 border border-white/20 flex items-center justify-center text-xs font-black mono text-white shadow-lg">{l}</div>
-                  ))}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-12 md:mt-20">
+                <div className="flex -space-x-4 text-white">
+                  {['H', 'L', 'E', 'R', 'S', 'B'].map((l, i) => <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-[8px] md:text-[10px] font-black mono hover:bg-red-600 hover:border-red-600 transition-all cursor-default text-white">{l}</div>)}
                 </div>
-                <p className="text-xs md:text-sm font-medium tracking-[0.1em] text-zinc-300 text-left leading-relaxed">
-                  Fusing the raw energy of <span className="text-white font-bold">Hip-hop & Latin</span> with the refined clarity of <span className="text-white font-bold">EDM & Soul</span>.
-                </p>
+                <p className="max-w-md text-xs md:text-sm font-medium uppercase tracking-[0.1em] md:tracking-[0.2em] leading-loose text-zinc-100 text-center md:text-left md:border-l border-white/10 md:pl-8 italic text-white text-white text-white">Established 2019. We fuse the raw energy of <span className="text-white">Hip-hop & Latin</span> with the refined clarity of <span className="text-white">EDM, Soul & Blues</span>.</p>
               </div>
             </div>
           </section>
 
-          <section id="roster" className="py-24 md:py-40 px-6 max-w-[1400px] mx-auto relative">
-            <div className="flex flex-col lg:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
-              <div className="max-w-2xl">
-                <h2 className="text-5xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight mb-4 text-white">
-                  The <span className="text-red-500">Core</span>
+          <section id="roster" className="py-20 md:py-40 px-6 md:pl-40 md:pr-24 relative text-white">
+            <div className="flex flex-col lg:flex-row justify-between items-start md:items-end mb-16 md:mb-32 border-b border-white/5 pb-8 md:pb-12 text-white">
+              <div className="max-w-xl text-white">
+                <h2 className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4 md:mb-6 text-white text-white text-white">
+                  <DynamicShadowText text="THE" mousePos={mousePos} /> <span className="text-red-600 italic text-stroke text-red-600"><DynamicShadowText text="CORE" mousePos={mousePos} /></span>
                 </h2>
-                <p className="mono text-[11px] md:text-xs text-zinc-400 uppercase tracking-widest leading-relaxed">The sonic architects and visionary artists driving the catalog.</p>
+                <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-widest italic text-zinc-500 text-zinc-500">The architects behind djmerkone MUSIC projects.</p>
               </div>
-              <Activity className="text-red-500/50 hidden lg:block animate-pulse" size={48} strokeWidth={1} />
+              <Activity className="text-red-500 hidden lg:block mb-4 animate-pulse text-red-500 text-red-500 text-red-500" size={48} />
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 bg-white/5 border border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)] text-white">
               {ARTISTS_DATA.map((artist, i) => <ArtistCard key={i} artist={artist} openModal={openModal} mousePos={mousePos} />)}
             </div>
           </section>
 
-          <section id="studio" className="py-24 md:py-40 px-6 max-w-[1400px] mx-auto relative">
-            <div className="glass-panel-heavy rounded-[3rem] p-6 md:p-12 lg:p-16 border border-white/10 shadow-2xl overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none mix-blend-screen" />
-              
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
-                 <div className="lg:col-span-5 flex flex-col justify-between h-full">
-                    <Zap className="text-red-500 mb-12" size={40} strokeWidth={1.5} />
+          <section id="studio" className="py-20 md:py-40 px-6 md:pl-40 md:pr-24 hub-bg relative border-y border-white/5 text-white min-h-[70vh] md:min-h-[85vh] flex items-center">
+            <div className="max-w-6xl w-full relative z-10 mr-auto lg:pr-20 text-white text-white">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-white">
+                 <div className="lg:col-span-5 p-10 md:p-16 border border-white/10 bg-black/70 backdrop-blur-xl rounded-3xl md:rounded-[3rem] h-full flex flex-col justify-between hover:border-red-500/30 transition-all group text-white text-white text-white">
+                    <Zap className="text-red-600 mb-8 lg:mb-0 text-red-600 text-red-600 text-red-600" size={32} md:size={48} />
                     <div>
-                      <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-6">
-                         The Hub.
+                      <h3 className="text-4xl md:text-6xl font-black uppercase italic mb-6 md:mb-10 tracking-tighter text-white text-white text-white">
+                         <DynamicShadowText text="THE" mousePos={mousePos} /> <br /> <DynamicShadowText text="HUB." mousePos={mousePos} />
                       </h3>
-                      <p className="text-zinc-300 text-base md:text-lg font-light leading-relaxed max-w-md border-l-2 border-red-500/50 pl-6">
-                        Engineering multi-genre fidelity since 2019. A clinical environment designed for absolute creative clarity.
-                      </p>
+                      <p className="text-zinc-200 text-[10px] md:text-sm font-bold leading-relaxed uppercase tracking-widest italic border-l border-white/20 pl-4 md:pl-6 text-white text-white text-white">Engineering multi-genre fidelity since 2019.</p>
                     </div>
                  </div>
-                 
-                 <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                 <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-white text-white text-white">
                   {SERVICES_DATA.map((service, i) => (
-                    <div key={i} className="glass-panel p-8 md:p-10 rounded-3xl hover:bg-white/5 transition-all group flex flex-col justify-between border border-white/10">
-                      <span className="mono text-[10px] text-zinc-500 group-hover:text-red-400 transition-colors uppercase font-bold tracking-widest mb-8">[{service.category}]</span>
+                    <div key={i} className="p-8 md:p-10 border border-white/10 bg-black/85 backdrop-blur-md rounded-2xl md:rounded-[2rem] hover:bg-zinc-900/60 transition-all group flex flex-col justify-between shadow-xl text-white text-white text-white text-white">
+                      <span className="mono text-[8px] md:text-[10px] text-zinc-400 group-hover:text-red-500 transition-colors uppercase font-bold tracking-widest text-white text-white text-white">[{service.category}]</span>
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold uppercase tracking-tight text-white mb-3">
-                          {service.title}
+                        <h4 className="text-lg md:text-2xl font-bold uppercase tracking-tight mb-2 md:mb-4 text-white text-white text-white">
+                          <DynamicShadowText text={service.title} mousePos={mousePos} className="group-hover:text-red-500" />
                         </h4>
-                        <p className="text-zinc-400 text-sm font-light leading-relaxed">{service.detail}</p>
+                        <p className="text-zinc-300 text-[10px] md:text-xs font-medium tracking-widest leading-relaxed text-zinc-300 text-white text-white text-white">{service.detail}</p>
                       </div>
                     </div>
                   ))}
@@ -736,22 +617,25 @@ const App = () => {
             </div>
           </section>
 
-          <section id="work" className="py-24 md:py-40 overflow-hidden flex flex-col items-center relative">
+          <section id="work" className="py-12 md:py-24 px-6 border-t border-white/5 bg-[#030303] text-white overflow-hidden flex flex-col items-center">
             
-            <div className="relative text-center mb-12 flex flex-col items-center w-full px-6">
-               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight mb-4 relative z-10 text-white">
-                 The <span className="text-gradient">Catalog</span>
+            <div className="relative text-center mb-8 md:mb-12 flex flex-col items-center w-full">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[5rem] sm:text-[8rem] md:text-[15rem] font-black text-white/[0.02] select-none uppercase pointer-events-none lowercase opacity-10 whitespace-nowrap">djmerkone</div>
+               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-4 md:mb-6 italic relative z-10">
+                 <DynamicShadowText text="THE" mousePos={mousePos} /> <br />
+                 <span className="text-stroke italic text-white"><DynamicShadowText text="CATALOG." mousePos={mousePos} /></span>
                </h2>
-               <p className="mono text-[11px] md:text-xs text-zinc-400 uppercase tracking-widest leading-loose max-w-sm relative z-10">Featured Clinical Sound. Tap to view & play.</p>
+               <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-widest italic leading-loose max-w-sm relative z-10">Featured Clinical Sound. Hover to preview.</p>
             </div>
 
-            {/* Coverflow Carousel - Upgraded mobile interaction & layout */}
-            <div className="relative w-full max-w-[100vw] h-[360px] sm:h-[450px] md:h-[650px] flex items-center justify-center [perspective:2000px] mt-4 md:mt-8 mb-10">
+            {/* Coverflow Carousel */}
+            <div className="relative w-full max-w-[100vw] h-[340px] sm:h-[450px] md:h-[650px] flex items-center justify-center [perspective:2000px] mt-4 md:mt-6 mb-6 md:mb-8">
               {sortedReleases.map((release, index) => {
                 const offset = index - catalogIndex;
                 const absOffset = Math.abs(offset);
                 const isCenter = offset === 0;
 
+                // Only render items close enough to the center
                 if (absOffset > 4) return null;
 
                 const translateX = `calc(-50% + ${offset * 26}vmin)`;
@@ -764,9 +648,9 @@ const App = () => {
                   <div
                     key={index}
                     onClick={() => !isCenter && setCatalogIndex(index)}
-                    onMouseEnter={() => isCenter && window.matchMedia("(pointer: fine)").matches && handlePreviewStart(release.preview)}
-                    onMouseLeave={() => isCenter && window.matchMedia("(pointer: fine)").matches && handlePreviewStop()}
-                    className={`absolute top-1/2 -translate-y-1/2 w-[310px] sm:w-[400px] md:w-[550px] aspect-square rounded-3xl md:rounded-[3rem] overflow-hidden transition-all duration-700 ease-out cursor-pointer glass-panel border ${isCenter && release.title.includes('*') ? 'border-white/30 shadow-[0_40px_80px_rgba(0,0,0,0.8),0_0_80px_rgba(239,68,68,0.2)]' : 'border-white/5 shadow-[0_30px_60px_rgba(0,0,0,0.5)]'}`}
+                    onMouseEnter={() => isCenter && handlePreviewStart(release.preview)}
+                    onMouseLeave={() => isCenter && handlePreviewStop()}
+                    className={`absolute top-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[550px] aspect-square rounded-3xl md:rounded-[3rem] overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-[0_30px_60px_rgba(0,0,0,0.6)] border ${isCenter && release.title.includes('*') ? 'border-red-900/50 shadow-[0_0_100px_rgba(239,68,68,0.3)]' : 'border-white/10'}`}
                     style={{
                       left: '50%',
                       transform: `translateX(${translateX}) scale(${scale}) rotateY(${rotateY}deg)`,
@@ -775,41 +659,36 @@ const App = () => {
                       pointerEvents: opacity > 0 ? 'auto' : 'none',
                     }}
                   >
-                    <img src={release.art} alt={release.title} className={`w-full h-full object-cover transition-all duration-700 ${!isCenter && 'grayscale-[0.5] opacity-60'}`} />
+                    <img src={release.art} alt={release.title} className="w-full h-full object-cover" />
 
-                    {/* Premium Hover Overlay - Always visible on center items in mobile, hoverable on desktop */}
-                    <div className={`absolute inset-0 bg-gradient-to-t from-[#050508]/95 via-[#050508]/80 to-transparent p-6 md:p-12 flex flex-col justify-end items-center text-center transition-opacity duration-500 ${isCenter ? 'opacity-100 lg:opacity-0 lg:hover:opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                      
-                      {/* Interactive Play Button (Essential for mobile touch interactions) */}
-                      <button 
-                         onClick={(e) => togglePreviewAudio(release.preview, e)}
-                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 glass-panel rounded-full flex items-center justify-center animate-pulse text-white shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-110 transition-transform hover:bg-white hover:text-black z-20"
-                      >
-                         {playingPreview === release.preview ? <Pause size={28} fill="currentColor" /> : <Play size={28} fill="currentColor" className="ml-1" />}
-                      </button>
+                    {/* Hover Overlay - Only visible & interactive when focused */}
+                    <div className={`absolute inset-0 bg-black/80 backdrop-blur-md p-8 md:p-12 flex flex-col justify-center items-center text-center transition-opacity duration-500 ${isCenter ? 'opacity-0 hover:opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                      <div className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center animate-pulse text-red-500 bg-black/50">
+                         <Play size={24} fill="currentColor" />
+                      </div>
 
-                      <div className="w-full translate-y-0 lg:translate-y-4 lg:hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex flex-col items-center gap-1 md:gap-2 mb-2 w-full">
-                          <h5 className="text-xl md:text-4xl font-black uppercase tracking-tight text-white leading-tight">
-                            {release.title.replace('*', '')}
-                          </h5>
-                          {release.title.includes('*') && (
-                            <span className="mono text-[8px] md:text-[9px] bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full font-bold uppercase tracking-widest mt-1">Featured Release</span>
-                          )}
-                        </div>
+                      <div className="flex flex-col items-center gap-3 mb-2 w-full">
+                        <h5 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
+                          <DynamicShadowText text={release.title.replace('*', '')} mousePos={mousePos} />
+                        </h5>
+                        {release.title.includes('*') && (
+                          <span className="mono text-[8px] md:text-[10px] bg-red-600 px-3 py-1 rounded text-white font-black uppercase tracking-widest animate-pulse">Featured</span>
+                        )}
+                      </div>
 
-                        <div className="flex items-center space-x-3 mt-2 text-zinc-300">
-                          <p className="text-xs md:text-base uppercase font-bold">{release.artist}</p>
-                          <span className="w-1 h-1 bg-white/50 rounded-full" />
-                          <p className="mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-medium">{release.type}</p>
-                        </div>
+                      <div className="flex items-center space-x-3 mt-4 md:mt-6">
+                        <p className="mono text-base md:text-xl text-zinc-400 uppercase italic font-bold">{release.artist}</p>
+                        <span className="w-1.5 h-1.5 bg-red-600 rounded-full" />
+                        <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-[0.2em] font-medium">{release.type}</p>
+                      </div>
 
-                        <div className="mt-6 md:mt-8 pt-4 border-t border-white/10 w-full relative z-30">
-                          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-                            {release.spotify && <a href={release.spotify} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="glass-panel hover:bg-white hover:text-black px-4 md:px-6 py-2.5 md:py-3 rounded-full text-[8px] md:text-[9px] font-bold tracking-widest transition-all">SPOTIFY</a>}
-                            {release.apple && <a href={release.apple} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="glass-panel hover:bg-white hover:text-black px-4 md:px-6 py-2.5 md:py-3 rounded-full text-[8px] md:text-[9px] font-bold tracking-widest transition-all">APPLE</a>}
-                            {release.yt && <a href={release.yt} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="glass-panel hover:bg-white hover:text-black px-4 md:px-6 py-2.5 md:py-3 rounded-full text-[8px] md:text-[9px] font-bold tracking-widest transition-all">YOUTUBE</a>}
-                          </div>
+                      <div className="mt-12 md:mt-16 w-full">
+                        <p className="mono text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-black mb-4 md:mb-6 italic">STREAM / PURCHASE</p>
+                        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                          {release.spotify && <a href={release.spotify} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">SPOTIFY</a>}
+                          {release.apple && <a href={release.apple} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">APPLE</a>}
+                          {release.yt && <a href={release.yt} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">YT MUSIC</a>}
+                          {release.amazon && <a href={release.amazon} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">AMAZON</a>}
                         </div>
                       </div>
                     </div>
@@ -819,155 +698,158 @@ const App = () => {
             </div>
 
             {/* Carousel Controls */}
-            <div className="flex items-center space-x-4 md:space-x-6 mt-4 relative z-20">
+            <div className="flex items-center space-x-4 md:space-x-8 mt-4 relative z-20">
               <button
                 onClick={() => setCatalogIndex(prev => Math.max(0, prev - 1))}
                 disabled={catalogIndex === 0}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-white"
               >
-                <ChevronRight className="rotate-180" size={20} />
+                <ChevronRight className="rotate-180" size={24} />
               </button>
 
               <button
                 onClick={() => openModal('discography')}
-                className="flex items-center space-x-3 px-6 md:px-8 py-3 md:py-4 rounded-full glass-panel hover:bg-white/10 transition-all group"
+                className="flex items-center space-x-3 px-6 md:px-10 py-3 md:py-4 rounded-full border border-white/10 bg-zinc-950/50 hover:bg-zinc-900 transition-all group shadow-xl"
               >
-                <Disc className="text-red-400 group-hover:text-white animate-spin-slow" size={18} />
-                <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-white">Full Archives</span>
+                <Disc className="text-zinc-500 group-hover:text-red-500 animate-spin-slow" size={20} />
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-white transition-colors">Full Discography</span>
               </button>
 
               <button
                 onClick={() => setCatalogIndex(prev => Math.min(sortedReleases.length - 1, prev + 1))}
                 disabled={catalogIndex === sortedReleases.length - 1}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-white"
+                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-white"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={24} />
               </button>
             </div>
             
           </section>
 
-          <footer className="py-24 md:py-32 px-6 max-w-[1400px] mx-auto relative border-t border-white/5 mt-20">
-            <div className="flex flex-col md:flex-row justify-between items-start gap-16 relative z-10">
-              <div className="max-w-sm">
-                <div className="flex flex-col mb-6 cursor-pointer group" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
-                  <span className="text-3xl md:text-4xl font-black tracking-tight lowercase text-white transition-all group-hover:text-red-400">djmerkone</span>
-                  <span className="text-zinc-500 text-[9px] mono tracking-[0.4em] mt-1 font-bold uppercase">MUSIC</span>
+          <footer className="bg-black py-20 md:py-40 px-6 md:pl-40 md:pr-24 border-t border-white/5 relative overflow-hidden text-white text-white text-white">
+            <div className="absolute inset-0 opacity-10 flex items-center justify-center select-none pointer-events-none">
+               <span className="hero-text uppercase italic text-white/5 scale-150 lowercase text-white">djmerkone</span>
+            </div>
+            <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 text-white text-white">
+              <div className="max-w-md text-white">
+                <div className="flex flex-col mb-8 md:mb-10 group text-white text-white">
+                  <span className="text-3xl md:text-4xl font-black italic tracking-tighter lowercase transition-all group-hover:text-red-500 text-white text-white text-white">djmerkone</span>
+                  <span className="text-red-600 text-[8px] md:text-[10px] mono tracking-[0.5em] mt-1 font-bold uppercase text-red-600 text-red-600 text-red-600">MUSIC</span>
                 </div>
-                <p className="text-zinc-400 text-sm font-light leading-relaxed">High-fidelity engineering and multigenre production from the heart of Florida. Established 2019.</p>
+                <p className="text-zinc-500 text-[10px] md:text-xs font-black leading-loose uppercase tracking-[0.2em] md:tracking-[0.3em] italic text-zinc-500 text-zinc-500 text-zinc-500">Engineering the intersection of urban energy and cinematic fidelity since 2019.</p>
               </div>
-              
-              <div className="grid grid-cols-2 gap-16 md:gap-24">
+              <div className="grid grid-cols-2 gap-12 md:gap-20 text-white text-white text-white text-white">
                 <div>
-                  <h6 className="mono text-[10px] text-zinc-500 tracking-[0.3em] uppercase mb-6 font-bold">Network</h6>
-                  <ul className="space-y-4 text-xs font-bold uppercase tracking-widest text-zinc-300">
-                    <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-white transition-colors flex items-center">Luis Marte <ExternalLink size={12} className="ml-2 text-zinc-600" /></a></li>
-                    <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-white transition-colors flex items-center">Marilyn Torres <ExternalLink size={12} className="ml-2 text-zinc-600" /></a></li>
-                    <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-white transition-colors flex items-center lowercase font-black text-white">djmerkone <ExternalLink size={12} className="ml-2 text-zinc-600" /></a></li>
+                  <h6 className="mono text-[8px] md:text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-6 md:mb-10 font-bold underline underline-offset-8 text-zinc-600 text-zinc-600 text-white text-white">Network</h6>
+                  <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest text-zinc-400 text-zinc-400">
+                    <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Luis Marte <ExternalLink size={10} className="ml-2" /></a></li>
+                    <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white">Marilyn Torres <ExternalLink size={10} className="ml-2" /></a></li>
+                    <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-red-500 flex items-center transition-colors text-white lowercase italic text-white text-white">djmerkone <ExternalLink size={10} className="ml-2" /></a></li>
                   </ul>
                 </div>
                 <div>
-                  <h6 className="mono text-[10px] text-zinc-500 tracking-[0.3em] uppercase mb-6 font-bold">Social</h6>
-                  <div className="flex gap-4 text-zinc-400">
-                    <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white glass-panel p-3 rounded-full transition-all hover:scale-110"><Facebook size={16} /></a>
-                    <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white glass-panel p-3 rounded-full transition-all hover:scale-110"><Instagram size={16} /></a>
-                    <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white glass-panel p-3 rounded-full transition-all hover:scale-110"><Youtube size={16} /></a>
+                  <h6 className="mono text-[8px] md:text-[10px] text-zinc-600 tracking-[0.5em] uppercase mb-6 md:mb-10 font-bold underline underline-offset-8 text-zinc-600 text-white text-white text-white">Social</h6>
+                  <div className="flex space-x-4 md:space-x-6 text-zinc-500 text-zinc-500">
+                    <a href="https://facebook.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Facebook size={18} md:size={20} /></a>
+                    <a href="https://instagram.com/djmerkone" target="_blank" className="hover:text-white transition-all text-white"><Instagram size={18} md:size={20} /></a>
+                    <a href="https://tiktok.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-white"><TikTokIcon size={18} md:size={20} /></a>
+                    <a href="https://youtube.com/@djmerkone" target="_blank" className="hover:text-white transition-all text-zinc-500"><Youtube size={18} md:size={20} /></a>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="relative z-10 pt-20 mt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-zinc-500 mono text-[10px] uppercase tracking-widest">
-              <p>© {new Date().getFullYear()} djmerkone MUSIC. All Rights Reserved.</p>
-              <div className="flex space-x-8 mt-6 md:mt-0 pointer-events-auto">
-                 <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors">Privacy</button>
-                 <button onClick={() => openModal('terms')} className="hover:text-white transition-colors">Terms</button>
+            <div className="relative z-10 pt-20 md:pt-40 flex flex-col md:flex-row justify-between items-center text-zinc-700 mono text-[8px] md:text-[9px] uppercase tracking-widest font-black text-zinc-700 text-zinc-700">
+              <p>© 2019 – {new Date().getFullYear()} djmerkone MUSIC // ALL_RIGHT_RESERVED</p>
+              <div className="flex space-x-8 md:space-x-12 mt-6 md:mt-0 pointer-events-auto text-zinc-700 text-white text-white">
+                 <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors cursor-pointer text-zinc-700 text-white text-white">Privacy_Desk</button>
+                 <button onClick={() => openModal('terms')} className="hover:text-white transition-colors cursor-pointer text-zinc-700 text-white text-white">Terms_Of_Sound</button>
               </div>
             </div>
           </footer>
 
-          {/* Premium Glass Modal */}
           {modal.isOpen && (
-            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8 transition-all duration-500">
-              <div className="absolute inset-0 bg-[#050508]/90 backdrop-blur-xl" onClick={closeModal} />
-              
-              <div className={`relative w-full ${modal.type === 'discography' ? 'max-w-6xl h-[90vh]' : 'max-w-5xl max-h-[90vh]'} glass-panel-heavy rounded-[2rem] md:rounded-[3rem] overflow-hidden flex flex-col shadow-[0_0_100px_rgba(0,0,0,0.8)] animate-in fade-in zoom-in-95 duration-300`}>
-                
-                <div className="p-4 md:p-8 border-b border-white/10 flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center text-black shadow-lg"><Music size={14} /></div>
-                    <div className="mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-bold">
-                      djmerkone // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Profile') : (modal.type === 'discography' ? 'Archives' : 'Info')}
+            <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-12 transition-all duration-500 text-white text-white">
+              <div className="absolute inset-0 bg-black/90 backdrop-blur-2xl" onClick={closeModal} />
+              <div className={`relative w-full ${modal.type === 'discography' ? 'max-w-7xl h-[90vh]' : 'max-w-5xl max-h-[90vh]'} bg-zinc-950 border border-white/10 rounded-3xl md:rounded-[3rem] overflow-hidden flex flex-col shadow-2xl shadow-black animate-in fade-in zoom-in duration-300 text-white text-white`}>
+                <div className="p-6 md:p-8 border-b border-white/5 flex items-center justify-between text-white text-white">
+                  <div className="flex items-center space-x-3 md:space-x-4">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-white flex items-center justify-center text-black"><Music size={14} md:size={18} /></div>
+                    <div className="mono text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase text-zinc-500 text-zinc-500 text-white">
+                      djmerkone MUSIC // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial_Memorandum' : 'Artist_Profile') : (modal.type === 'discography' ? 'Cinema_Discography_Station' : 'Information_Hub')}
                     </div>
                   </div>
-                  <button onClick={closeModal} className="w-8 h-8 md:w-10 md:h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-black transition-all text-white"><X size={16} /></button>
+                  <button onClick={closeModal} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all text-white text-white text-white"><X size={16} md:size={20} /></button>
                 </div>
                 
-                <div className="flex-grow overflow-y-auto custom-scrollbar relative">
+                <div className="flex-grow overflow-y-auto custom-scrollbar text-white text-white">
                   {modal.type === 'artist' ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start p-4 md:p-12">
-                      <div className="relative aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
-                        <img src={modal.data.img} alt={modal.data.name} className={`w-full h-full object-cover ${modal.data.isMemorial && 'sepia-[0.3] grayscale-[0.5]'}`} />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-end">
-                          <h3 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white w-full break-words hyphens-auto leading-none ${modal.data.name === 'djmerkone' && 'lowercase'}`}>{modal.data.name}</h3>
-                          <div className="flex flex-wrap gap-2 mt-4 opacity-90">
-                            {modal.data.role.map((r, i) => <span key={i} className={`mono text-[8px] md:text-[9px] px-3 py-1.5 rounded-full uppercase tracking-widest font-bold ${modal.data.isMemorial ? 'bg-red-900/80 text-white backdrop-blur-md' : 'bg-white text-black'}`}>{r}</span>)}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start p-6 md:p-10 text-white text-white text-white">
+                      <div className="relative aspect-[4/5] bg-zinc-900 overflow-hidden rounded-2xl md:rounded-[2rem] text-white text-white">
+                        <img src={modal.data.img} alt={modal.data.name} className={`w-full h-full object-cover transition-all duration-700 ${modal.data.isMemorial ? 'sepia-[0.5] opacity-80 grayscale-[0.5]' : 'grayscale hover:grayscale-0'}`} />
+                        <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black to-transparent text-white text-white">
+                          <h3 className={`text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-white ${modal.data.name === 'djmerkone' ? 'lowercase' : ''}`}>{modal.data.name}</h3>
+                          <div className="flex flex-wrap gap-2 mt-3 md:mt-4 opacity-70 text-white text-white">
+                            {modal.data.role.map((r, i) => <span key={i} className={`mono text-[7px] md:text-[8px] px-2 py-1 rounded-sm uppercase tracking-widest ${modal.data.isMemorial ? 'bg-red-900 text-white' : 'bg-white text-black'}`}>{r}</span>)}
                           </div>
                         </div>
                       </div>
-                      <div className="space-y-8 md:space-y-10 pb-10 lg:pb-0">
-                        <div className="prose prose-invert max-w-none px-2 md:px-0">
+                      <div className="space-y-8 md:space-y-12 text-white text-white">
+                        <div className="prose prose-invert max-w-none text-white text-white">
                           {modal.data.isMemorial && (
-                            <div className="mb-10 p-6 glass-panel border-l-4 border-l-red-500 rounded-r-2xl">
-                              <p className="mono text-[10px] text-red-400 font-bold uppercase tracking-widest mb-3 flex items-center gap-2"><Heart size={14} fill="currentColor" /> Legacy</p>
-                              <p className="text-zinc-200 font-light text-lg md:text-xl italic leading-relaxed">{modal.data.note}</p>
+                            <div className="mb-8 md:mb-10 p-4 md:p-6 bg-red-900/10 border-l-4 border-red-900 rounded-r-2xl text-red-900">
+                              <p className="mono text-[8px] md:text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-red-500 text-red-500"><Heart size={10} md:size={12} fill="currentColor" /> Legacy Memorandum</p>
+                              <p className="text-zinc-300 font-black tracking-tighter text-lg md:text-xl italic text-white text-white">{modal.data.note}</p>
                             </div>
                           )}
-                          <p className="text-sm md:text-base leading-loose text-zinc-300 font-light whitespace-pre-line">{modal.data.bio}</p>
+                          <p className="mono text-[9px] md:text-[11px] leading-relaxed tracking-widest uppercase text-zinc-400 italic whitespace-pre-line text-zinc-400 text-white">{modal.data.bio}</p>
                         </div>
-                        <div className="pt-8 border-t border-white/10 px-2 md:px-0">
-                          <h4 className="mono text-[10px] tracking-[0.3em] uppercase text-zinc-500 mb-6 font-bold">Connections</h4>
-                          <div className="flex flex-wrap gap-4">
+                        <div className="pt-8 md:pt-12 border-t border-white/5 text-white">
+                          <h4 className="mono text-[8px] md:text-[10px] tracking-[0.4em] uppercase text-red-500 mb-6 md:mb-8 font-bold italic text-red-500 text-red-500">Official_Connectivity</h4>
+                          <div className="grid grid-cols-1 gap-4 md:gap-6 text-white text-white text-white">
                             {modal.data.link && (
-                              <a href={modal.data.link} target="_blank" className="flex items-center space-x-3 group glass-panel px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all">
-                                <Globe size={14} />
-                                <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest">{modal.data.isMemorial ? 'Obituary' : 'Website'}</span>
+                              <a href={modal.data.link} target="_blank" className="flex items-center space-x-4 md:space-x-6 group text-white">
+                                <div className="w-8 h-8 md:w-10 md:h-10 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all text-white text-white text-white"><Globe size={14} md:size={16} /></div>
+                                <span className="text-[10px] md:text-sm font-black uppercase tracking-widest italic underline decoration-zinc-800 group-hover:decoration-white transition-all underline-offset-8 text-white text-white">{modal.data.isMemorial ? 'Memorial Obituary' : 'Official Website'}</span>
                               </a>
                             )}
-                            {modal.data.socials && Object.entries(modal.data.socials).map(([key, val]) => (
-                                <a key={key} href={`https://${SOCIAL_MAP[key]}.com/${key === 'tt' || key === 'yt' ? '@' : ''}${val}`} target="_blank" className="glass-panel p-3 md:p-3.5 rounded-full hover:bg-white hover:text-black transition-all">
-                                  {key === 'fb' && <Facebook size={16} />}
-                                  {key === 'ig' && <Instagram size={16} />}
-                                  {key === 'yt' && <Youtube size={16} />}
-                                </a>
-                            ))}
+                            {modal.data.socials && (
+                              <div className="flex flex-wrap gap-4 md:gap-6 pt-2 md:pt-4 text-white text-white">
+                                {Object.entries(modal.data.socials).map(([key, val]) => (
+                                  <a key={key} href={`https://${key}.com/${val}`} target="_blank" className="text-zinc-500 hover:text-white transition-colors text-zinc-500 text-white">
+                                    {key === 'fb' && <Facebook size={18} md:size={20} />}
+                                    {key === 'ig' && <Instagram size={18} md:size={20} />}
+                                    {key === 'yt' && <Youtube size={18} md:size={20} />}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
                     </div>
                   ) : (modal.type === 'discography' ? (
-                    <div className="p-6 md:p-12 lg:p-16">
-                      <div className="relative mb-12 md:mb-16 text-center max-w-3xl mx-auto">
-                         <h3 className="text-3xl md:text-6xl font-black uppercase tracking-tight mb-4 text-white">The Archives</h3>
-                         <p className="mono text-[10px] md:text-[11px] text-zinc-400 uppercase tracking-widest mb-10 md:mb-12 px-4">Complete registry of releases, remixes, and studio collaborations.</p>
-                         <div className="relative mx-4 md:mx-0">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-500" size={20} />
+                    <div className="p-6 md:p-10 lg:p-20 text-white text-white text-white">
+                      <div className="relative mb-12 md:mb-20 text-center text-white text-white">
+                         <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 italic text-white text-white">THE ARCHIVES</h3>
+                         <p className="mono text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-widest mb-8 md:mb-12 text-zinc-500 text-zinc-500">Complete registry of releases, remixes, and studio collaborations.</p>
+                         <div className="relative max-w-2xl mx-auto text-white">
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-700 text-zinc-700 text-white" size={16} md:size={20} />
                             <input 
                               type="text" 
-                              placeholder="Search by Artist or Track..." 
-                              className="w-full glass-panel p-5 md:p-6 pl-14 md:pl-16 rounded-full text-sm font-medium text-white placeholder-zinc-500 focus:outline-none focus:bg-white/10 transition-all shadow-xl"
+                              placeholder="FILTER_BY_ARTIST_OR_TRACK..." 
+                              className="w-full bg-white/5 border border-white/10 p-5 md:p-8 pl-14 md:pl-16 rounded-full mono text-[10px] md:text-sm uppercase tracking-widest text-zinc-200 focus:outline-none focus:border-red-500/50 transition-all shadow-2xl text-zinc-200 text-zinc-200"
                               onChange={(e) => setDiscographyFilter(e.target.value)}
                             />
                          </div>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-10">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 text-white text-white">
                         {filteredDiscography.map((group, idx) => (
-                          <div key={idx} className="glass-panel p-6 md:p-8 rounded-3xl hover:bg-white/5 transition-all group">
-                            <h4 className="text-lg md:text-xl font-black text-white uppercase tracking-tight mb-6 pb-4 border-b border-white/10 group-hover:border-red-500/50 transition-colors">{(group.artist || '').toUpperCase()}</h4>
-                            <ul className="space-y-4">
+                          <div key={idx} className="space-y-4 md:space-y-6 bg-white/[0.02] p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/5 hover:border-white/10 transition-all text-white text-white">
+                            <h4 className="text-lg md:text-xl font-black text-red-600 uppercase tracking-[0.2em] italic border-b border-red-900/30 pb-3 md:pb-4 text-red-600 text-red-600">{(group.artist || '').toUpperCase()}</h4>
+                            <ul className="space-y-3 md:space-y-4 text-white">
                               {group.tracks.map((track, tIdx) => (
-                                <li key={tIdx} className="text-[13px] md:text-sm text-zinc-400 font-light leading-relaxed hover:text-white transition-colors flex items-start">
-                                  <span className="mr-4 mono text-[10px] text-red-500/80 font-bold pt-1">{(tIdx + 1).toString().padStart(2, '0')}</span>
+                                <li key={tIdx} className="mono text-[9px] md:text-[11px] text-zinc-500 uppercase tracking-widest leading-relaxed hover:text-white transition-colors flex items-start text-zinc-400 text-zinc-400">
+                                  <span className="mr-3 md:mr-4 text-zinc-800 font-black text-zinc-800 text-zinc-800">{(tIdx + 1).toString().padStart(2, '0')}</span>
                                   {track}
                                 </li>
                               ))}
@@ -976,8 +858,10 @@ const App = () => {
                         ))}
                       </div>
                     </div>
-                  ) : <div className="flex items-center justify-center py-32"><div className="text-lg text-zinc-400 font-light">Information coming soon...</div></div>)}
+                  ) : <div className="flex items-center justify-center py-20 text-white text-white text-white"><div className="prose prose-invert max-w-none mono text-lg md:text-xl leading-relaxed tracking-widest uppercase text-zinc-400 italic text-zinc-400">Info coming soon...</div></div>)}
                 </div>
+                
+                <div className="p-6 md:p-8 bg-zinc-900/50 border-t border-white/5 text-center text-white text-white"><p className="mono text-[7px] md:text-[8px] text-zinc-600 uppercase font-black tracking-widest text-zinc-600 text-zinc-600">djmerkone MUSIC // Ver. 2026.04</p></div>
               </div>
             </div>
           )}
