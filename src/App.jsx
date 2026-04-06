@@ -55,57 +55,68 @@ const OFFICIAL_RELEASES_DATA = [
   {
     artist: "Marilyn Torres",
     title: "The EP",
-    type: "EP (15 Tracks)",
+    type: "Album (15 Tracks)",
     art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_82967672_D28C5A86-3F7F-4B7C-A5D8E4D5D4E5D4E5.mp3",
-    apple: "https://music.apple.com/us/album/the-ep/1741829656",
-    spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DE099EB54-AEEF-4A3E-A3AA-47E7B547849D/destination:https://open.spotify.com/album/5VzPyW34rSEgehqtCGLxFR",
-    yt: "https://music.youtube.com/playlist?list=PLAe3_VQzByrcW34rSEgehqtCGLxFRrfJw",
-    amazon: "https://amazon.com/music/player/albums/B0D1YF8Z9Y"
+    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_85186471_793A0A8058F9B356D76C8852EAB47880.mp3",
+    apple: "https://music.apple.com/us/album/the-ep/1850311861?uo=4",
+    spotify: "https://open.spotify.com/album/4dqPBGWefdt3d0nbDcg2ER",
+    yt: "https://music.youtube.com/browse/MPREb_YgAHRzAwBgS",
+    amazon: "https://amazon.com/music/player/albums/B0FYCWF875?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_zxL1u7MFOBPPWdWVzdnU0SMsC"
   },
   {
     artist: "djmerkone",
     title: "latnem flex",
     type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DA111EA96%2D5167%2D4C31%2D9730%2D1022934E2F13%2D%2Dmod%2D1680517228%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_70138981_0SJf7QCpc3VD1AaMh6dPRx.mp3",
-    apple: "https://music.apple.com/us/album/latnem-flex-single/1680415392",
-    spotify: "https://open.spotify.com/album/4vK7t2W6vPzG1XN5O1u6Z2",
-    yt: "https://music.youtube.com/watch?v=9S-7M6pY8sI",
-    amazon: "https://amazon.com/music/player/albums/B0C1YF8Z9Y"
+    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D3790EFCC%2DFC55%2D4D7A%2DAB629C00CDE5F508%2D%2D0%2D%2D7805867%2D%2D1000007443%2Ejpg",
+    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250563_A39E3B5DE28D40F31CC1DE9575B8E7F5.mp3",
+    apple: "https://music.apple.com/us/album/latnem-flex-single/1847568073?uo=4",
+    spotify: "https://open.spotify.com/album/2Qrz2t3uSG1D9fU4kcJQLT",
+    yt: "https://music.youtube.com/watch?v=QifcZrj65ms",
+    amazon: "https://www.amazon.com/dp/B0FWWX7BGV/ref=sr_1_1?crid=4IJI60GTTX72&dib=eyJ2IjoiMSJ9.w_jp02N0AvuXIsm4aGPuFzVYFHVf-PS4wPL0-O_HL0U.6wmWxXMLEvGBG5T-3HslL0wiwQyajDTCtFFobVEu4HI&dib_tag=se&keywords=djmerkone+latnem+flex&qid=1775480676&sprefix=djmerkone+latnem+fle%2Caps%2C173&sr=8-1"
   },
   {
     artist: "djmerkone",
     title: "wrong",
     type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D81D73CC7%2D4A32%2D4978%2DB660%2D859345D998EB%2D%2Dmod%2D1680517215%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_70138959_0SJf7QCpc3VD1AaMh6dPRx.mp3",
-    apple: "https://music.apple.com/us/album/wrong-single/1680414926",
-    spotify: "https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx",
-    yt: "https://music.youtube.com/watch?v=7uV8rQ_8XkU",
-    amazon: "https://amazon.com/music/player/albums/B0C1YF8Z9Y"
+    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D9FF69870%2D6809%2D4A55%2D8E8EC29A948CCEE0%2D%2D0%2D%2D528811%2D%2D1000007464%2Ejpg",
+    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250289_69C7A0C90B9450E3E52FB2B8692529A6.mp3",
+    apple: "https://music.apple.com/us/album/wrong-single/1847380167?uo=4",
+    spotify: "https://open.spotify.com/album/493KDL9dcZhWuSDpiV2a0i",
+    yt: "https://music.youtube.com/watch?v=GPz1sHH4xVc&si=fgy5HlS4yj8wewC3",
+    amazon: "https://www.amazon.com/dp/B0FWXBTG1M/ref=sr_1_1?crid=3J1GRHC9SMD3K&dib=eyJ2IjoiMSJ9.R0bEaZIsFpoqSmtLYovsh0Pz1Hxp8RiTE_NN2zuTCybGjHj071QN20LucGBJIEps.T_GG1hXeybk_fcHURXMjYkzKJ4pykW_dMNhrHvRclL8&dib_tag=se&keywords=dj+merkone+wrong&qid=1775480704&sprefix=djmerkone+wron%2Caps%2C164&sr=8-1"
   },
   {
     artist: "djmerkone",
     title: "anomaly",
     type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DB32F3A87%2DA21B%2D4A2F%2DBC16%2D135081CD1625%2D%2Dmod%2D1680517202%2Ejpg",
+    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEB27753B%2D4CAC%2D4F9C%2DB937654AA2EAF313%2D%2D0%2D%2D641299%2D%2D1000007457%2Ejpg",
     preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_70138936_0SJf7QCpc3VD1AaMh6dPRx.mp3",
-    apple: "https://music.apple.com/us/album/anomaly-single/1680414343",
-    spotify: "https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx",
-    yt: "https://music.youtube.com/watch?v=p7Hn9_f8a0U",
-    amazon: "https://amazon.com/music/player/albums/B0C1YF8Z9Y"
+    apple: "https://music.apple.com/us/album/anomaly-single/1847557771?uo=4",
+    spotify: "https://open.spotify.com/album/771CqnGm4WE0xtapgq8Bap",
+    yt: "https://music.youtube.com/watch?v=vIjRymiWY5Q&si=JSrNIuMfrlDOnqiY",
+    amazon: "https://www.amazon.com/dp/B0FWWL38RM/ref=sr_1_2?crid=11WFVXWZT5Q7P&dib=eyJ2IjoiMSJ9.Z3NOgvEKehqr1K_Rxsb-ifQXks6enKK6W4GWGyirGUPGjHj071QN20LucGBJIEps.koQNUtGGpF6dPpFbntt9x-PoyFTUnSW6mYbe9dwjBVU&dib_tag=se&keywords=djmerkone+anomaly&qid=1775480735&sprefix=djmerkone+anomal%2Caps%2C167&sr=8-2"
   },
   {
     artist: "djmerkone",
     title: "chasmitha",
     type: "Single",
-    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DA111EA96%2D5167%2D4C31%2D9730%2D1022934E2F13%2D%2Dmod%2D1680517188%2Ejpg",
-    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_70138902_0SJf7QCpc3VD1AaMh6dPRx.mp3",
-    apple: "https://music.apple.com/us/album/chasmitha-single/1680414002",
-    spotify: "https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx",
-    yt: "https://music.youtube.com/watch?v=Z4b4X8n8rS8",
-    amazon: "https://amazon.com/music/player/albums/B0C1YF8Z9Y"
+    art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D5E2BF402%2D1A7A%2D4E84%2DB46C42D07934069F%2D%2D0%2D%2D1482023%2D%2DPSX202510090930412%2Ejpg",
+    preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_83682243_801FC8AE6C36B097E885BA980169335E.mp3",
+    apple: "https://music.apple.com/us/album/chasmitha-single/1845767250?uo=4",
+    spotify: "https://open.spotify.com/album/5JMUpkuDcShpAqciuwlGh0",
+    yt: "https://music.youtube.com/watch?v=6TGec3Dkwoo&si=GND_I4E-0fvKGOYP",
+    amazon: "https://www.amazon.com/dp/B0FVRPFVWB/ref=sr_1_1?crid=29G4RSB6UM9ZH&dib=eyJ2IjoiMSJ9.ehfdyksba_LBOsAVyar6hdpmTCG8AytzRreCyDD6rHk.aWli3FAhgxIxdsDKs04BuhZw8KtEREZXyIJ53Kql5Fo&dib_tag=se&keywords=dj+merkone+chasmitha&qid=1775480836&sprefix=djmerkone+chasmitha%2Caps%2C159&sr=8-1"
+  },
+  {
+    artist: "Luis Marte",
+    title: "100 MPH",
+    type: "EP (8 Tracks)",
+    art: "https://i.discogs.com/vYW6zrL9jzXwT2l7WQnk6rpj1qPyc97evBqM1hJdBhk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4NTQ1/NDI1LTE2MTk4ODI4/MzctMjMxMC5qcGVn.jpeg",
+    preview: "100mph.wav",
+    apple: "https://music.apple.com/us/album/100-mph/1817531010",
+    spotify: "https://open.spotify.com/album/5vjuqBXaAbBvw8o9GNUXj5",
+    yt: "https://music.youtube.com/playlist?list=OLAK5uy_lTGujWshYCYkBPyDKvtNQn_V_VwyF6XdI&si=E5ptXsRTdmvZPAzp",
+    amazon: "https://www.amazon.com/100-MPH-Luis-Marte/dp/B0FBCV7QSS"
   },
   {
     artist: "Ricardo Vazquez",
