@@ -617,11 +617,11 @@ const App = () => {
             </div>
           </section>
 
-          <section id="work" className="py-20 md:py-40 px-6 border-t border-white/5 bg-[#030303] text-white overflow-hidden flex flex-col items-center">
+          <section id="work" className="py-12 md:py-24 px-6 border-t border-white/5 bg-[#030303] text-white overflow-hidden flex flex-col items-center">
             
-            <div className="relative text-center mb-16 md:mb-24 flex flex-col items-center w-full">
+            <div className="relative text-center mb-8 md:mb-12 flex flex-col items-center w-full">
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[5rem] sm:text-[8rem] md:text-[15rem] font-black text-white/[0.02] select-none uppercase pointer-events-none lowercase opacity-10 whitespace-nowrap">djmerkone</div>
-               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6 italic relative z-10">
+               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-4 md:mb-6 italic relative z-10">
                  <DynamicShadowText text="THE" mousePos={mousePos} /> <br />
                  <span className="text-stroke italic text-white"><DynamicShadowText text="CATALOG." mousePos={mousePos} /></span>
                </h2>
@@ -629,7 +629,7 @@ const App = () => {
             </div>
 
             {/* Coverflow Carousel */}
-            <div className="relative w-full max-w-[100vw] h-[350px] sm:h-[450px] md:h-[600px] flex items-center justify-center [perspective:2000px] mt-8 mb-12">
+            <div className="relative w-full max-w-[100vw] h-[340px] sm:h-[450px] md:h-[650px] flex items-center justify-center [perspective:2000px] mt-4 md:mt-6 mb-6 md:mb-8">
               {sortedReleases.map((release, index) => {
                 const offset = index - catalogIndex;
                 const absOffset = Math.abs(offset);
@@ -638,7 +638,7 @@ const App = () => {
                 // Only render items close enough to the center
                 if (absOffset > 4) return null;
 
-                const translateX = `calc(-50% + ${offset * 22}vmin)`;
+                const translateX = `calc(-50% + ${offset * 26}vmin)`;
                 const rotateY = isCenter ? 0 : (offset > 0 ? -45 : 45);
                 const scale = isCenter ? 1 : Math.max(0.85 - (absOffset * 0.15), 0.5);
                 const zIndex = 50 - absOffset;
@@ -650,7 +650,7 @@ const App = () => {
                     onClick={() => !isCenter && setCatalogIndex(index)}
                     onMouseEnter={() => isCenter && handlePreviewStart(release.preview)}
                     onMouseLeave={() => isCenter && handlePreviewStop()}
-                    className={`absolute top-1/2 -translate-y-1/2 w-[260px] sm:w-[320px] md:w-[450px] aspect-square rounded-3xl md:rounded-[3rem] overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-[0_30px_60px_rgba(0,0,0,0.6)] border ${isCenter && release.title.includes('*') ? 'border-red-900/50 shadow-[0_0_100px_rgba(239,68,68,0.3)]' : 'border-white/10'}`}
+                    className={`absolute top-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[550px] aspect-square rounded-3xl md:rounded-[3rem] overflow-hidden transition-all duration-700 ease-out cursor-pointer shadow-[0_30px_60px_rgba(0,0,0,0.6)] border ${isCenter && release.title.includes('*') ? 'border-red-900/50 shadow-[0_0_100px_rgba(239,68,68,0.3)]' : 'border-white/10'}`}
                     style={{
                       left: '50%',
                       transform: `translateX(${translateX}) scale(${scale}) rotateY(${rotateY}deg)`,
@@ -662,13 +662,13 @@ const App = () => {
                     <img src={release.art} alt={release.title} className="w-full h-full object-cover" />
 
                     {/* Hover Overlay - Only visible & interactive when focused */}
-                    <div className={`absolute inset-0 bg-black/80 backdrop-blur-md p-6 md:p-10 flex flex-col justify-center items-center text-center transition-opacity duration-500 ${isCenter ? 'opacity-0 hover:opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                      <div className="absolute top-6 right-6 md:top-8 md:right-8 w-10 h-10 md:w-14 md:h-14 border border-white/20 rounded-full flex items-center justify-center animate-pulse text-red-500 bg-black/50">
-                         <Play size={20} fill="currentColor" />
+                    <div className={`absolute inset-0 bg-black/80 backdrop-blur-md p-8 md:p-12 flex flex-col justify-center items-center text-center transition-opacity duration-500 ${isCenter ? 'opacity-0 hover:opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                      <div className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center animate-pulse text-red-500 bg-black/50">
+                         <Play size={24} fill="currentColor" />
                       </div>
 
                       <div className="flex flex-col items-center gap-3 mb-2 w-full">
-                        <h5 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white">
+                        <h5 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
                           <DynamicShadowText text={release.title.replace('*', '')} mousePos={mousePos} />
                         </h5>
                         {release.title.includes('*') && (
@@ -676,13 +676,13 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="flex items-center space-x-3 mt-4">
-                        <p className="mono text-sm md:text-lg text-zinc-400 uppercase italic font-bold">{release.artist}</p>
+                      <div className="flex items-center space-x-3 mt-4 md:mt-6">
+                        <p className="mono text-base md:text-xl text-zinc-400 uppercase italic font-bold">{release.artist}</p>
                         <span className="w-1.5 h-1.5 bg-red-600 rounded-full" />
                         <p className="mono text-[10px] md:text-xs text-zinc-500 uppercase tracking-[0.2em] font-medium">{release.type}</p>
                       </div>
 
-                      <div className="mt-10 md:mt-12 w-full">
+                      <div className="mt-12 md:mt-16 w-full">
                         <p className="mono text-[8px] md:text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-black mb-4 md:mb-6 italic">STREAM / PURCHASE</p>
                         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                           {release.spotify && <a href={release.spotify} target="_blank" rel="noopener noreferrer" className="bg-zinc-900 border border-white/10 hover:bg-white hover:text-black px-4 md:px-6 py-2 md:py-3 rounded-full text-[8px] md:text-[10px] font-black tracking-widest transition-all">SPOTIFY</a>}
