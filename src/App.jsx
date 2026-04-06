@@ -24,6 +24,7 @@ import {
   FileText,
   Search
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 /**
  * Custom SVG for Spotify
@@ -224,6 +225,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-[#030303] text-zinc-100 font-sans selection:bg-red-500/30 overflow-x-hidden">
+      <SpeedInsights />
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;500;800&display=swap');
