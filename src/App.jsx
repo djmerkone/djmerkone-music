@@ -5,6 +5,8 @@ import {
   Disc, 
   Play, 
   Pause,
+  ChevronRight, 
+  ChevronLeft,
   Instagram, 
   Facebook,
   Youtube,
@@ -145,7 +147,7 @@ const BrandLogo = ({ size = 'md', className = '' }) => {
     <div className={`inline-flex cursor-pointer group ${className} ${sizing}`}>
       {/* mix-blend-screen makes the black background of logo.jpg completely transparent on our dark theme! */}
       <img 
-        src="logo.jpg" 
+        src="logo.png" 
         alt="djmerkone MUSIC" 
         className="w-full h-auto object-contain mix-blend-screen opacity-95 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
       />
@@ -720,7 +722,7 @@ const App = () => {
                           {modal.data.isMemorial && (
                             <div className="mb-10 p-8 bg-red-950/10 border border-rose-500/20 rounded-xl">
                               <p className="text-[10px] text-rose-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2"><Heart size={14} fill="currentColor" /> Legacy Member</p>
-                              <p className="text-zinc-200 font-display text-xl font-bold tracking-tight">{modal.data.note}</p>
+                              <p className="text-zinc-200 italic font-display text-lg tracking-tight">{modal.data.note}</p>
                               {modal.data.lifespan && <p className="text-zinc-400 italic text-sm mt-1">{modal.data.lifespan}</p>}
                             </div>
                           )}
