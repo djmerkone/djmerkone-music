@@ -138,23 +138,18 @@ const SOCIAL_MAP = {
 
 const BrandLogo = ({ size = 'md', className = '' }) => {
   const sizing = {
-    sm: 'text-[1.75rem] md:text-[2.25rem]',
-    md: 'text-[3rem] md:text-[4rem]',
-    lg: 'text-[10vw] md:text-[8rem]',
+    sm: 'w-32 md:w-40',
+    md: 'w-48 md:w-64',
+    lg: 'w-64 sm:w-80 md:w-96 lg:w-[35rem]',
   }[size];
 
   return (
-    <div className={`flex flex-col inline-flex cursor-pointer group ${className} w-max ${sizing}`}>
-      <span className="font-ziba tracking-normal lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
-        djmerkone
-      </span>
-      <div className="flex justify-between items-start w-full text-[0.42em] leading-[0.8] mt-[-0.05em] font-horizon text-white uppercase">
-        <span>M</span>
-        <span>U</span>
-        <span>S</span>
-        <span>I</span>
-        <span>C</span>
-      </div>
+    <div className={`inline-flex cursor-pointer group ${className} ${sizing}`}>
+      <img 
+        src="logo.png" 
+        alt="djmerkone MUSIC" 
+        className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] mix-blend-screen"
+      />
     </div>
   );
 };
@@ -209,8 +204,10 @@ const App = () => {
   const [discographyFilter, setDiscographyFilter] = useState("");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
+  const [activeService, setActiveService] = useState(SERVICES_DATA[0]);
   const [playingPreview, setPlayingPreview] = useState(null);
   const audioRef = useRef(new Audio());
+  const [catalogIndex, setCatalogIndex] = useState(0);
 
   // Handle Audio ending
   useEffect(() => {
@@ -286,26 +283,6 @@ const App = () => {
         {`
           @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;500;700&display=swap');
           
-          @font-face {
-            font-family: 'XP Ziba';
-            src: url('/XP-Ziba.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-          
-          @font-face {
-            font-family: 'Horizon';
-            src: url('/Horizon.woff2') format('woff2'),
-                 url('/Horizon.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-          
-          .font-ziba { font-family: 'XP Ziba', sans-serif; }
-          .font-horizon { font-family: 'Horizon', sans-serif; }
-
           body { 
             font-family: 'Inter', sans-serif; 
             background-color: #030303; 
@@ -517,8 +494,8 @@ const App = () => {
                                 <Heart size={10} fill="currentColor" className="text-rose-400" /> Legacy Member
                               </div>
                             )}
-                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 lowercase`}>
-                              {artist.name.toLowerCase()}
+                            <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+                              {artist.name}
                             </h3>
                             <div className="flex flex-wrap gap-2 mb-4">
                                {artist.role.slice(0,3).map((r, idx) => (
@@ -680,7 +657,7 @@ const App = () => {
                       <ul className="space-y-4 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
                         <li><a href="https://luismartemusic.com" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between">Luis Marte</a></li>
                         <li><a href="https://marilyn-site.vercel.app/" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between">Marilyn Torres</a></li>
-                        <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between font-black text-white lowercase">djmerkone</a></li>
+                        <li><a href="https://djmerkone-site0.vercel.app" target="_blank" className="hover:text-rose-500 transition-colors flex items-center justify-between font-black text-white">djmerkone</a></li>
                       </ul>
                     </div>
                     <div>
@@ -695,7 +672,7 @@ const App = () => {
                 </div>
                 
                 <div className="max-w-[1400px] mx-auto pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-600 relative z-10">
-                  <p className="lowercase">© {new Date().getFullYear()} djmerkone MUSIC. ALL RIGHTS RESERVED.</p>
+                  <p>© {new Date().getFullYear()} djmerkone MUSIC. ALL RIGHTS RESERVED.</p>
                   <div className="flex space-x-8 mt-6 md:mt-0 uppercase">
                      <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors">Privacy</button>
                      <button onClick={() => openModal('terms')} className="hover:text-white transition-colors">Terms</button>
@@ -716,7 +693,7 @@ const App = () => {
                   <div className="flex items-center space-x-4">
                     <div className="w-10 h-10 rounded border border-rose-500/20 flex items-center justify-center text-rose-500 bg-rose-500/5"><Music size={16} /></div>
                     <div className="text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-bold flex items-center gap-1">
-                      <span className="lowercase font-ziba text-[12px] pt-1">djmerkone</span> // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Artist Profile') : (modal.type === 'discography' ? 'Release Archive' : 'Information')}
+                      djmerkone // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Artist Profile') : (modal.type === 'discography' ? 'Release Archive' : 'Information')}
                     </div>
                   </div>
                   <button onClick={closeModal} className="w-10 h-10 rounded bg-white/5 hover:bg-white hover:text-black flex items-center justify-center transition-colors text-zinc-300"><X size={18} /></button>
@@ -724,16 +701,17 @@ const App = () => {
                 
                 <div className="flex-grow overflow-y-auto custom-scrollbar relative bg-[#070707]">
                   {modal.type === 'artist' ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 p-6 md:p-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 p-6 md:p-12 min-h-full">
                       
                       <div className="lg:col-span-5">
                         <div className="relative aspect-square md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                          <img src={modal.data.img} alt={modal.data.name} className={`absolute inset-0 w-full h-full object-cover ${modal.data.isMemorial && 'grayscale opacity-70'}`} />
+                          <img src={modal.data.img} alt={modal.data.name} className={`absolute inset-0 w-full h-full object-cover ${modal.data.isMemorial ? 'grayscale opacity-70' : ''}`} />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#070707] lg:from-[#070707]/50 to-transparent" />
                         </div>
                       </div>
                       
-                      <div className="lg:col-span-7 flex flex-col pb-8">
-                        <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 ${modal.data.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
+                      <div className="lg:col-span-7 flex flex-col pb-8 relative">
+                        <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 ${modal.data.name === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
                           {modal.data.name}
                         </h3>
                         
