@@ -138,23 +138,18 @@ const SOCIAL_MAP = {
 
 const BrandLogo = ({ size = 'md', className = '' }) => {
   const sizing = {
-    sm: 'text-[1.75rem] md:text-[2.25rem]',
-    md: 'text-[3rem] md:text-[4rem]',
-    lg: 'text-[10vw] md:text-[8rem]',
+    sm: 'w-32 md:w-40',
+    md: 'w-48 md:w-64',
+    lg: 'w-64 sm:w-80 md:w-96 lg:w-[35rem]',
   }[size];
 
   return (
-    <div className={`flex flex-col inline-flex cursor-pointer group ${className} w-max ${sizing}`}>
-      <span className="font-ziba tracking-tight lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
-        djmerkone
-      </span>
-      <div className="flex justify-between items-start w-full text-[0.42em] leading-[0.8] mt-[-0.05em] font-horizon text-white uppercase">
-        <span>M</span>
-        <span>U</span>
-        <span>S</span>
-        <span>I</span>
-        <span>C</span>
-      </div>
+    <div className={`inline-flex cursor-pointer group ${className} ${sizing}`}>
+      <img 
+        src="logo.png" 
+        alt="djmerkone MUSIC" 
+        className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+      />
     </div>
   );
 };
