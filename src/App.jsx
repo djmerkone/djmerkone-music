@@ -33,7 +33,7 @@ const ARTISTS_DATA = [
   { name: "Marilyn Torres", role: ["Artist", "Writer", "Producer"], link: "https://marilyn-site.vercel.app/", img: "marb.png", accent: "emerald", bio: "Marilyn Torres: The Evolution of a Freestyle Icon\nFrom the sun-drenched streets of Ponce, Puerto Rico, to the rhythmic pulse of New Jersey, Marilyn Torres has spent over two decades carving a unique path through the music industry. Known for her powerhouse vocals and a fearless ability to pivot between genres, she has evolved from a digital pioneer to a cornerstone of the modern Latin Freestyle movement.\n\nThe Foundations (2005–2013)\nMarilyn’s journey began in 2005 with the groundbreaking digital debut of \"Callin' For Love.\" This early embrace of digital distribution set the stage for a prolific run that showcased her versatility:\n\nThe Freestyle Era: She solidified her voice with \"No Puedo Amarte\" (2006), \"Why\" (2007), and \"My Cry\" (2008).\n\nGenre Defiance: In 2009, she showcased her range with the reggaeton track \"Yo No Fui\" and dominated the Latin Hip-Hop scene with a series of sharp battle and diss tracks through 2013.\n\nKey Collaborations: Her career is marked by deep musical partnerships, including work with Apocalypsis and her brother Gerry (Jeriel). She also famously collaborated with L’amour on \"Yesterday\" in 2012—a track that took on new meaning when it was featured again on his posthumous final album as a tribute to their shared artistry.\n\nThe Return and Contemporary Success\nAfter a brief hiatus, Marilyn returned to the spotlight with the massive hit \"In Exchange For What,\" signaling a new chapter of official digital releases that have dominated the dance charts. Her recent work continues to push the genre forward while honoring its roots:\n\n\"In Time\": A standout collaboration with Joe Magic and Howie Wienman.\n\nChart-Toppers: Recent staples like \"Torn\" and the upcoming \"Don't Let Me\" continue to resonate with a global audience of DJs and freestyle enthusiasts.\n\nWhether she is delivering a heartfelt ballad or a high-energy dance anthem, Marilyn Torres remains a resilient force in the industry—a Jersey-raised talent with a Puerto Rican heart, bridging the gap between the underground and the international stage.", socials: { fb: "marilyntorresmusic", ig: "marilyntorres", tt: "marilyntorres", yt: "marilyntorres" } },
   { name: "Luis Marte", role: ["Collaborator", "Artist", "Writer", "Producer", "Engineer"], link: "https://luismartemusic.com", img: "luisbio.JPG", accent: "cyan", bio: "Luis Marté has been blessed with a long career in the music industry as an artist, songwriter, engineer and producer. He has opened for Chico Debarge on the Apollo stage, toured with pop sensation 98 Degrees, shared the Disney Channel spotlight with latin heart throb Enrique Iglesias and burned the airwaves of MTV TRL.\n\n“Those were exciting times in my life, here’s a kid from the Bronx, living out his dream on the biggest stage”\n\nFor most of his career as a performing artist, he rode the journey with three other guys. Strange Wayz was the name they went by, four childhood friends, four guys who took a chance on each other to chase a dream and boy did they ever. They signed to power house booking agency ICM: International Creative Management in early 2001 and were catapulted into the scene opening for major pop acts dominating the charts. Strange Wayz was able to fuse their latin roots with a Pop/R&B swag that propelled them to heights only dreamed about in streets of the Bronx.\n\n“They already have the talent, they already have the music…” ~ Enrique Iglesias\n\nStrange Wayz signed a Production Deal shortly after touring and the group took on a different look and feel, sign of the times?! Out with the pop boy band sound and in with the more mature R&B Dance. With a change in sound, so did a change come in the groups members. Luis was the last to remain of the original group and a new group formed around him; ForeKast.\n\n“We were in a different place then, now we were working with some heavyweights, alot was on the line”\n\nThe group was setup for success, working with producer/vocal arranger phenom’ Jim Beanz who they affectionately called “Jimba”, whose credits at the time included P Diddy, Danity Kane, Timberland, Day 26, and Justin Timberlake.\n\nFast forward to present day, Luis now finds himself back on the scene penning pop records, working behind the scenes developing fresh new talent and continuing to release his own music under his label LMM Recordings.\n\nStay tuned for future releases.", socials: { fb: "luismartemusic", ig: "luismarte", tt: "luismarte", yt: "luismarte" } },
   { name: "Ricardo Vazquez", role: ["Writer", "Artist"], img: "ricbio3.jpg", accent: "orange", bio: "Ricardo Vazquez, widely known in the freestyle and dance music circuits as Ricky Vaz, is a veteran force whose musical journey began in the auditoriums and theater productions of his Rochester, New York high school. Emerging onto the scene in the late ‘90s, his career has been defined by a high-output discography and a relentless dedication to Latin Freestyle, R&B, and House music.\n\nHis breakthrough arrived in 1999 with his debut single, \"Moment of Love,\" featured on Freestyle Mania Vol 2. This momentum propelled him into the early 2000s, landing the hit \"See My Tears\" on the legendary Micmac Records in 2005. These early successes proved his ability to blend street-level authenticity with professional studio polish, establishing him as a defining voice in both the Rochester scene and the national freestyle landscape.\n\nA prolific collaborator and dynamic performer, Ricardo has built an expansive discography working with legendary labels and imprints, including Artistik Records, Artie Productions, Str84ward Entertainment, Pitch Control Productions, and DMO Musik. His major studio projects—such as his 2014 full-length album A Piece of Me, Abandoned, and the In A Class of Our Own series (alongside NuStyle Records owner Alex Zuniga)—serve as powerful timestamps of his sonic evolution. Fearlessly pivoting between classic freestyle energy and mature R&B/House textures, he has delivered standout collaborations alongside Andrea Martin (\"That’s What It’s All About\"), Marilyn Sanchez (\"Love Will See Us Through\"), Hector “Sito” Santiago (\"On the Outside\"), and frequent collaborator Luis Marte.\n\nBeyond the vocal booth, Ricardo is a devoted mentor and industry leader. In 2005, he founded Menage3 Entertainment to help guide up-and-coming artists through production, writing, vocal training, and the intricacies of the music business. His passion for artist development continues to be a driving force, as he frequently coordinates with other record labels and entertainment companies to elevate the scene as a whole.\n\nAs a songwriter and vocalist, Ricardo proudly represents the LGBTQIA+ community, using his platform to push for equality and authentic expression. Through tracks like \"You'll Be OK\" featuring Joseph “Joey Tee” Wetmore, his writing reflects the truth of modern love and aims to make a lasting, inclusive statement within the genre.\n\nToday, Ricardo Vazquez remains a cornerstone of the djmerkone MUSIC collective. Continuing to perform, host, and MC, he operates as a lead artist, backup vocalist, and elite songwriter. His decades of experience, undeniable drive, and clinical understanding of hit-making hooks make him an essential pillar of the studio's creative infrastructure, ensuring his continued impact on the music industry.", socials: { ig: "ricardovazquez" } },
-  { name: "Dengel", role: ["Writer", "Artist", "Producer"], img: "dengbio.jpg", accent: "rose", bio: "Dengel (William D. Cortes) is a versatile titan of the Latin Urban and Freestyle genres, with a career rooted in the raw energy of the early scene. He first made his mark as 'Willie D' in the burgeoning Latin Hip-Hop movement with the track 'Mi Abuela,' proving early on his ability to capture a rhythmic vibe.\n\nTransitioning into the late 90s, Dengel joined the powerhouse High Power Records under the moniker 'Nadamas.' Alongside his partner, he debuted the 1997 hit 'Dat Hoochie,' a track that became a staple of the era's club rotation. His creative chemistry extended into deep collaborations with the late Carlos 'Charlie' Velasquez (L'amour), co-authoring and performing on the freestyle classics 'I Wanna Be Loved' and 'Don't Look Back.'\n\nThe dawn of the 2000s saw Dengel expand his influence by partnering with djmerkone to establish Wik-It Records. This alliance launched a series of high-impact releases that defined the 'New School' sound, including the hits 'Sexual Vibe' and 'She Left Me.' These tracks didn't just top charts; they reshaped the Latin Freestyle landscape for a new generation.\n\nDengel remains an essential pillar of djmerkone MUSIC today. As an artist, elite songwriter, and backup vocalist, his decades of expertise and clinical ear for hooks ensure the collective's output maintains its legendary sonic precision.", socials: { ig: "dengelmusic" } },
+  { name: "Dengel", role: ["Writer", "Artist", "Producer"], img: "dengbio.jpg", accent: "rose", bio: "Dengel (William D. Cortes) is a versatile titan of the Latin Urban and Freestyle genres, with a career rooted in the raw energy of the early scene. He first made his mark as 'Willie D' in the burgeoning Latin Hip-Hop movement with the track 'Mi Abuela,' proving early on his ability to capture a rhythmic vibe.\n\nTransitioning into the late 90s, Dengel joined the powerhouse High Power Records under the moniker 'Nadamas.' Alongside his partner, he debuted the 1997 hit 'Dat Hoochie,' a track that became a staple of the era's club rotation. His creative chemistry extended into deep collaborations with the late Carlos 'Charlie' Velasquez (L'amour), co-authoring and performing on the freestyle classics 'I Wanna Be Loved' and 'Don't Look Back.'\n\nThe dawn of the 2000s saw Dengel expand his influence by partnering with djmerkone to establish Wik-It Records. This alliance launched a series of high-impact releases that defined the 'New School' sound, including the hits 'Sexual Vibe' and 'She Left Me.' These tracks didn't just top charts; reshaped the Latin Freestyle landscape for a new generation.\n\nDengel remains an essential pillar of djmerkone MUSIC today. As an artist, elite songwriter, and backup vocalist, his decades of expertise and clinical ear for hooks ensure the collective's output maintains its legendary sonic precision.", socials: { ig: "dengelmusic" } },
   { name: "L'amour", role: ["Producer", "Writer", "Artist"], img: "lam0.jpg", accent: "zinc", isMemorial: true, bio: "L'amour (Carlos 'Charlie' Velasquez) was a visionary producer, writer, and artist whose influence spanned the golden eras of freestyle and contemporary electronic music. Operating under various monikers including la-mour, l'amour, Carlos Velasquez, and Charlie Velasquez, he was a key figure in the High Power Records era, where his sharp songwriting and vocal contributions helped define a generation of sound.\n\nHis legacy is rooted in his work with la-mour productions, High Power Records, and his deep creative bond with djmerkone MUSIC. A prolific creator, Charlie was responsible for writing numerous hits for High Power and providing standout vocal performances that combined raw emotion with technical precision. Notable works include his hauntingly beautiful collaboration with Marilyn Torres on 'Yesterday,' a track that remains a cornerstone of his posthumous catalog.\n\nOn December 16, 2019, the music world lost a true sonic architect. Carlos was 45 years old, a beloved resident of Pennsylvania, whose passion for his craft left an indelible mark on the music industry. Though he is no longer in the studio, his frequencies continue to resonate through every project he touched.", note: "Carlos 'Charlie' Velasquez", lifespan: "August 17, 1974 – December 16, 2019", link: "https://www.dillonfuneralhomeinc.com/obituary/CarlosCharlie-Velasquez", socials: { yt: "djmerkone" } }
 ];
 
@@ -138,18 +138,23 @@ const SOCIAL_MAP = {
 
 const BrandLogo = ({ size = 'md', className = '' }) => {
   const sizing = {
-    sm: 'w-32 md:w-40',
-    md: 'w-48 md:w-64',
-    lg: 'w-64 sm:w-80 md:w-96 lg:w-[35rem]',
+    sm: 'text-[1.75rem] md:text-[2.25rem]',
+    md: 'text-[3rem] md:text-[4rem]',
+    lg: 'text-[10vw] md:text-[8rem]',
   }[size];
 
   return (
-    <div className={`inline-flex cursor-pointer group ${className} ${sizing}`}>
-      <img 
-        src="logo.png" 
-        alt="djmerkone MUSIC" 
-        className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-      />
+    <div className={`flex flex-col inline-flex cursor-pointer group ${className} w-max ${sizing}`}>
+      <span className="font-ziba tracking-normal lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
+        djmerkone
+      </span>
+      <div className="flex justify-between items-start w-full text-[0.42em] leading-[0.8] mt-[-0.05em] font-horizon text-white uppercase">
+        <span>M</span>
+        <span>U</span>
+        <span>S</span>
+        <span>I</span>
+        <span>C</span>
+      </div>
     </div>
   );
 };
@@ -283,7 +288,7 @@ const App = () => {
           
           @font-face {
             font-family: 'XP Ziba';
-            src: url('XP-Ziba.ttf') format('truetype');
+            src: url('/XP-Ziba.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -291,8 +296,8 @@ const App = () => {
           
           @font-face {
             font-family: 'Horizon';
-            src: url('Horizon.woff2') format('woff2'),
-                 url('Horizon.otf') format('opentype');
+            src: url('/Horizon.woff2') format('woff2'),
+                 url('/Horizon.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -512,8 +517,8 @@ const App = () => {
                                 <Heart size={10} fill="currentColor" className="text-rose-400" /> Legacy Member
                               </div>
                             )}
-                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 ${artist.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
-                              {artist.name}
+                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 lowercase`}>
+                              {artist.name.toLowerCase()}
                             </h3>
                             <div className="flex flex-wrap gap-2 mb-4">
                                {artist.role.slice(0,3).map((r, idx) => (
@@ -690,7 +695,7 @@ const App = () => {
                 </div>
                 
                 <div className="max-w-[1400px] mx-auto pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-600 relative z-10">
-                  <p>© {new Date().getFullYear()} <span className="lowercase">djmerkone</span> MUSIC. ALL RIGHTS RESERVED.</p>
+                  <p className="lowercase">© {new Date().getFullYear()} djmerkone MUSIC. ALL RIGHTS RESERVED.</p>
                   <div className="flex space-x-8 mt-6 md:mt-0 uppercase">
                      <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors">Privacy</button>
                      <button onClick={() => openModal('terms')} className="hover:text-white transition-colors">Terms</button>
@@ -719,14 +724,15 @@ const App = () => {
                 
                 <div className="flex-grow overflow-y-auto custom-scrollbar relative bg-[#070707]">
                   {modal.type === 'artist' ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 md:gap-12 min-h-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 p-6 md:p-12">
                       
-                      <div className="lg:col-span-5 h-[50vh] lg:h-auto relative border-r border-zinc-900 bg-black">
-                        <img src={modal.data.img} alt={modal.data.name} className={`absolute inset-0 w-full h-full object-cover ${modal.data.isMemorial && 'grayscale opacity-70'}`} />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#070707] lg:from-[#070707]/50 to-transparent" />
+                      <div className="lg:col-span-5">
+                        <div className="relative aspect-square md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                          <img src={modal.data.img} alt={modal.data.name} className={`absolute inset-0 w-full h-full object-cover ${modal.data.isMemorial && 'grayscale opacity-70'}`} />
+                        </div>
                       </div>
                       
-                      <div className="lg:col-span-7 flex flex-col p-8 lg:p-16 lg:pl-4 relative">
+                      <div className="lg:col-span-7 flex flex-col pb-8">
                         <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 ${modal.data.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
                           {modal.data.name}
                         </h3>
