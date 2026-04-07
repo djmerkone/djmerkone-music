@@ -52,7 +52,7 @@ const OFFICIAL_RELEASES_DATA = [
   { artist: "Ricardo Vazquez", title: "Now That I", type: "Single (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEAE74939%2DEF31%2D4DB1%2D9204770081398879%2D%2D1632316013319%2D%2D20210919215013%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_25946325_BA355B99-8CDB-4684-B38AC63808F5AE0F.mp3", apple: "https://music.apple.com/us/album/now-that-i-ep/1587073738?uo=4", spotify: "https://open.spotify.com/album/54hHBuGxls7LejOiKvBIfU", yt: "https://music.youtube.com/playlist?list=OLAK5uy_nB5r_xic7u6WH2iPUB4UWTZfU2POqUitw&si=tTKFv0x4xz_x8dap", amazon: "https://www.amazon.com/dp/B09GX5V1P8/ref=sr_1_2?crid=2Q8VW17BNS3OB&dib=eyJ2IjoiMSJ9.FIipcVjQbl5Iesepl7LSqy2w6L7ek70zrl3yaD759vQknFAgamYnGSTs9fR-6OvhWHmuGlxBqFl9g601XoaJsvEjMXyRD6hbV7e98kcu-zpMUCzAEjgb2Ypb50lhF5ubfN863JwsCh7PaGmSMSblFNMB4oxNuzVkDbCeH7bov3JtTC5PrRMtew0gRffYhJTP.0xVvFbiIjVKlc0v_LQRT-SdBG6Ei9AVqZEf5HPkZQBU&dib_tag=se&keywords=ricardo+vazquez+now+that+i&qid=1775481351&sprefix=ricardo+vazquez+now+that+i%2Caps%2C143&sr=8-2" },
   { artist: "Marilyn Torres", title: "In Time", type: "EP (7 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D8C38E505%2D2C1E%2D4C17%2D87E80BACABD9B351%2D%2D1617846997589%2D%2DIMG9924%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_21788491_2EC9C122-F182-402E-BCC39D9F9241283E.mp3", apple: "https://music.apple.com/us/album/in-time/1562225980?uo=4", spotify: "https://open.spotify.com/album/75KDuou5fPoDGghTHFq3Gp", yt: "https://music.youtube.com/playlist?list=OLAK5uy_ljBXrFshzKwe8ULHA7FK-7XYGgsO2HnSc&si=ZP9-Tut6LF1f3FIg", amazon: "https://www.amazon.com/music/player/albums/B092395W1G" },
   { artist: "Marilyn Torres", title: "In Exchange For What (The Freestyle Diaries SuperMix)", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800-2439182--2FCC2F34-3524-4AB0-8F894253D78FF7CF--1614263327044--IEFWFDCVRBASE.jpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_20734716_59E63147-25F3-4046-8BE90C0061128FCE.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-the-freestyle-diaries-supermix-single/1555761782", spotify: "https://open.spotify.com/album/6vTlAAb4dIsmWWPT2OwB1X", yt: "https://music.youtube.com/playlist?list=OLAK5uy_mnGLjNYVolm29oCX2nRZQ9lD500P5z1GY&si=IM5wuHNx77_-cpIh", amazon: "https://www.amazon.com/music/player/albums/B08XN3R93X" },
-  { artist: "Marilyn Torres", title: "In Exchange For What (Maninho DJ Full Pressure Remix)", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC6E5A464%2D8CB1%2D4A6E%2D9CDC1394A7F0B6BC%2D%2D1633306273724%2D%2D20211003200113%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26221657_9A35F096-7301-4238-B727C9363C607AFE.mp2", apple: "https://music.apple.com/us/album/in-exchange-for-what-maninho-dj-full-pressure-remix/1588954675?uo=4", spotify: "https://open.spotify.com/album/0KJFFYHkb2UWGdWUhFoX9g", yt: "https://music.youtube.com/playlist?list=OLAK5uy_mPGb6DRmGHACsOXqD9dFwf8Mac4PTVrZM&si=5LzzzQn06sjCEeFU", amazon: "https://www.amazon.com/music/player/albums/B09HSRR3M4" },
+  { artist: "Marilyn Torres", title: "In Exchange For What (The Freestyle Diaries SuperMix)", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC6E5A464%2D8CB1%2D4A6E%2D9CDC1394A7F0B6BC%2D%2D1633306273724%2D%2D20211003200113%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_26221657_9A35F096-7301-4238-B727C9363C607AFE.mp2", apple: "https://music.apple.com/us/album/in-exchange-for-what-maninho-dj-full-pressure-remix/1588954675?uo=4", spotify: "https://open.spotify.com/album/0KJFFYHkb2UWGdWUhFoX9g", yt: "https://music.youtube.com/playlist?list=OLAK5uy_mPGb6DRmGHACsOXqD9dFwf8Mac4PTVrZM&si=5LzzzQn06sjCEeFU", amazon: "https://www.amazon.com/music/player/albums/B09HSRR3M4" },
   { artist: "Marilyn Torres", title: "In Exchange For What (Special Edition)", type: "EP (7 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DCED9D066%2D772E%2D4606%2DAC6EFC57BBCF7584%2D%2D1610418885030%2D%2DiefwSECOVER%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19445074_2C986B68-8B00-4C7D-85EB7CDD7817B1FB.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-special-edition/1548992482", spotify: "https://open.spotify.com/album/3OOdDt6K5J8AhdcROFHFAC", yt: "https://music.youtube.com/playlist?list=OLAK5uy_luCwPDPnyPl2eAKms0UhtX1Nua5xnnCRY&si=hfgJmMh9rNZNrpzM", amazon: "https://www.amazon.com/music/player/albums/B08T27647P" },
   { artist: "Ricardo Vazquez", title: "Goodbye (Redeux)", type: "EP (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DC9192629%2D7C1D%2D4278%2D88DB2CDD9A0C39B5%2D%2Dmod%2D1613780661%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_19381852_DAAB393E-2A3D-4A41-9BFCA126BF18AA85.mp3", apple: "https://music.apple.com/us/album/goodbye-redeux-ep/1548757033", spotify: "https://open.spotify.com/album/3Cs7QOjUWTvNkWZ4x6muEB", yt: "https://music.youtube.com/playlist?list=OLAK5uy_moGN-caeSOA2ikUv3Fn_qtP0sFJZcqsvY&si=g3I6PIqDN4Xtc6qF", amazon: "https://amazon.com/music/player/albums/B08SXRJM89?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_GiKfHIYAHSeraRpcDGFZDXsIk" },
   { artist: "Marilyn Torres", title: "In Exchange For What", type: "EP (4 Tracks)", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D37B79A6C%2D33BF%2D4581%2D8751DAF0790ECDEC%2D%2D1603490237328%2D%2D02A86F56006F465B997BF80B01B1D7FE%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_17243031_EE19879A-665B-42C2-94C3C17F052D77A2.mp3", apple: "https://music.apple.com/us/album/in-exchange-for-what-ep/1537217629?uo=4&app=music&at=1001lry3&ct=dashboard", spotify: "https://open.spotify.com/album/4aVb5MA1Rm1NDOqWBOp3KD?si=nKF_PS6OTwuB5DIaUIIJiA", yt: "https://music.youtube.com/playlist?list=OLAK5uy_khlp8CnB1uN1W89BMyLVjNBhxqojDn98M&si=tiNxRYipQcUi8Ix1", amazon: "https://www.amazon.com/-/es/Marilyn-Torres/dp/B08NB94MZS" }
@@ -136,23 +136,19 @@ const SOCIAL_MAP = {
 
 const BrandLogo = ({ size = 'md', className = '' }) => {
   const sizing = {
-    sm: 'text-[1.75rem] md:text-[2.25rem]',
-    md: 'text-[3rem] md:text-[4rem]',
-    lg: 'text-[10vw] md:text-[8rem]',
+    sm: 'w-32 md:w-40',
+    md: 'w-48 md:w-64',
+    lg: 'w-64 sm:w-80 md:w-96 lg:w-[35rem]',
   }[size];
 
   return (
-    <div className={`flex flex-col inline-flex cursor-pointer group ${className} w-max ${sizing}`}>
-      <span className="font-display font-light tracking-tight lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
-        djmerkone
-      </span>
-      <div className="flex justify-between items-start w-full text-[1.7em] leading-[0.75] mt-[-0.05em] font-display font-black text-white uppercase tracking-tighter">
-        <span>M</span>
-        <span>U</span>
-        <span>S</span>
-        <span>I</span>
-        <span>C</span>
-      </div>
+    <div className={`inline-flex cursor-pointer group ${className} ${sizing}`}>
+      {/* mix-blend-screen makes the black background of logo.jpg completely transparent on our dark theme! */}
+      <img 
+        src="logo.jpg" 
+        alt="djmerkone MUSIC" 
+        className="w-full h-auto object-contain mix-blend-screen opacity-95 group-hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+      />
     </div>
   );
 };
@@ -361,7 +357,9 @@ const App = () => {
           
           {/* Navigation */}
           <header className="fixed top-0 left-0 w-full z-[100] px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm transition-all border-b border-white/5">
-            <BrandLogo size="sm" />
+            <div onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
+               <BrandLogo size="sm" />
+            </div>
             
             <nav className="hidden md:flex items-center space-x-12">
               {['Services', 'Core', 'Catalog', 'Contact'].map((item) => (
@@ -577,7 +575,7 @@ const App = () => {
                           {/* Badges */}
                           {release.title.includes('*') && (
                             <div className="absolute top-4 left-4 bg-white text-black px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
-                              NEW RELEASE
+                              Featured
                             </div>
                           )}
                         </div>
