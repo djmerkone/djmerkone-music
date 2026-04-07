@@ -148,7 +148,7 @@ const BrandLogo = ({ size = 'md', className = '' }) => {
       <span className="font-ziba tracking-tight lowercase text-white leading-[0.8] z-10 text-[1em] drop-shadow-md pl-[0.02em]">
         djmerkone
       </span>
-      <div className="flex justify-between items-start w-full text-[1.45em] leading-[0.75] mt-[-0.05em] font-horizon text-white uppercase tracking-tight">
+      <div className="flex justify-between items-start w-full text-[0.42em] leading-[0.8] mt-[-0.05em] font-horizon text-white uppercase">
         <span>M</span>
         <span>U</span>
         <span>S</span>
@@ -517,8 +517,8 @@ const App = () => {
                                 <Heart size={10} fill="currentColor" className="text-rose-400" /> Legacy Member
                               </div>
                             )}
-                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 lowercase`}>
-                              {artist.name.toLowerCase()}
+                            <h3 className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-white mb-2 ${artist.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
+                              {artist.name}
                             </h3>
                             <div className="flex flex-wrap gap-2 mb-4">
                                {artist.role.slice(0,3).map((r, idx) => (
@@ -695,7 +695,7 @@ const App = () => {
                 </div>
                 
                 <div className="max-w-[1400px] mx-auto pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-[9px] font-bold tracking-[0.2em] uppercase text-zinc-600 relative z-10">
-                  <p className="lowercase">© {new Date().getFullYear()} djmerkone MUSIC. ALL RIGHTS RESERVED.</p>
+                  <p>© {new Date().getFullYear()} <span className="lowercase">djmerkone</span> MUSIC. ALL RIGHTS RESERVED.</p>
                   <div className="flex space-x-8 mt-6 md:mt-0 uppercase">
                      <button onClick={() => openModal('privacy')} className="hover:text-white transition-colors">Privacy</button>
                      <button onClick={() => openModal('terms')} className="hover:text-white transition-colors">Terms</button>
@@ -715,8 +715,8 @@ const App = () => {
                 <div className="p-6 md:p-8 border-b border-zinc-900 flex items-center justify-between bg-[#070707] z-10 relative">
                   <div className="flex items-center space-x-4">
                     <div className="w-10 h-10 rounded border border-rose-500/20 flex items-center justify-center text-rose-500 bg-rose-500/5"><Music size={16} /></div>
-                    <div className="text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-bold">
-                      <span className="lowercase">djmerkone</span> // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Artist Profile') : (modal.type === 'discography' ? 'Release Archive' : 'Information')}
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-zinc-400 font-bold flex items-center gap-1">
+                      <span className="lowercase font-ziba text-[12px] pt-1">djmerkone</span> // {modal.type === 'artist' ? (modal.data.isMemorial ? 'Memorial' : 'Artist Profile') : (modal.type === 'discography' ? 'Release Archive' : 'Information')}
                     </div>
                   </div>
                   <button onClick={closeModal} className="w-10 h-10 rounded bg-white/5 hover:bg-white hover:text-black flex items-center justify-center transition-colors text-zinc-300"><X size={18} /></button>
@@ -732,8 +732,8 @@ const App = () => {
                       </div>
                       
                       <div className="lg:col-span-7 flex flex-col p-8 lg:p-16 lg:pl-4 relative">
-                        <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 lowercase`}>
-                          {modal.data.name.toLowerCase()}
+                        <h3 className={`font-display text-5xl md:text-7xl font-bold tracking-tighter text-white w-full break-words hyphens-auto leading-[0.9] mb-8 ${modal.data.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
+                          {modal.data.name}
                         </h3>
                         
                         <div className="flex flex-wrap gap-2 mb-10">
