@@ -39,8 +39,8 @@ const ARTISTS_DATA = [
 
 const OFFICIAL_RELEASES_DATA = [
   { artist: "Marilyn Torres", title: "Don't Let Me*", type: "EP (8 Tracks)", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB--0--17901464--DONTLETMECOVERFRONT.png?fm=jpg&q=75&w=800&s=dab38261a5741cf0a98ff6ea6c153afb", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_92815263_3939F1655E75E4A6DE8FD52430E93689.mp3", apple: "https://music.apple.com/us/album/dont-let-me/1870639799?uo=4", spotify: "https://prf.hn/click/camref:1101ljvYv/pubref:albumuuid%3DB8ED0DAA-5C77-4DA4-B7B3CEDB5EA4BBFB/destination:https://open.spotify.com/album/0SJf7QCpc3VD1AaMh6dPRx", yt: "https://music.youtube.com/playlist?list=OLAK5uy_l6vs4GPW_kLZl21rvPS02g5c8kFhUBSiY&si=R-d8ehWM21kkcBAA", amazon: "https://amazon.com/music/player/albums/B0DYM8299K" },
-  { artist: "Marilyn Torres", title: "Mi Viejo (Cover)*", type: "Single", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_87699065_8062EA63A1748AD72730E4EA7235A296.mp3", apple: "https://music.apple.com/us/album/mi-viejo-single/1857094292?uo=4", spotify: "https://open.spotify.com/album/7xU3hnUaJZo9AQ5WfswZJK", yt: "https://music.youtube.com/watch?v=b2k2oCnvRwg&si=rY-qi6iBcI7pote8", amazon: "https://www.amazon.com/dp/B0G4CMQFMM/ref=sr_1_1?crid=24353U7SZ7UXU&dib=eyJ2IjoiMSJ9.t_daZ-EJfNUNudjONa2vJfRznUgxbeBPooFwgSkTgWDGjHj071QN20LucGBJIEps.sWjx58MaA8NdZdoVdSuoJ7Gy84mVfV6VWRuAGW_Rrc8&dib_tag=se&keywords=marilyn+torres+mi+viejo&qid=1775479769&sprefix=marilyn+torres+mi+viejo%2Caps%2C404&sr=8-1" },
-  { artist: "Marilyn Torres", title: "The EP*", type: "Album (15 Tracks)", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_85186471_793A0A8058F9B356D76C8852EAB47880.mp3", apple: "https://music.apple.com/us/album/the-ep/1850311861?uo=4", spotify: "https://open.spotify.com/album/4dqPBGWefdt3d0nbDcg2ER", yt: "https://music.youtube.com/browse/MPREb_YgAHRzAwBgS", amazon: "https://amazon.com/music/player/albums/B0FYCWF875?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_zxL1u7MFOBPPWdWVzdnU0SMsC" },
+  { artist: "Marilyn Torres", title: "Mi Viejo (Cover)**", type: "Single", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--B2410C0A-5A37-4B51-8499E7C0F97378EF--0--10600304--1000008540.png?fm=jpg&q=75&w=800&s=743d39c70fe80f17f5cabf99450abeca", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_87699065_8062EA63A1748AD72730E4EA7235A296.mp3", apple: "https://music.apple.com/us/album/mi-viejo-single/1857094292?uo=4", spotify: "https://open.spotify.com/album/7xU3hnUaJZo9AQ5WfswZJK", yt: "https://music.youtube.com/watch?v=b2k2oCnvRwg&si=rY-qi6iBcI7pote8", amazon: "https://www.amazon.com/dp/B0G4CMQFMM/ref=sr_1_1?crid=24353U7SZ7UXU&dib=eyJ2IjoiMSJ9.t_daZ-EJfNUNudjONa2vJfRznUgxbeBPooFwgSkTgWDGjHj071QN20LucGBJIEps.sWjx58MaA8NdZdoVdSuoJ7Gy84mVfV6VWRuAGW_Rrc8&dib_tag=se&keywords=marilyn+torres+mi+viejo&qid=1775479769&sprefix=marilyn+torres+mi+viejo%2Caps%2C404&sr=8-1" },
+  { artist: "Marilyn Torres", title: "The EP**", type: "Album (15 Tracks)", art: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F2439182--72B9B244-B77E-488E-8F580A7F85C11985--0--14118676--PSX202510181410442.png?fm=jpg&q=75&w=800&s=61baffb6f3395e6008c830d2b8b4709c", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_85186471_793A0A8058F9B356D76C8852EAB47880.mp3", apple: "https://music.apple.com/us/album/the-ep/1850311861?uo=4", spotify: "https://open.spotify.com/album/4dqPBGWefdt3d0nbDcg2ER", yt: "https://music.youtube.com/browse/MPREb_YgAHRzAwBgS", amazon: "https://amazon.com/music/player/albums/B0FYCWF875?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_zxL1u7MFOBPPWdWVzdnU0SMsC" },
   { artist: "djmerkone", title: "latnem flex", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D3790EFCC%2DFC55%2D4D7A%2DAB629C00CDE5F508%2D%2D0%2D%2D7805867%2D%2D1000007443%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250563_A39E3B5DE28D40F31CC1DE9575B8E7F5.mp3", apple: "https://music.apple.com/us/album/latnem-flex-single/1847568073?uo=4", spotify: "https://open.spotify.com/album/2Qrz2t3uSG1D9fU4kcJQLT", yt: "https://music.youtube.com/watch?v=QifcZrj65ms", amazon: "https://www.amazon.com/dp/B0FWWX7BGV/ref=sr_1_1?crid=4IJI60GTTX72&dib=eyJ2IjoiMSJ9.w_jp02N0AvuXIsm4aGPuFzVYFHVf-PS4wPL0-O_HL0U.6wmWxXMLEvGBG5T-3HslL0wiwQyajDTCtFFobVEu4HI&dib_tag=se&keywords=djmerkone+latnem+flex&qid=1775480676&sprefix=djmerkone+latnem+fle%2Caps%2C173&sr=8-1" },
   { artist: "djmerkone", title: "wrong", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2D9FF69870%2D6809%2D4A55%2D8E8EC29A948CCEE0%2D%2D0%2D%2D528811%2D%2D1000007464%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84250289_69C7A0C90B9450E3E52FB2B8692529A6.mp3", apple: "https://music.apple.com/us/album/wrong-single/1847380167?uo=4", spotify: "https://open.spotify.com/album/493KDL9dcZhWuSDpiV2a0i", yt: "https://music.youtube.com/watch?v=GPz1sHH4xVc&si=fgy5HlS4yj8wewC3", amazon: "https://www.amazon.com/dp/B0FWXBTG1M/ref=sr_1_1?crid=3J1GRHC9SMD3K&dib=eyJ2IjoiMSJ9.R0bEaZIsFpoqSmtLYovsh0Pz1Hxp8RiTE_NN2zuTCybGjHj071QN20LucGBJIEps.T_GG1hXeybk_fcHURXMjYkzKJ4pykW_dMNhrHvRclL8&dib_tag=se&keywords=dj+merkone+wrong&qid=1775480704&sprefix=djmerkone+wron%2Caps%2C164&sr=8-1" },
   { artist: "djmerkone", title: "anomaly", type: "Single", art: "https://s3.amazonaws.com/gather.fandalism.com/800x800%2D2439182%2D%2DEB27753B%2D4CAC%2D4F9C%2DB937654AA2EAF313%2D%2D0%2D%2D641299%2D%2D1000007457%2Ejpg", preview: "https://s3.amazonaws.com/audio.distrokid.com/preview_84249914_E59F1F9981B8013561A80EFA16D2B06F.mp3", apple: "https://music.apple.com/us/album/anomaly-single/1847557771?uo=4", spotify: "https://open.spotify.com/album/771CqnGm4WE0xtapgq8Bap", yt: "https://music.youtube.com/watch?v=vIjRymiWY5Q&si=JSrNIuMfrlDOnqiY", amazon: "https://www.amazon.com/dp/B0FWWL38RM/ref=sr_1_2?crid=11WFVXWZT5Q7P&dib=eyJ2IjoiMSJ9.Z3NOgvEKehqr1K_Rxsb-ifQXks6enKK6W4GWGyirGUPGjHj071QN20LucGBJIEps.koQNUtGGpF6dPpFbntt9x-PoyFTUnSW6mYbe9dwjBVU&dib_tag=se&keywords=djmerkone+anomaly&qid=1775480735&sprefix=djmerkone+anomal%2Caps%2C167&sr=8-2" },
@@ -267,7 +267,11 @@ const App = () => {
   }, [discographyFilter]);
 
   const sortedReleases = useMemo(() => {
-    return [...OFFICIAL_RELEASES_DATA].sort((a, b) => (b.title.includes('*') ? 1 : 0) - (a.title.includes('*') ? 1 : 0));
+    return [...OFFICIAL_RELEASES_DATA].sort((a, b) => {
+      const scoreA = a.title.includes('**') ? 1 : (a.title.includes('*') ? 2 : 0);
+      const scoreB = b.title.includes('**') ? 1 : (b.title.includes('*') ? 2 : 0);
+      return scoreB - scoreA;
+    });
   }, []);
 
   // Find the currently playing artwork to set the ambient background
@@ -576,17 +580,21 @@ const App = () => {
                           </div>
                           
                           {/* Badges */}
-                          {release.title.includes('*') && (
-                            <div className="absolute top-4 left-4 bg-white text-black px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
-                              Featured
+                          {release.title.includes('**') ? (
+                            <div className="absolute top-4 left-4 bg-yellow-400 text-black px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
+                              Recently Released
                             </div>
-                          )}
+                          ) : release.title.includes('*') ? (
+                            <div className="absolute top-4 left-4 bg-rose-600 text-white px-2.5 py-1 rounded text-[9px] font-bold uppercase tracking-widest z-20 shadow-lg">
+                              New Release
+                            </div>
+                          ) : null}
                         </div>
 
                         {/* Info Container */}
                         <div className="p-6 flex flex-col flex-grow relative overflow-hidden z-20 bg-gradient-to-t from-[#0a0a0c] to-transparent">
                            <h5 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-1 truncate">
-                             {release.title.replace('*', '')}
+                             {release.title.replace(/\*+/g, '')}
                            </h5>
                            <p className="text-xs font-medium text-zinc-400 uppercase tracking-widest mb-6">
                              {release.artist} <span className="mx-2 text-zinc-600">/</span> <span className="text-zinc-500">{release.type}</span>
