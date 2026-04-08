@@ -346,24 +346,15 @@ const App = () => {
           }
 
           /* Smooth Section Transitions */
-          /* MOBILE FLOW - Prevent scroll trap, let sections expand normally */
           .sticky-section {
-            position: relative;
-            min-height: 100svh;
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
-          }
-          
-          /* DESKTOP STACKING - Enabled only on large screens */
-          @media (min-width: 768px) {
-            .sticky-section {
-              position: sticky;
-              top: 0;
-              min-height: 100vh;
-              overflow: hidden;
-              box-shadow: 0 -20px 50px rgba(0,0,0,0.9);
-            }
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.9);
           }
         `}
       </style>
@@ -454,8 +445,7 @@ const App = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/90 to-[#050505]" />
               </div>
 
-              {/* Fix: use md:overflow-y-auto and md:h-full so mobile uses native document scrolling */}
-              <div className="w-full h-auto md:h-full overflow-visible md:overflow-y-auto custom-scrollbar relative z-20 pt-20">
+              <div className="w-full h-full overflow-y-auto custom-scrollbar relative z-20 pt-20">
                 <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 py-20 min-h-full items-center">
                    <div className="flex-1 w-full flex flex-col justify-center">
                       <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white uppercase mb-12">Expertise</h2>
@@ -503,8 +493,7 @@ const App = () => {
                  <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover blur-[8px]" alt="Studio Vibe" />
                </div>
 
-               {/* Fix: use md:overflow-y-auto and md:h-full so mobile uses native document scrolling */}
-               <div className="w-full h-auto md:h-full overflow-visible md:overflow-y-auto custom-scrollbar relative z-20">
+               <div className="w-full h-full overflow-y-auto custom-scrollbar relative z-20">
                  <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 py-32 flex flex-col">
                     <div className="mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                        <div>
