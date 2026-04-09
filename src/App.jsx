@@ -388,9 +388,9 @@ const App = () => {
              <img 
                src="https://images.unsplash.com/photo-1613231365618-5ebf85a8209e?q=80&w=1931&auto=format&fit=crop" 
                alt="Intro Background" 
-               className="w-full h-full object-cover opacity-40 mix-blend-luminosity" 
+               className="w-full h-full object-cover opacity-20 mix-blend-luminosity" 
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-[#030303]/20" />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/80 to-[#030303]/50" />
            </div>
 
            <div className="relative z-10 flex flex-col items-center">
