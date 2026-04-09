@@ -22,7 +22,9 @@ import {
   Send,
   Hexagon,
   Triangle,
-  Circle
+  Circle,
+  CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
 
 /**
@@ -209,7 +211,10 @@ const App = () => {
   const [activeService, setActiveService] = useState(SERVICES_DATA[0]);
   const [playingPreview, setPlayingPreview] = useState(null);
   const audioRef = useRef(new Audio());
-  const [catalogIndex, setCatalogIndex] = useState(0);
+  
+  // Contact Form State
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formStatus, setFormStatus] = useState({ state: 'idle', message: '' });
 
   // Handle Audio ending
   useEffect(() => {
@@ -258,6 +263,38 @@ const App = () => {
       handlePreviewStop();
     } else {
       handlePreviewStart(url);
+    }
+  };
+
+  // Formspree Submit Handler
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ state: 'submitting', message: '' });
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xreovaoa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        setFormStatus({ state: 'success', message: 'Transmission received. We will be in touch.' });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setFormStatus({ state: 'error', message: 'Transmission failed. Please verify your details and try again.' });
+      }
+    } catch (error) {
+      setFormStatus({ state: 'error', message: 'Network error. Please check your connection and try again.' });
+    }
+  };
+
+  const handleFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (formStatus.state === 'error' || formStatus.state === 'success') {
+       setFormStatus({ state: 'idle', message: '' });
     }
   };
 
@@ -676,24 +713,67 @@ const App = () => {
                   </div>
                   
                   <div className="flex-1 w-full max-w-2xl bg-black/60 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
-                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                    <form className="space-y-6" onSubmit={handleFormSubmit}>
                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                          <div className="space-y-2">
-                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ NAME ]</label>
-                           <input type="text" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" placeholder="Your Name" />
+                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500" htmlFor="name">[ NAME ]</label>
+                           <input 
+                             type="text" 
+                             id="name"
+                             name="name"
+                             value={formData.name}
+                             onChange={handleFormChange}
+                             required
+                             className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" 
+                             placeholder="Your Name" 
+                           />
                          </div>
                          <div className="space-y-2">
-                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ EMAIL ]</label>
-                           <input type="email" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" placeholder="Email Address" />
+                           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500" htmlFor="email">[ EMAIL ]</label>
+                           <input 
+                             type="email" 
+                             id="email"
+                             name="email"
+                             value={formData.email}
+                             onChange={handleFormChange}
+                             required
+                             className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors" 
+                             placeholder="Email Address" 
+                           />
                          </div>
                        </div>
                        <div className="space-y-2">
-                         <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">[ MESSAGE ]</label>
-                         <textarea rows="4" className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors resize-none" placeholder="Project details or inquiry..." />
+                         <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500" htmlFor="message">[ MESSAGE ]</label>
+                         <textarea 
+                           rows="4" 
+                           id="message"
+                           name="message"
+                           value={formData.message}
+                           onChange={handleFormChange}
+                           required
+                           className="w-full bg-black border border-zinc-800 p-4 text-white focus:outline-none focus:border-rose-500 rounded transition-colors resize-none" 
+                           placeholder="Project details or inquiry..." 
+                         />
                        </div>
-                       <button className="flex items-center justify-center gap-3 w-full bg-white text-black py-4 font-bold uppercase tracking-widest text-xs hover:bg-rose-600 hover:text-white rounded transition-all duration-300 group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(244,63,94,0.4)]">
-                         Send Transmission <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                       
+                       <button 
+                         type="submit"
+                         disabled={formStatus.state === 'submitting'}
+                         className="flex items-center justify-center gap-3 w-full bg-white text-black py-4 font-bold uppercase tracking-widest text-xs hover:bg-rose-600 hover:text-white rounded transition-all duration-300 group shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(244,63,94,0.4)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-black"
+                       >
+                         {formStatus.state === 'submitting' ? 'Transmitting...' : 'Send Transmission'} 
+                         {formStatus.state !== 'submitting' && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                        </button>
+
+                       {/* Status Messages */}
+                       {formStatus.message && (
+                         <div className={`p-4 rounded border text-xs font-bold uppercase tracking-widest flex items-center gap-3 ${
+                           formStatus.state === 'success' ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-red-500/10 border-red-500/30 text-red-400'
+                         }`}>
+                           {formStatus.state === 'success' ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
+                           {formStatus.message}
+                         </div>
+                       )}
                     </form>
                   </div>
                 </div>
