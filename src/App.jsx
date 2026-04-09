@@ -324,15 +324,32 @@ const App = () => {
           ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
           ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
           
-          /* Film Grain Overlay */
+          /* Animated Film Grain Overlay */
           .bg-noise {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             mix-blend-mode: overlay;
-            opacity: 0.15;
+            opacity: 0.2;
             pointer-events: none;
             position: fixed;
-            inset: 0;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
             z-index: 50;
+            animation: grain 8s steps(10) infinite;
+          }
+
+          @keyframes grain {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -10%); }
+            20% { transform: translate(-15%, 5%); }
+            30% { transform: translate(7%, -25%); }
+            40% { transform: translate(-5%, 25%); }
+            50% { transform: translate(-15%, 10%); }
+            60% { transform: translate(15%, 0%); }
+            70% { transform: translate(0%, 15%); }
+            80% { transform: translate(3%, 35%); }
+            90% { transform: translate(-10%, 10%); }
           }
 
           /* Marquee Animation */
