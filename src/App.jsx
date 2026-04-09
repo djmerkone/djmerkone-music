@@ -142,6 +142,7 @@ const BrandLogo = ({ size = 'md', className = '' }) => {
     sm: 'w-32 md:w-40',
     md: 'w-48 md:w-64',
     lg: 'w-64 sm:w-80 md:w-96 lg:w-[35rem]',
+    xl: 'w-80 sm:w-96 md:w-[32rem] lg:w-[45rem]',
   }[size];
 
   return (
@@ -364,13 +365,23 @@ const App = () => {
       {/* Intro Overlay */}
       {!hasEntered ? (
         <div className="fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-[#030303]">
-           <AnimatedGridBackground />
+           
+           {/* --- NEW STATIC BACKGROUND WITH OVERLAYS --- */}
+           <div className="absolute inset-0 z-0 pointer-events-none">
+             <img 
+               src="https://images.unsplash.com/photo-1613231365618-5ebf85a8209e?q=80&w=1931&auto=format&fit=crop" 
+               alt="Intro Background" 
+               className="w-full h-full object-cover opacity-40 mix-blend-luminosity" 
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-[#030303]/20" />
+           </div>
+
            <div className="relative z-10 flex flex-col items-center">
              <div className="mb-12">
                <AudioVisualizer isPlaying={true} className="!h-16 gap-2" />
              </div>
              
-             <BrandLogo size="lg" className="mb-16" />
+             <BrandLogo size="xl" className="mb-16" />
              
              <button 
                onClick={() => setHasEntered(true)}
