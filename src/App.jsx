@@ -4,7 +4,7 @@ import {
   Facebook, Youtube, Globe, Heart, X, Search, SlidersHorizontal,
   Mic2, PenTool, Headphones, ArrowUpRight, Send, CheckCircle2, AlertCircle,
   Volume2, Radio, Activity, PlayCircle, Sparkles, Cpu, Zap, Layers,
-  MapPin, Mail
+  MapPin, Mail, Menu
 } from 'lucide-react';
 
 /**
@@ -349,6 +349,7 @@ const TiltCard = ({ children, className }) => {
 
 export default function App() {
   const [modal, setModal] = useState({ isOpen: false, type: null, data: null });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [discographyFilter, setDiscographyFilter] = useState("");
   const [playingPreview, setPlayingPreview] = useState(null);
   const [activeRelease, setActiveRelease] = useState(null);
@@ -518,9 +519,9 @@ export default function App() {
 
       </div>
 
-      {/* Epic Custom Cursor */}
+{/* Epic Custom Cursor */}
       <div 
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#00E5FF] pointer-events-none z-[100000] transition-transform duration-75 ease-out flex items-center justify-center mix-blend-screen"
+        className="hidden md:flex fixed top-0 left-0 w-8 h-8 rounded-full border border-[#00E5FF] pointer-events-none z-[100000] transition-transform duration-75 ease-out items-center justify-center mix-blend-screen"
         style={{ transform: `translate(${cursorPos.x - 16}px, ${cursorPos.y - 16}px) scale(${isHovering ? 1.5 : 1})`, backgroundColor: isHovering ? 'rgba(0, 229, 255, 0.1)' : 'transparent' }}
       >
          {isHovering && <div className="w-1 h-1 bg-[#FF0055] rounded-full animate-ping" />}
@@ -532,12 +533,14 @@ export default function App() {
         {/* Network Canvas Background */}
         <NetworkCanvas />
 
-        {/* Global Nav */}
+      {/* Global Nav */}
         <header className="fixed top-0 left-0 w-full z-[100] px-6 py-6 flex justify-between items-center mix-blend-difference">
           <div className="font-epic font-black text-xl cursor-interact tracking-widest text-white flex flex-col items-center leading-none" onClick={() => window.scrollTo({top:0, behavior:'smooth'})}>
             <span className="lowercase">djmerkone</span>
             <span className="text-white uppercase text-[37px] tracking-[0.0em] -mt-2">MUSIC</span>
           </div>
+          
+          {/* Desktop Nav */}
           <nav className="hidden md:flex gap-10">
             {['Services', 'Crew', 'Vault', 'Contact Us'].map((item) => (
               <a key={item} href={item === 'Vault' ? '#catalog' : item === 'Contact Us' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} className="cursor-interact text-[10px] font-bold uppercase tracking-[0.3em] text-white hover:text-[#00E5FF] transition-colors relative group">
@@ -546,6 +549,30 @@ export default function App() {
               </a>
             ))}
           </nav>
+
+          {/* Mobile Menu Toggle Button */}
+          <button 
+            className="md:hidden text-white hover:text-[#00E5FF] transition-colors z-[101]"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          {/* Fancy Mobile Overlay Menu */}
+          <div className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex flex-col items-center justify-center transition-all duration-500 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <nav className="flex flex-col gap-8 text-center">
+              {['Services', 'Crew', 'Vault', 'Contact Us'].map((item) => (
+                <a 
+                  key={item} 
+                  href={item === 'Vault' ? '#catalog' : item === 'Contact Us' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-display font-black text-4xl uppercase tracking-tighter text-white hover:text-[#00E5FF] transition-colors"
+                >
+                  {item}
+                </a>
+              ))}
+            </nav>
+          </div>
         </header>
 
         {/* SECTION: HERO (PARALLAX + MASSIVE TYPOGRAPHY) */}
@@ -556,12 +583,12 @@ export default function App() {
               <div className="absolute w-[60%] h-[60%] border-[1px] border-[#FF0055]/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
            </div>
 
-           {/* Parallax Typography */}
-           <div className="relative z-20 flex flex-col items-center pointer-events-none w-full px-4">
-              <h1 className="font-display font-black text-[12vw] leading-[0.85] text-stroke tracking-tighter" style={{ transform: `translateX(${parallaxX * -1}px)` }}>
+          {/* Parallax Typography */}
+           <div className="relative z-20 flex flex-col items-center pointer-events-none w-full px-4 text-center mt-20 md:mt-0">
+              <h1 className="font-display font-black text-[15vw] md:text-[12vw] leading-[0.85] text-stroke tracking-tighter" style={{ transform: `translateX(${parallaxX * -1}px)` }}>
                 ENGINEERING
               </h1>
-              <h1 className="font-display font-black text-[12vw] leading-[0.85] text-white tracking-tighter flex items-center gap-4" style={{ transform: `translateX(${parallaxX * 1.5}px)` }}>
+              <h1 className="font-display font-black text-[15vw] md:text-[12vw] leading-[0.85] text-white tracking-tighter flex flex-col md:flex-row items-center md:gap-4 mt-2 md:mt-0" style={{ transform: `translateX(${parallaxX * 1.5}px)` }}>
                 THE <span className="text-[#00E5FF]">FUTURE</span>
               </h1>
            </div>
@@ -623,49 +650,41 @@ export default function App() {
         </section>
 
         {/* SECTION: CREW ROSTER (HYPER-ACCORDION) */}
-        <section id="Crew" className="relative py-32 px-6 lg:px-0 z-10">
-           <div className="max-w-[1600px] mx-auto lg:px-20 mb-16">
-              <h2 className="font-display text-4xl md:text-6xl font-black uppercase text-white tracking-tighter">
-                The <span className="text-[#00E5FF]">Crew.</span>
-              </h2>
-           </div>
+        <section id="Crew" className="w-full flex flex-col lg:flex-row lg:h-[70vh] overflow-hidden border-y border-white/10">
+          {ARTISTS_DATA.map((artist, i) => (
+              <div 
+                key={i} 
+                onClick={() => openModal('artist', artist)}
+                className="cursor-interact relative flex-1 min-h-[150px] lg:min-h-0 hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden group bg-black"
+              >
+                 <img 
+                   src={artist.img} 
+                   alt={artist.name} 
+                   className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${artist.isMemorial ? 'grayscale' : 'grayscale group-hover:grayscale-0'} group-hover:scale-105 opacity-40 group-hover:opacity-100`} 
+                 />
+                 
+                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-           <div className="w-full h-[70vh] flex flex-col lg:flex-row overflow-hidden border-y border-white/10">
-              {ARTISTS_DATA.map((artist, i) => (
-                <div 
-                  key={i} 
-                  onClick={() => openModal('artist', artist)}
-                  className="cursor-interact relative flex-1 hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden group bg-black"
-                >
-                   <img 
-                     src={artist.img} 
-                     alt={artist.name} 
-                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${artist.isMemorial ? 'grayscale' : 'grayscale group-hover:grayscale-0'} group-hover:scale-105 opacity-40 group-hover:opacity-100`} 
-                   />
-                   
-                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-                   <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
-                      <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                         {artist.isMemorial && <span className="text-[#FF0055] text-[8px] font-bold uppercase tracking-[0.3em] border border-[#FF0055] px-2 py-1 mb-4 inline-block bg-black">Legacy</span>}
-                         <h3 className={`font-display text-3xl font-black text-white tracking-tighter whitespace-nowrap ${artist.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
-                           {artist.name}
-                         </h3>
-                         
-                         {/* Details reveal on expand */}
-                         <div className="overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 mt-4">
-                            <p className="text-[#00E5FF] text-[10px] font-bold uppercase tracking-widest mb-4">
-                              {artist.role.join(" // ")}
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-xs border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition-colors">
-                              Access Dossier <ArrowUpRight size={14} />
-                           </span>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-              ))}
-           </div>
+                 <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
+                    <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                       {artist.isMemorial && <span className="text-[#FF0055] text-[8px] font-bold uppercase tracking-[0.3em] border border-[#FF0055] px-2 py-1 mb-4 inline-block bg-black">Legacy</span>}
+                       <h3 className={`font-display text-3xl font-black text-white tracking-tighter whitespace-nowrap ${artist.name.toLowerCase() === 'djmerkone' ? 'lowercase' : 'uppercase'}`}>
+                         {artist.name}
+                       </h3>
+                       
+                       {/* Details reveal on expand */}
+                       <div className="overflow-hidden h-0 group-hover:h-auto opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 mt-4 hidden lg:block">
+                          <p className="text-[#00E5FF] text-[10px] font-bold uppercase tracking-widest mb-4">
+                            {artist.role.join(" // ")}
+                          </p>
+                          <span className="inline-flex items-center gap-2 text-xs border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition-colors">
+                            Access Dossier <ArrowUpRight size={14} />
+                         </span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+          ))}
         </section>
 
         {/* SECTION: CATALOG (3D MAGNETIC TILT CARDS) */}
