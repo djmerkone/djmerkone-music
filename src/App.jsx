@@ -539,8 +539,8 @@ export default function App() {
             <span className="text-white uppercase text-[37px] tracking-[0.0em] -mt-2">MUSIC</span>
           </div>
           <nav className="hidden md:flex gap-10">
-            {['Services', 'Crew', 'Vault', 'Uplink'].map((item) => (
-              <a key={item} href={item === 'Vault' ? '#catalog' : item === 'Uplink' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} className="cursor-interact text-[10px] font-bold uppercase tracking-[0.3em] text-white hover:text-[#00E5FF] transition-colors relative group">
+            {['Services', 'Crew', 'Vault', 'Contact Us'].map((item) => (
+              <a key={item} href={item === 'Vault' ? '#catalog' : item === 'Contact' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} className="cursor-interact text-[10px] font-bold uppercase tracking-[0.3em] text-white hover:text-[#00E5FF] transition-colors relative group">
                 {item}
                 <div className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
               </a>
