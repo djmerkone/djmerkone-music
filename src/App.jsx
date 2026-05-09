@@ -540,7 +540,7 @@ export default function App() {
           </div>
           <nav className="hidden md:flex gap-10">
             {['Services', 'Crew', 'Vault', 'Contact Us'].map((item) => (
-              <a key={item} href={item === 'Vault' ? '#catalog' : item === 'Contact' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} className="cursor-interact text-[10px] font-bold uppercase tracking-[0.3em] text-white hover:text-[#00E5FF] transition-colors relative group">
+              <a key={item} href={item === 'Vault' ? '#catalog' : item === 'Contact Us' ? '#contact' : item === 'Services' ? '#services' : `#Crew`} className="cursor-interact text-[10px] font-bold uppercase tracking-[0.3em] text-white hover:text-[#00E5FF] transition-colors relative group">
                 {item}
                 <div className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
               </a>
