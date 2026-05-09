@@ -821,7 +821,7 @@ export default function App() {
                  <span className="text-[#FFD700] mb-2 font-bold">Network</span>
                  <a href="https://luismartemusic.com" target="_blank" className="text-white/60 hover:text-white hover:translate-x-1 transition-transform">LUIS MARTE MUSIC</a>
                  <a href="https://marilyn-site.vercel.app/" target="_blank" className="text-white/60 hover:text-white hover:translate-x-1 transition-transform">MARILYN TORRES</a>
-                 <a href="https://djmerkone.vercel.app" target="_blank" className="text-white/60 hover:text-white hover:translate-x-1 transition-transform">djmerkone</a>
+                 <a href="https://djmerkone.vercel.app" target="_blank" className="lowercase text-white/60 hover:text-white hover:translate-x-1 transition-transform">djmerkone</a>
                </div>              
                <div className="flex flex-col gap-4 text-[10px] font-epic uppercase tracking-[0.2em]">
                  <span className="text-[#FF0055] mb-2 font-bold">Socials</span>
@@ -920,11 +920,15 @@ export default function App() {
                              <Globe size={14} /> Global Link
                            </a>
                          )}
-                         {modal.data.socials && Object.entries(modal.data.socials).map(([key, val]) => (
-                           <a key={key} href={`https://${SOCIAL_MAP[key]}.com/${key === 'yt' ? '@' : ''}${val}`} target="_blank" className="cursor-interact w-10 h-10 border border-white/10 flex items-center justify-center hover:border-[#FF0055] hover:text-[#FF0055] transition-colors text-white/40">
-                             {key === 'fb' && <Facebook size={14} />}
-                             {key === 'tt' && <TikTok size={14} />}
-                             {key === 'yt' && <Youtube size={14} />}
+                          {modal.data.socials && Object.entries(modal.data.socials).map(([key, val]) => (
+                           <a 
+                             key={key} 
+                             href={`https://${SOCIAL_MAP[key]}.com/${key === 'tt' || key === 'yt' ? '@' : ''}${val}`} 
+                             target="_blank"
+                             rel="noopener noreferrer" 
+                             className="cursor-interact px-4 py-2 border border-white/10 flex items-center justify-center hover:border-[#FF0055] hover:text-[#FF0055] transition-colors text-white/40 font-epic text-[9px] uppercase tracking-[0.2em]"
+                           >
+                             {SOCIAL_MAP[key]}
                            </a>
                          ))}
                       </div>
